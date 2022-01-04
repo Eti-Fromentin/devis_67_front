@@ -11,10 +11,10 @@ function Connexion() {
             <fieldset className="uk-fieldset">
 
             <div className="uk-margin">
-                <input className="uk-input" type="text" placeholder="Adresse e-mail*"/>
+                <input className="uk-input uk-form-width-large" type="text" placeholder="Adresse e-mail*"/>
             </div>
             <div className="uk-margin">
-                <input className="uk-input" type="text" placeholder="Mot de passe*"/>
+                <input className="uk-input uk-form-width-large" type="text" placeholder="Mot de passe*"/>
             </div>
 
             <Link href="">Mot de passe oublié?</Link>
