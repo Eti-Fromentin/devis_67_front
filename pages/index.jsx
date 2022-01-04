@@ -1,13 +1,11 @@
 import React from 'react';
-import Connexion from './Connexion';
-import Inscription from './Inscription';
-import styles from '../styles/Home.module.css';
+
+import 'uikit/dist/css/uikit.min.css'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Connexion />
-      <Inscription />
+    <div>
+
     </div>
   );
 }
