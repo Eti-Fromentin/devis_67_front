@@ -6,7 +6,7 @@ function Inscription() {
       <h1 className="uk-card-title">Inscrivez-vous!</h1>
       <form>
         <fieldset className="uk-fieldset">
-          <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+          <div className="uk-margin uk-grid-large">
             <label>
               <input className="uk-radio" type="radio" name="radio2" /> Madame
             </label>

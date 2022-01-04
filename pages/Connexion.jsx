@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import 'uikit/dist/css/uikit.min.css';
 
 
 function Connexion() {
@@ -8,14 +9,14 @@ function Connexion() {
     <h1 className="uk-card-title uk-text-center">BIENVENUE!</h1>
     <p>Connectez-vous grâce à votre adresse e-mail et votre mot de passe.</p>
     <form>
-            <fieldset className="uk-fieldset">
+            <fieldset className="uk-fieldset uk-text-center">
 
             <div className="uk-margin">
-                <input className="uk-input uk-form-width-large" type="text" placeholder="Adresse e-mail*"/>
-            </div>
+                    <input className="uk-input uk-form-width-large" type="text" placeholder="Adresse e-mail*"/>
+                </div>
             <div className="uk-margin">
                 <input className="uk-input uk-form-width-large" type="text" placeholder="Mot de passe*"/>
-            </div>
+                </div>
 
             <Link href="">Mot de passe oublié?</Link>
             <p className="uk-margin">
