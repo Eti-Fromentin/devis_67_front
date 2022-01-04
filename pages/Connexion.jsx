@@ -22,7 +22,7 @@ function Connexion() {
             <p className="uk-margin">
             <button className="uk-button uk-button-primary uk-button-large">Connexion</button>
             </p>
-        <p>Pas encore inscrit(e)? cliquez <a href="/inscription">ici</a></p>
+        <p>Pas encore inscrit(e)? cliquez <Link href="/pages/Inscription">ici</Link></p>
 
         </fieldset>
     </form>

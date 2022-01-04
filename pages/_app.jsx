@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/globals.css';
 import 'uikit/dist/css/uikit.min.css';
 import Connexion from './Connexion';
 import Inscription from './Inscription';
