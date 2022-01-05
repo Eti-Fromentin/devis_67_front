@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Inscription() {
+
   return (
     <div className="uk-card uk-card-default uk-card-hover uk-card-large uk-card-body uk-text-center">
       <h1 className="uk-card-title">Inscrivez-vous!</h1>
@@ -50,7 +51,19 @@ function Inscription() {
             </div>
           </div>
           <p className="uk-margin">
-            <button className="uk-button uk-button-primary uk-button-large">S'inscrire</button>
+          <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>S'inscrire</a>
+
+        <div id="modal-center" class="uk-flex-top" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+              <h2 className='uk-modal-title'>Bienvenue!</h2>
+              <p>Votre inscription a bien été prise en compte.</p>
+              <p>Vous pouvez fermer ce message en utilisant la croix en haut à droite 
+                ou bien directement rejoindre votre espace client en cliquant <a href="/EspaceClient">ici</a>
+              </p>
+          </div>
+        </div>
           </p>
         </fieldset>
       </form>

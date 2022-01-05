@@ -1,14 +1,12 @@
 import React from 'react';
 import 'uikit/dist/css/uikit.min.css';
-import Connexion from './Connexion';
-import Inscription from './Inscription';
+import Connexion from './connexion';
 
 function MyApp() {
   return (
     <>
     <div>
       <Connexion />
-      <Inscription />
     </div>
     </>
   );
