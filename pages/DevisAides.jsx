@@ -8,7 +8,7 @@ import 'uikit/dist/css/uikit.min.css';
 
 export default function DevisAides() {
   return (
-    <div>
+    <div className="uk-flex uk-flex-center">
       <Devis />
       <Aides />
     </div>
