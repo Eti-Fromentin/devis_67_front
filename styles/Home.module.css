@@ -1,7 +1,23 @@
 .container {
   padding: 0 2rem;
 }
-
+.headerContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 30vh;
+  padding-right: 30vh;
+}
+.navbar{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  height: 9vh;
+  justify-content: space-between;
+  padding-right: 1rem;
+  margin-left: 50vh;
+  padding: 3rem;
+}
 .main {
   min-height: 100vh;
   padding: 4rem 0;
