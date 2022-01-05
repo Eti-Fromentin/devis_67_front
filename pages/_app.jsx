@@ -1,8 +1,15 @@
 import React from 'react';
-import '../styles/globals.css';
+import 'uikit/dist/css/uikit.min.css';
+import Connexion from './connexion';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp() {
+  return (
+    <>
+    <div>
+      <Connexion />
+    </div>
+    </>
+  );
 }
 
 export default MyApp;
