@@ -1,13 +1,12 @@
 import React from 'react';
 import 'uikit/dist/css/uikit.min.css';
-import Connexion from './connexion';
+import 'uikit/dist/js/uikit.min.js';
+import HomePage from '../components/HomePage';
 
 function MyApp() {
   return (
     <>
-    <div>
-      <Connexion />
-    </div>
+    <HomePage />
     </>
   );
 }
