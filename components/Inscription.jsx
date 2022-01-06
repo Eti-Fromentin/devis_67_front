@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Inscription() {
-
   return (
     <div className="uk-card uk-card-default uk-card-hover uk-card-large uk-card-body uk-text-center">
       <h1 className="uk-card-title">Inscrivez-vous!</h1>
@@ -43,30 +42,35 @@ function Inscription() {
             <label>
               <input className="uk-checkbox" type="checkbox" /> J'accepte de recevoir des newsletters
             </label>
-          <div className="uk-margin uk-grid-small uk-child-width-auto">
-            <label>
-              <input className="uk-checkbox" type="checkbox" /> En soumettant ce formulaire, j'accepte que les données saisies soient collectées dans
-              le but de traiter ma demande*
-            </label>
+            <div className="uk-margin uk-grid-small uk-child-width-auto">
+              <label>
+                <input className="uk-checkbox" type="checkbox" /> En soumettant ce formulaire, j'accepte que les données saisies soient collectées
+                dans le but de traiter ma demande*
+              </label>
             </div>
           </div>
           <p className="uk-margin">
-          <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>S'inscrire</a>
+            <a className="uk-button uk-button-default" href="#modal-center" uk-toggle>
+              S'inscrire
+            </a>
 
-        <div id="modal-center" class="uk-flex-top" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            <div id="modal-center" className="uk-flex-top" uk-modal>
+              <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                <button className="uk-modal-close-default" type="button" uk-close></button>
 
-            <button class="uk-modal-close-default" type="button" uk-close></button>
-              <h2 className='uk-modal-title'>Bienvenue!</h2>
-              <p>Votre inscription a bien été prise en compte.</p>
-              <p>Vous pouvez fermer ce message en utilisant la croix en haut à droite 
-                ou bien directement rejoindre votre espace client en cliquant <a href="/EspaceClient">ici</a>
-              </p>
-          </div>
-        </div>
+                <p>
+                  Bienvenue!
+                  Merci, votre inscription est bien prise en compte.
+                  Vuous pouvez fermer ce message en cliquant en haut à droite ou bien aller directement dans votre espace personnel <a href="/EspaceClient">ici</a>
+                </p>
+              </div>
+            </div>
           </p>
         </fieldset>
       </form>
+      <div>
+        <a href="#" uk-totop uk-scroll></a>
+      </div>
     </div>
   );
 }
