@@ -16,6 +16,8 @@ function HomePage () {
                 <Image
                 src={image1}
                 alt="Image artisan"
+                width="500px"
+                height="400px"
                 placeholder="blur"
                 />
             </div>
@@ -29,6 +31,8 @@ function HomePage () {
                 <Image
                 src={image2}
                 alt="Image billets"
+                width="500px"
+                height="400px"
                 placeholder="blur"
                 />
             </div>
