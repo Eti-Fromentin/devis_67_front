@@ -1,6 +1,8 @@
 import React from 'react';
+import 'uikit/dist/css/uikit.min.css';
 
 function Inscription() {
+
   return (
     <div className="uk-card uk-card-default uk-card-hover uk-card-large uk-card-body uk-text-center">
       <h1 className="uk-card-title">Inscrivez-vous!</h1>
@@ -50,27 +52,10 @@ function Inscription() {
             </div>
           </div>
           <p className="uk-margin">
-            <a className="uk-button uk-button-default" href="#modal-center" uk-toggle>
-              S'inscrire
-            </a>
-
-            <div id="modal-center" className="uk-flex-top" uk-modal>
-              <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                <button className="uk-modal-close-default" type="button" uk-close></button>
-
-                <p>
-                  Bienvenue!
-                  Merci, votre inscription est bien prise en compte.
-                  Vuous pouvez fermer ce message en cliquant en haut à droite ou bien aller directement dans votre espace personnel <a href="/EspaceClient">ici</a>
-                </p>
-              </div>
-            </div>
+          <button class="uk-button uk-button-primary" >S'inscrire</button>
           </p>
         </fieldset>
       </form>
-      <div>
-        <a href="#" uk-totop uk-scroll></a>
-      </div>
     </div>
   );
 }
