@@ -19,10 +19,13 @@ function NavBar() {
               <a href="/DevisAides">Aides</a>
             </li>
             <li>
-              <a href="/EspaceClient">Inscription</a>
+              <a href="/Inscription">Inscription</a>
             </li>
             <li>
-              <a href="/EspaceClient">Connexion</a>
+              <a href="/Connexion">Connexion</a>
+            </li>
+            <li>
+              <a href="/EspaceClient">Espace Client</a>
             </li>
           </ul>
         </div>
