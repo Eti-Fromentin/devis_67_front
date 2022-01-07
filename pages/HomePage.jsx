@@ -7,7 +7,7 @@ import 'uikit/dist/css/uikit.min.css';
 
 function HomePage () {
  return (
-     <div className="uk-container uk-position-center">
+     <div className="uk-container uk-position-center uk-flex-wrap">
     <div className="uk-column-1-2 uk-column-divider">
     <div>
         <div className="uk-card uk-card-default uk-card-medium">
@@ -17,9 +17,10 @@ function HomePage () {
                 <Image
                 src={image1}
                 alt="Image artisan"
-                width="400px"
-                height="300px"
+                width="400"
+                height="300"
                 placeholder="blur"
+                priority="true"
                 />
             </div>
         </div>
@@ -32,9 +33,10 @@ function HomePage () {
                 <Image
                 src={image2}
                 alt="Image billets"
-                width="400px"
-                height="300px"
+                width="400"
+                height="300"
                 placeholder="blur"
+                priority="true"
                 />
             </div>
         </div>
