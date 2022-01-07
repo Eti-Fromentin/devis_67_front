@@ -1,14 +1,13 @@
 import React from 'react';
-import 'uikit/dist/css/uikit.min.css';
 
 function Inscription() {
 
   return (
-    <div className="uk-card uk-card-default uk-card-hover uk-card-large uk-card-body uk-text-center">
-      <h1 className="uk-card-title">Inscrivez-vous!</h1>
+    <div className="">
+      <h1 className="">Inscrivez-vous!</h1>
       <form>
-        <fieldset className="uk-fieldset">
-          <div className="uk-margin uk-grid-large">
+        <fieldset className="">
+          <div className="">
             <label>
               <input className="uk-radio" type="radio" name="radio2" /> Madame
             </label>
@@ -16,43 +15,43 @@ function Inscription() {
               <input className="uk-radio" type="radio" name="radio2" /> Monsieur
             </label>
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Nom*" />
+          <div className="">
+            <input className="" type="text" placeholder="Nom*" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Prénom*" />
+          <div className="">
+            <input className="" type="text" placeholder="Prénom*" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Nom d'utilisateur" />
+          <div className="">
+            <input className="" type="text" placeholder="Nom d'utilisateur" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Adresse postale*" />
+          <div className="">
+            <input className="" type="text" placeholder="Adresse postale*" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Code postal*" />
+          <div className="">
+            <input className="" type="text" placeholder="Code postal*" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Adresse e-mail*" />
+          <div className="">
+            <input className="" type="text" placeholder="Adresse e-mail*" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Mot de passe*" />
+          <div className="">
+            <input className="" type="text" placeholder="Mot de passe*" />
           </div>
-          <div className="uk-margin">
-            <input className="uk-input uk-form-width-large" type="text" placeholder="Confirmer Mot de passe*" />
+          <div className="">
+            <input className="" type="text" placeholder="Confirmer Mot de passe*" />
           </div>
-          <div className="uk-margin uk-grid-small uk-child-width-auto">
+          <div className="">
             <label>
-              <input className="uk-checkbox" type="checkbox" /> J'accepte de recevoir des newsletters
+              <input className="" type="checkbox" /> J'accepte de recevoir des newsletters
             </label>
-            <div className="uk-margin uk-grid-small uk-child-width-auto">
+            <div className="">
               <label>
-                <input className="uk-checkbox" type="checkbox" /> En soumettant ce formulaire, j'accepte que les données saisies soient collectées
+                <input className="" type="checkbox" /> En soumettant ce formulaire, j'accepte que les données saisies soient collectées
                 dans le but de traiter ma demande*
               </label>
             </div>
           </div>
-          <p className="uk-margin">
-          <button class="uk-button uk-button-primary" >S'inscrire</button>
+          <p className="">
+          <button class="" >S'inscrire</button>
           </p>
         </fieldset>
       </form>
