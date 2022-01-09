@@ -1,8 +1,9 @@
 import React from 'react';
-import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col} from 'react-bootstrap';
 import styles from '../styles/Inscription.module.css';
 
 function Inscription() {
+
   return (
     <div className={styles.inscription}>
       <Card className={styles.card}>
@@ -10,10 +11,10 @@ function Inscription() {
         <Card.Body>
           <Form>
               <Row>
-            <Form.Group as ={Col} className="mb-3" controlId="Checkbox">
+            <Form.Group as={Col} className="mb-3" controlId="Checkbox">
               <Form.Check type="checkbox" label="Madame" />
             </Form.Group>
-            <Form.Group as ={Col} className="mb-3" controlId="Checkbox">
+            <Form.Group as={Col} className="mb-3" controlId="Checkbox">
               <Form.Check type="checkbox" label="Monsieur" />
             </Form.Group>
               </Row>
@@ -25,7 +26,7 @@ function Inscription() {
               <Form.Label>Prénom*</Form.Label>
               <Form.Control type="text" placeholder="Entrez votre Prénom" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="nickname">
+            <Form.Group className="mb-3" size="sm" controlId="nickname">
               <Form.Label>Nom d'utilisateur</Form.Label>
               <Form.Control type="text" placeholder="Entrez votre pseudo" />
             </Form.Group>

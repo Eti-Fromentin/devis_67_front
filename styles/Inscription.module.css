@@ -5,10 +5,12 @@
 }
 
 .card {
-    width: 60vw;
+    width: 50vw;
     background-color: ghostwhite;
     margin: 5vh;
     padding: 2vh;
     box-shadow: 5px 5px 5px black;
     border-radius: 5%;
+    border-color: black;
+    text-align: center;
 }

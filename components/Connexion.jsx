@@ -1,31 +1,35 @@
 import React from 'react';
 import Link from 'next/link';
+import { Card, Form, Button } from 'react-bootstrap';
+import styles from '../styles/Connexion.module.css'
 
 
 function Connexion() {
   return (
-<div className="">
+<div className={styles.connexion}>
+    <Card className={styles.card}>
     <h1 className="">BIENVENUE!</h1>
     <p>Connectez-vous grâce à votre adresse e-mail et votre mot de passe.</p>
-    <form>
-            <fieldset className="">
-
-            <div className="">
-                    <input className="" type="text" placeholder="Adresse e-mail*"/>
-                </div>
-            <div className="">
-                <input className="" type="text" placeholder="Mot de passe*"/>
-                </div>
-
+        <Card.Body>
+            <Form>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>Adresse Email*</Form.Label>
+              <Form.Control type="text" placeholder="Entrez votre adresse email" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Mot de passe*</Form.Label>
+              <Form.Control type="password" placeholder="Insérez votre mot de passe" />
+            </Form.Group>
+            <p>
             <Link href="">Mot de passe oublié?</Link>
-            <p className="">
-            <button className="">Connexion</button>
             </p>
-        <p>Pas encore inscrit(e)? cliquez <Link href="/inscription">ici</Link></p>
-
-        </fieldset>
-    </form>
-    
+            <Button className={styles.button} variant="primary" type="submit">
+              Connexion
+            </Button>
+            <p>Pas encore inscrit(e)? cliquez <Link href="/inscription">ici</Link></p>
+            </Form>
+        </Card.Body>
+    </Card>
     </div>
     );
 };
