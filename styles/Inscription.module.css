@@ -1,0 +1,14 @@
+.inscription {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card {
+    width: 60vw;
+    background-color: ghostwhite;
+    margin: 5vh;
+    padding: 2vh;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 5%;
+}
