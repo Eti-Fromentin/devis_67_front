@@ -9,6 +9,8 @@ function MyApp() {
   return (
     <>
     <HomePage />
+    <Inscription />
+    <Connexion />
     </>
   );
 }
