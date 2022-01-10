@@ -1,12 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
 import styles from '../styles/Connexion.module.css'
 
 
 function Connexion() {
   return (
 <div className={styles.connexion}>
+  <Container>
+    <Row className="justify-content-md-center">
+      <Col md={8}>
     <Card className={styles.card}>
     <h1 className="">BIENVENUE!</h1>
     <p>Connectez-vous grâce à votre adresse e-mail et votre mot de passe.</p>
@@ -14,11 +17,11 @@ function Connexion() {
             <Form>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Adresse Email*</Form.Label>
-              <Form.Control type="text" placeholder="Entrez votre adresse email" />
+              <Form.Control size="sm" type="text" placeholder="Entrez votre adresse email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Mot de passe*</Form.Label>
-              <Form.Control type="password" placeholder="Insérez votre mot de passe" />
+              <Form.Control size="sm" type="password" placeholder="Insérez votre mot de passe" />
             </Form.Group>
             <p>
             <Link href="">Mot de passe oublié?</Link>
@@ -30,6 +33,9 @@ function Connexion() {
             </Form>
         </Card.Body>
     </Card>
+    </Col>
+    </Row>
+    </Container>
     </div>
     );
 };
