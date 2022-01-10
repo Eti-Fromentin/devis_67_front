@@ -13,3 +13,8 @@
     border-color: black;
     text-align: center;
 }
+
+.input {
+    display: flex;
+    justify-content: center;
+}
