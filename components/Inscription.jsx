@@ -20,10 +20,12 @@ function Inscription() {
                       <Form.Check type="checkbox" label="Monsieur" />
                     </Form.Group>
                   </Row>
-                  <Form.Group className="mb-3" controlId="lastname">
+                  <Col md={8}>
+                  <Form.Group controlId="lastname">
                     <Form.Label>Nom*</Form.Label>
                     <Form.Control size="sm" type="text" placeholder="Entrez votre Nom" />
                   </Form.Group>
+                  </Col>
                   <Form.Group className="mb-3" controlId="firstname">
                     <Form.Label>Prénom*</Form.Label>
                     <Form.Control size="sm" type="text" placeholder="Entrez votre Prénom" />
