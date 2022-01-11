@@ -1,0 +1,16 @@
+.home {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.homecard {
+    background-color: lightsteelblue;
+    margin: 5vh;
+    padding: 2vh;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 5%;
+    border-color: black;
+    text-align: center;
+}

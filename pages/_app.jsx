@@ -1,13 +1,16 @@
 import React from 'react';
-import 'uikit/dist/css/uikit.min.css';
-import Connexion from './connexion';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Inscription from '../components/Inscription';
+import Connexion from '../components/Connexion';
+import HomePage from './HomePage';
+
 
 function MyApp() {
   return (
     <>
-    <div>
-      <Connexion />
-    </div>
+    <HomePage />
+    <Inscription />
+    <Connexion />
     </>
   );
 }
