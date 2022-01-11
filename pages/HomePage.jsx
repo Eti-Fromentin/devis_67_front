@@ -9,8 +9,8 @@ import styles from '../styles/HomePage.module.css';
 
 function HomePage() {
   return (
-    <>
-      <Navbar />
+    <div>
+      <NavBar />
       <div className={styles.home}>
         <Container>
           <Row>
@@ -43,7 +43,7 @@ function HomePage() {
           </Row>
         </Container>
       </div>
-    </>
+    </div>
   );
 }
 
