@@ -1,0 +1,24 @@
+.inscription {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card {
+    background-color: ghostwhite;
+    margin: 5vh;
+    padding: 2vh;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 5%;
+    border-color: black;
+    text-align: center;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+
+.card p {
+    color: #bf1650;
+  }
