@@ -35,17 +35,17 @@ function Inscription() {
                         feedbackType="invalid"/>
                     </Form.Group>
                   </Row>
-                  <Form.Group controlId="lastname">
+                  <Form.Group className="mb-3" controlId="lastname">
                     <Form.Label>Nom*</Form.Label>
                     <Form.Control required size="sm" type="text" placeholder="Entrez votre Nom" />
                     <Form.Control.Feedback type="invalid">Veuillez renseigner un Nom.</Form.Control.Feedback>
                   </Form.Group>
-                  <Form.Group controlId="firstname">
+                  <Form.Group className="mb-3" controlId="firstname">
                     <Form.Label>Prénom*</Form.Label>
                     <Form.Control required size="sm" type="text" placeholder="Entrez votre Prénom" />
                     <Form.Control.Feedback type="invalid">Veuillez renseigner un Prénom.</Form.Control.Feedback>
                   </Form.Group>
-                  <Form.Group className="mb-3" size="sm" controlId="nickname">
+                  <Form.Group className="mb-3" controlId="nickname">
                     <Form.Label>Nom d'utilisateur*</Form.Label>
                     <Form.Control required size="sm" type="text" placeholder="Entrez votre pseudo" />
                     <Form.Control.Feedback type="invalid">Veuillez insérer un Nom d'utilisateur.</Form.Control.Feedback>
