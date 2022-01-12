@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import styles from '../styles/NavBar.module.css';
 
 function NavBar({ pageType }) {
   const [navBarData, setNavBarData] = useState([]);
@@ -19,7 +20,7 @@ function NavBar({ pageType }) {
       {!navBarData.length ? (
         <p>Loading</p>
       ) : (
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg" className={styles.containerNavBar}>
           <Container>
             <Navbar.Brand href="/">{/* <Image src={logo} alt="image logo" /> */}</Navbar.Brand>
           </Container>

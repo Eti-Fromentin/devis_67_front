@@ -1,11 +1,12 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
+import SCAP1 from '../../components/SCAP1';
 
 function Aide() {
   return (
     <div>
       <NavBar pageType="devis" />
-      Page Aide
+      <SCAP1 />
     </div>
   );
 }
