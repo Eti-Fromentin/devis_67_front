@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import styles from '../styles/Inscription.module.css';
 
-function InscriptionBis() {
+function Inscription() {
 
     const validationSchema = Yup.object().shape({
         lastname: Yup.string()
@@ -124,4 +124,4 @@ function InscriptionBis() {
     );
   }
   
-  export default InscriptionBis;
+  export default Inscription;

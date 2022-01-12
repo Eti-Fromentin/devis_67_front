@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
 import styles from '../styles/Connexion.module.css';
 
-function ConnexionBis() {
+function Connexion() {
 
     const ConnectSchema = Yup.object().shape({
         email: Yup.string()
@@ -69,4 +69,4 @@ function ConnexionBis() {
   );
 }
 
-export default ConnexionBis;
+export default Connexion;
