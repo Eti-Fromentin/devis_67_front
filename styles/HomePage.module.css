@@ -1,60 +1,8 @@
-.home {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.containerHomepage {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    height: 80vh;
-    width: 100vw;
-}
-
-.homecard1 {
-    height: 95%;
-    background-color: rgb(236, 233, 233);
+.homecard {
+    background: linear-gradient(#f7f6f5, #6bb5f1);
     margin: 5vh;
     padding: 2vh;
+    box-shadow: 5px 5px 5px black;
     border-radius: 5%;
-    border-color: 1px solid #333;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.homecard2 {
-    height: 95%;
-    background-color: rgb(236, 233, 233);
-    margin: 5vh;
-    padding: 2vh;
-    border-radius: 5%;
-    border-color: 1px solid #333;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.cardTitleHome {
-    font-weight: 700;
-    font: 3vw;
-}
-.cardtexthome {
-    width: 50%;
-    font-weight: 500;
-    font-size:clamp(17px, 1vw, 30px);
-}
-.homeImage1 {
-    height: 72%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-.homeImage2 {
-    height: 80%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
 }
