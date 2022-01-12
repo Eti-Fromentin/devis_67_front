@@ -16,3 +16,7 @@
 .button {
     margin: 2vh;
 }
+
+.error {
+    color: #bf1650;
+  }

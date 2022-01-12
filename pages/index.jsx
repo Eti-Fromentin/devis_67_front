@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import image1 from '../public/artisan.jpg';
-import image2 from '../public/aides.jpg';
+import image1 from '../Assets/artisan.jpg';
+import image2 from '../Assets/aides.jpg';
 import Link from 'next/link';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import styles from '../styles/HomePage.module.css';
