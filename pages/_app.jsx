@@ -1,16 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ConnexionBis from '../components/ConnexionBis';
-import HomePage from './HomePage';
-import InscriptionBis from '../components/InscriptionBis';
+// import Inscription from '../components/Inscription';
+// import Connexion from '../components/Connexion';
 
-
-function MyApp() {
+function MyApp({ Component, pageProps }) {
   return (
     <>
-    <HomePage />
-    <ConnexionBis />
-    <InscriptionBis />
+      <Component {...pageProps} />
     </>
   );
 }
