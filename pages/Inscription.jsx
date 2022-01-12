@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import NavBar from '../components/NavBar';
 import styles from '../styles/Inscription.module.css';
 
 function Inscription() {
@@ -43,6 +44,8 @@ function Inscription() {
       };
   
     return (
+      <div>
+        <NavBar pageType="devis" />
       <div className={styles.inscription}>
         <Container>
           <Row className="justify-content-md-center">
@@ -120,6 +123,7 @@ function Inscription() {
             </Col>
           </Row>
         </Container>
+      </div>
       </div>
     );
   }

@@ -57,7 +57,7 @@ function Connexion() {
                     Connexion
                   </Button>
                   <p>
-                    Pas encore inscrit(e)? cliquez <Link href="/inscription">ici</Link>
+                    Pas encore inscrit(e)? cliquez <Link href="/Inscription">ici</Link>
                   </p>
                 </Form>
               </Card.Body>
