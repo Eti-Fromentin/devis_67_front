@@ -19,7 +19,7 @@ function HomePage() {
                   Trouvez l'artisan qu'il vous faut et demandez un devis <Link href="/devis">ici</Link>
                 </Card.Text>
                 <div>
-                  <Image className={styles.homeImage} src={image1} alt="Image artisan" priority="true" placeholder="blur" />
+                  <Image src={image1} alt="Image artisan" priority="true" placeholder="blur" />
                 </div>
               </Card.Body>
             </Card>
