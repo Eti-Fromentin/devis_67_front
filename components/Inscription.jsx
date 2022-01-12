@@ -29,7 +29,7 @@ function Inscription() {
                     <Form.Control size="sm" type="text" placeholder="Entrez votre Prénom" />
                   </Form.Group>
                   <Form.Group className="mb-3" size="sm" controlId="nickname">
-                    <Form.Label>Nom d'utilisateur</Form.Label>
+                    <Form.Label>Nom d&#039;utilisateur</Form.Label>
                     <Form.Control size="sm" type="text" placeholder="Entrez votre pseudo" />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="mail-address">
@@ -54,7 +54,7 @@ function Inscription() {
                   </Form.Group>
 
                   <Button variant="primary" type="submit">
-                    S'inscrire
+                    S&#039;inscrire
                   </Button>
                 </Form>
               </Card.Body>
