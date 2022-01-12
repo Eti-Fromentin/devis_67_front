@@ -8,7 +8,8 @@ import styles from '../styles/InscriptionBis.module.css';
 function InscriptionBis() {
 
     const validationSchema = Yup.object().shape({
-        lastname: Yup.string().required('⚠ Le Nom est requis'),
+        lastname: Yup.string()
+        .required('⚠ Le Nom est requis'),
         firstname: Yup.string().required('⚠ Le Prénom est requis'),
         username: Yup.string()
           .required('⚠ Le nom utilisateur est requis')
@@ -22,7 +23,7 @@ function InscriptionBis() {
         password: Yup.string()
           .required('⚠ Mot de passe requis')
           .min(6, '⚠ Minimum de 6 caractères')
-          .max(40, '⚠ Maximum de 20 caractères'),
+          .max(40, '⚠ Maximum de 40 caractères'),
         confirmPassword: Yup.string()
           .required('⚠ Veuillez confirmer votre mot de passe')
           .oneOf([Yup.ref('password'), null], '⚠ Le mot de passe ne correspond pas'),
