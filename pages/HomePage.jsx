@@ -19,7 +19,7 @@ function HomePage() {
                   Trouvez l'artisan qu'il vous faut et demandez un devis <Link href="/devis">ici</Link>
                 </Card.Text>
                 <div>
-                  <Image src={image1} alt="Image artisan" priority="true" placeholder="blur" />
+                  <Image width="400" height="300" src={image1} alt="Image artisan" priority="true" placeholder="blur" />
                 </div>
               </Card.Body>
             </Card>
@@ -32,7 +32,7 @@ function HomePage() {
                   Estimez le montant de vos aides à la rénovation <Link href="/aides">ici</Link>
                 </Card.Text>
                 <div>
-                  <Image src={image2} alt="Image billets" priority="true" placeholder="blur" />
+                  <Image width="400" height="300" src={image2} alt="Image billets" priority="true" placeholder="blur" />
                 </div>
               </Card.Body>
             </Card>
