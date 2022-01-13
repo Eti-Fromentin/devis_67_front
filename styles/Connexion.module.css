@@ -5,15 +5,18 @@
 }
 
 .card {
-    background-color: ghostwhite;
+    background: linear-gradient(#f7f6f5, #6bb5f1);
     margin: 5vh;
     padding: 2vh;
     box-shadow: 5px 5px 5px black;
     border-radius: 5%;
-    border-color: black;
     text-align: center;
 }
 
 .button {
     margin: 2vh;
 }
+
+.error {
+    color: #bf1650;
+  }
