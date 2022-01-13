@@ -1,6 +1,6 @@
 import React from 'react';
-//import logo from '../images/logo.png';
-//import Image from 'next/image';
+import logo from '../Assets/logo.png';
+import Image from 'next/image';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
@@ -22,7 +22,9 @@ function NavBar({ pageType }) {
       ) : (
         <Navbar expand="lg" className={styles.containerNavBar}>
           <Container>
-            <Navbar.Brand href="/">{/* <Image src={logo} alt="image logo" /> */}</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <Image src={logo} alt="image logo" />
+            </Navbar.Brand>
           </Container>
           <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

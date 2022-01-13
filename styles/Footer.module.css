@@ -1,0 +1,24 @@
+.footerBackground{
+  background: rgb(202, 202, 202);
+  height: 40vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+
+/* .footerContainer {
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-direction: row;
+
+} */
+.itemsNavBar{
+  line-height: 1rem;
+  font-size: 1rem;
+}
+.meAuto{
+  
+}
