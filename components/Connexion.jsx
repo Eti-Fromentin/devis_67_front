@@ -15,7 +15,7 @@ function Connexion() {
         password: Yup.string()
           .required('⚠ Mot de passe requis')
           .min(6, '⚠ Minimum de 6 caractères')
-          .max(40, '⚠ Maximum de 20 caractères'),
+          .max(40, '⚠ Maximum de 40 caractères'),
       });
     
       const {

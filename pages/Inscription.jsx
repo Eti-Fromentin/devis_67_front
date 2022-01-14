@@ -3,10 +3,19 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
+import { useState } from 'react';
 import NavBar from '../components/NavBar';
 import styles from '../styles/Inscription.module.css';
 
 function Inscription() {
+
+  const [userData, setUserData] = useState([]);
+
+  const CreateUser = () => {
+      axios.post('http://localhost:8000/api/user')
+      .then(response => response.data(setUserData)), []};
+
 
     const validationSchema = Yup.object().shape({
         lastname: Yup.string()
@@ -114,7 +123,7 @@ function Inscription() {
                       <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
                     </Form.Group>
   
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick={CreateUser}>
                       S'inscrire
                     </Button>
                   </Form>
