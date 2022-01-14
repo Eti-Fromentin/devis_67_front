@@ -7,28 +7,22 @@ import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
 import styles from '../styles/Connexion.module.css';
 
 function Connexion() {
+  const ConnectSchema = Yup.object().shape({
+    email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
+    password: Yup.string().required('⚠ Mot de passe requis').min(6, '⚠ Minimum de 6 caractères').max(40, '⚠ Maximum de 20 caractères'),
+  });
 
-    const ConnectSchema = Yup.object().shape({
-        email: Yup.string()
-          .required('⚠ Un Email est requis')
-          .email('⚠ Email invalide'),
-        password: Yup.string()
-          .required('⚠ Mot de passe requis')
-          .min(6, '⚠ Minimum de 6 caractères')
-          .max(40, '⚠ Maximum de 20 caractères'),
-      });
-    
-      const {
-        register,
-        handleSubmit,
-        formState: { errors }
-      } = useForm({
-        resolver: yupResolver(ConnectSchema)
-      });
-    
-      const ConnectSubmit = data => {
-        console.log(JSON.stringify(data, null, 2));
-      };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(ConnectSchema),
+  });
+
+  const ConnectSubmit = (data) => {
+    console.log(JSON.stringify(data, null, 2));
+  };
 
   return (
     <div className={styles.connexion}>
@@ -42,12 +36,12 @@ function Connexion() {
                 <Form onSubmit={handleSubmit(ConnectSubmit)}>
                   <Form.Group className="mb-3" controlId="email">
                     <Form.Label>Adresse Email*</Form.Label>
-                    <Form.Control {...register("email")} size="sm" type="text" placeholder="Entrez votre adresse email" />
+                    <Form.Control {...register('email')} size="sm" type="text" placeholder="Entrez votre adresse email" />
                     <p className={styles.error}>{errors.email && errors.email?.message}</p>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="password">
                     <Form.Label>Mot de passe*</Form.Label>
-                    <Form.Control {...register("password")} size="sm" type="password" placeholder="Insérez votre mot de passe" />
+                    <Form.Control {...register('password')} size="sm" type="password" placeholder="Insérez votre mot de passe" />
                     <p className={styles.error}>{errors.password && errors.password?.message}</p>
                   </Form.Group>
                   <p>
