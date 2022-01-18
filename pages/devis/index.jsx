@@ -1,12 +1,15 @@
 import React from 'react';
+import DevisAllQuestions from '../../components/DevisAllQuestions';
+// import DevisHome from '../../components/DevisHome';
 import NavBar from '../../components/NavBar';
 
 function AccueilDevis() {
   return (
-    <div>
+    <>
       <NavBar pageType="devis" />
-      Page Accueil Devis
-    </div>
+      {/* <DevisHome /> */}
+      <DevisAllQuestions />
+    </>
   );
 }
 
