@@ -1,4 +1,7 @@
 import React from 'react';
+import NavBar from '../../components/NavBar';
+// import DevisHome from '../components/DevisHome';
+
 
 import axios from 'axios';
 
