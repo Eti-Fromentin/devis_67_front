@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
-import SCAP1 from '../../components/SCAP1';
-
+import styles from '../../styles/ModeEmploi.module.css';
 
 import axios from 'axios';
 
@@ -10,23 +9,24 @@ import { Container } from 'react-bootstrap';
 function ModeEmploi({ posts }) {
   return (
     <div>
-<<<<<<< HEAD
       <NavBar pageType="devis" />
-      <SCAP1 />
-=======
-      <h1>Mode d emploi</h1>
+      <h1 className={styles.h1ModeEmploi}>Mode d emploi</h1>
       {!posts ? (
         <p>Loading</p>
       ) : (
-        <div>
-          <ul>
+        <div className={styles.containerModeEmploi}>
+          <ol className={styles.containerUlModeEmploi}>
             {posts
               .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
               .map((itemMenu) => (
-                <li key={itemMenu.key}>{itemMenu.text}</li>
+                <li className={styles.itemsMenuModeEmploi} key={itemMenu.key}>
+                  {itemMenu.text}
+                </li>
               ))}
-          </ul>
-          <Container>
+          </ol>
+          {/* BAR */}
+          <div className={styles.barModeEmploi}></div>
+          <Container className={styles.containerItemMenuModeEmploi}>
             {posts.map((itemMenu) => {
               if (itemMenu.page_section === 'chapterTitle') {
                 return <h5 key={itemMenu.key}>{itemMenu.text}</h5>;
@@ -37,7 +37,6 @@ function ModeEmploi({ posts }) {
           </Container>
         </div>
       )}
->>>>>>> bde99e2b592f947b5034d96509565e8c49ad44d9
     </div>
   );
 }

@@ -1,28 +1,26 @@
 
 /** H1 **/
-.h1ConditionsUtilisations {
+.h1ModeEmploi {
     /* background: grey; */
     padding: 1.5rem;
     font-size: 3vw;
 }
 
 /** BAR **/
-.barConditionsUtilisations {
+.barModeEmploi {
     border: 1px solid #333;
     width: 70%;
     margin-left: 12%;
 }
 
 /** UL **/
-.containerUlConditionUtilisation {
-    /* background: yellowgreen; */
+.containerUlModeEmploi {
     padding: 1rem;
     margin-left: 4rem;
     font-size: 1vw;
 }
 
 /** CONTAINER Item Menu **/
-.containerItemMenu {
-    /* background: coral; */
+.containerItemMenuModeEmploi {
     padding-top: 2rem;
 }

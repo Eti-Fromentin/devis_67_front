@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 import styles from '../../styles/Conditions.module.css';
 import { Container } from 'react-bootstrap';
 
@@ -8,12 +9,12 @@ function ConditionsUtilisations({ posts }) {
   return (
     <div>
       <NavBar pageType="devis" />
-      <h1>Conditions d utilisations</h1>
+      <h1 className={styles.h1ConditionsUtilisations}>Conditions d utilisations</h1>
       {!posts ? (
         <p>Loading</p>
       ) : (
-        <div>
-          <ul>
+        <div className={styles.containerConditionUtilisation}>
+          <ol className={styles.containerUlConditionUtilisation}>
             {posts
               .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
               .map((itemMenu) => (
@@ -21,15 +22,17 @@ function ConditionsUtilisations({ posts }) {
                   {itemMenu.text}
                 </li>
               ))}
-          </ul>
-          <Container>
+          </ol>
+          {/* BAR */}
+          <div className={styles.barConditionsUtilisations}></div>
+          <Container className={styles.containerItemMenu}>
             {posts.map((itemMenu) => {
               //pour chaque position un div key={itemMenu.position}
               //for (let i = 0; i < itemMenu.lenght; i++) {
               //if (itemMenu.position === i) {
               if (itemMenu.page_section === 'chapterTitle') {
                 return (
-                  <div key={itemMenu.position}>
+                  <div key={itemMenu.position} className={styles.divTitleConditions}>
                     <h5 className={styles.titleConditions} key={itemMenu.position}>
                       {itemMenu.text}
                     </h5>
@@ -37,7 +40,7 @@ function ConditionsUtilisations({ posts }) {
                 );
               } else if (itemMenu.page_section === 'text') {
                 return (
-                  <div key={itemMenu.position}>
+                  <div key={itemMenu.position} className={styles.divTextConditions}>
                     <p className={styles.textConditions}>{itemMenu.text}</p>
                   </div>
                 );
@@ -46,6 +49,7 @@ function ConditionsUtilisations({ posts }) {
               //}
             })}
           </Container>
+          <Footer />
         </div>
       )}
     </div>
