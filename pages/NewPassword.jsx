@@ -11,7 +11,6 @@ function NewPassword () {
 
 const ConnectSchema = Yup.object().shape({
   email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
-  password: Yup.string().required('⚠ Mot de passe requis').min(8, '⚠ Minimum de 8 caractères').max(50, '⚠ Maximum de 50 caractères'),
 });
 
 const {
