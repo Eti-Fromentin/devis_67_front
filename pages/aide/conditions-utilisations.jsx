@@ -27,9 +27,6 @@ function ConditionsUtilisations({ posts }) {
           <div className={styles.barConditionsUtilisations}></div>
           <Container className={styles.containerItemMenu}>
             {posts.map((itemMenu) => {
-              //pour chaque position un div key={itemMenu.position}
-              //for (let i = 0; i < itemMenu.lenght; i++) {
-              //if (itemMenu.position === i) {
               if (itemMenu.page_section === 'chapterTitle') {
                 return (
                   <div key={itemMenu.position} className={styles.divTitleConditions}>
@@ -52,6 +49,7 @@ function ConditionsUtilisations({ posts }) {
           <Footer />
         </div>
       )}
+      <Footer pageType="devis" />
     </div>
   );
 }

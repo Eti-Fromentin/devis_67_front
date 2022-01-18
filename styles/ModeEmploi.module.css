@@ -1,26 +1,39 @@
 
-/** H1 **/
-.h1ModeEmploi {
-    /* background: grey; */
+ /* .h1ModeEmploi {
     padding: 1.5rem;
     font-size: 3vw;
-}
+}  */
 
-/** BAR **/
-.barModeEmploi {
+/* .barModeEmploi {
     border: 1px solid #333;
     width: 70%;
     margin-left: 12%;
-}
+} */
 
-/** UL **/
-.containerUlModeEmploi {
+/* .containerUlModeEmploi {
     padding: 1rem;
     margin-left: 4rem;
     font-size: 1vw;
-}
+} */
 
-/** CONTAINER Item Menu **/
-.containerItemMenuModeEmploi {
+/* .containerItemMenuModeEmploi {
     padding-top: 2rem;
+} */
+
+.containerModeEmploi{
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  
+  
+}
+.textModeEmploi{
+  background-color: rgb(204, 240, 238);
+  margin:2rem;
+  padding:2rem;
+  border-color: blue;
+}
+.titleModeEmploi{
+  color: blue;
+  text-align: center;
 }
