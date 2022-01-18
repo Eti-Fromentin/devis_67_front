@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import styles from '../styles/HomePage.module.css';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 function HomePage() {
   return (
@@ -43,6 +44,7 @@ function HomePage() {
           </Row>
         </Container>
       </div>
+      <Footer pageType="devis" />
     </div>
   );
 }

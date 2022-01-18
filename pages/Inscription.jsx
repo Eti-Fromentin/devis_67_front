@@ -9,7 +9,6 @@ import styles from '../styles/Inscription.module.css';
 
 function Inscription() {
 
-
     const validationSchema = Yup.object().shape({
         firstname: Yup.string().required('⚠ Le Prénom est requis').max(45).matches(/^[aA-zZ]+$/, 'lettres majuscule ou miniscule uniquement'),
         lastname: Yup.string().required('⚠ Le Nom est requis').max(45).matches(/^[aA-zZ]+$/, 'lettres majuscule ou miniscule uniquement'),
@@ -69,17 +68,6 @@ function Inscription() {
                 <h1 className="">Inscrivez-vous!</h1>
                 <Card.Body>
                   <Form onSubmit={handleSubmit(formSubmit)}>
-                    <Row>
-                      <Form.Group as={Col} className="mb-3" controlId="Checkbox">
-                        <Form.Check type="checkbox" label="Madame" />
-                      </Form.Group>
-                      <Form.Group as={Col} className="mb-3" controlId="Checkbox">
-                        <Form.Check type="checkbox" label="Monsieur"/>
-                      </Form.Group>
-                      <Form.Group as={Col} className="mb-3" controlId="Checkbox">
-                        <Form.Check type="checkbox" label="Non renseigné"/>
-                      </Form.Group>
-                    </Row>
                     <Form.Group className="mb-3" controlId="firstname">
                       <Form.Label>Prénom*</Form.Label>
                       <Form.Control  {...register("firstname")} size="sm" type="text" placeholder="Entrez votre Prénom" />
@@ -120,24 +108,19 @@ function Inscription() {
                       <Form.Control {...register("password")} size="sm" type="password" placeholder="Insérez votre mot de passe" />
                       <p>{errors.password && errors.password?.message}</p>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="password-check">
+                    <Form.Group className="mb-3" controlId="ConfirmPassword">
                       <Form.Label>Confirmez Mot de passe*</Form.Label>
-                      <Form.Control {...register("confirmPassword")} size="sm" type="password" placeholder="Vérification mot de passe" />
+                      <Form.Control {...register("confirmPassword")} size="sm" type="password" placeholder="Confirmez votre mot de passe" />
                       <p>{errors.confirmPassword && errors.confirmPassword?.message}</p>
                     </Form.Group>
                     <Form.Group as={Col} className="mb-3" controlId="Checkbox">
-                      <Form.Check
-                        {...register("acceptTerms")}
-                        type="checkbox"
-                        label="Accepter conditions d'utilisations et mentions légales"
-                      />
-                      <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
-                    </Form.Group>
-  
+                        <Form.Check {...register("acceptTerms")} type="checkbox" label="Accepter conditions d'utilisations et mentions légales" />
+                        <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
+                      </Form.Group>
                     <Button variant="primary" type="submit">
                       S'inscrire
                     </Button>
-                  </Form>
+                  </Form> 
                 </Card.Body>
               </Card>
             </Col>
