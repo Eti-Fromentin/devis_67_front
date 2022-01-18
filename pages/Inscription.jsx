@@ -39,6 +39,7 @@ function Inscription() {
       const {
         register,
         handleSubmit,
+        reset,
         formState: { errors }
       } = useForm({
         resolver: yupResolver(validationSchema)
@@ -55,8 +56,20 @@ function Inscription() {
           "city": data.city,
           "password": data.password,
         })
+        reset({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          address: "",
+          postalCode: "",
+          city: "",
+          password: "",
+          confirmPassword: "",
+          acceptTerms: false
+        })
       };
-  
+
     return (
       <div>
         <NavBar pageType="devis" />

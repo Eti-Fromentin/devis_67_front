@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
 import styles from '../styles/Connexion.module.css';
+import axios from 'axios';
 
 function Connexion() {
   const ConnectSchema = Yup.object().shape({
@@ -15,13 +16,20 @@ function Connexion() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(ConnectSchema),
   });
 
   const ConnectSubmit = (data) => {
-    console.log(JSON.stringify(data, null, 2));
+    axios.get('http://localhost:8000/api/user', {
+      
+    });
+    reset({
+      email: "",
+      password: "",
+    })
   };
 
   return (
