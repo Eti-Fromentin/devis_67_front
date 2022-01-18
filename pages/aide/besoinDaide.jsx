@@ -10,6 +10,7 @@ function besoinDaide({ posts }) {
     <div>
       <NavBar pageType="devis" />
       <h1>Besoin d Aide</h1>
+      <p>Texte à changer</p>
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'title')
         .map((titleMenu) => {
