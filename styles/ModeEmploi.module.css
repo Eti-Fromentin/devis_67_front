@@ -1,6 +1,17 @@
-.container{
+.containerModeEmploi{
   display: flex;
   flex-direction: row;
   align-content: space-around;
+  
+  
+}
+.textModeEmploi{
   background-color: rgb(204, 240, 238);
+  margin:2rem;
+  padding:2rem;
+  border-color: blue;
+}
+.titleModeEmploi{
+  color: blue;
+  text-align: center;
 }

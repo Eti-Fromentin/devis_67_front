@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 import styles from '../../styles/Conditions.module.css';
 import { Container } from 'react-bootstrap';
 
@@ -24,9 +25,6 @@ function ConditionsUtilisations({ posts }) {
           </ul>
           <Container>
             {posts.map((itemMenu) => {
-              //pour chaque position un div key={itemMenu.position}
-              //for (let i = 0; i < itemMenu.lenght; i++) {
-              //if (itemMenu.position === i) {
               if (itemMenu.page_section === 'chapterTitle') {
                 return (
                   <div key={itemMenu.position}>
@@ -48,6 +46,7 @@ function ConditionsUtilisations({ posts }) {
           </Container>
         </div>
       )}
+      <Footer pageType="devis" />
     </div>
   );
 }

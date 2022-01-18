@@ -1,34 +1,44 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
-// import DevisHome from '../components/DevisHome';
-
-
+import Footer from '../../components/Footer';
 import axios from 'axios';
-import styles from '../../styles/mode-emploi.module.css';
+import styles from '../../styles/ModeEmploi.module.css';
 
 //import { Container } from 'react-bootstrap';
 
 function ModeEmploi({ posts }) {
   return (
     <div>
-      <h1>Mode d emploi</h1>
+      <NavBar pageType="devis" />
+      {posts
+        .filter((titlesMenu) => titlesMenu.page_section === 'title')
+        .map((titleMenu) => {
+          return (
+            <div key={titleMenu.id}>
+              <h5 key={titleMenu.id} className={styles.titleModeEmploi}>
+                {titleMenu.text}
+              </h5>
+            </div>
+          );
+        })}
+
       {!posts ? (
         <p>Loading</p>
       ) : (
         <div className={styles.containerModeEmploi}>
-          {posts.map((itemMenu) => {
-            for (let i = 0; i < i.lenght; i++) {
-              if (itemMenu.page_section === i) {
-                return (
-                  <div key={itemMenu.position}>
-                    <p>{itemMenu.text}</p>
-                  </div>
-                );
-              }
-            }
-          })}
+          {posts
+            .filter((itemsMenu) => itemsMenu.page_section !== 'title')
+            .map((itemMenu) => {
+              return (
+                <div key={itemMenu.position} className={styles.textModeEmploi}>
+                  <i className="fa fa-file-text-o"></i>
+                  <p>{itemMenu.text}</p>
+                </div>
+              );
+            })}
         </div>
       )}
+      <Footer pageType="devis" />
     </div>
   );
 }
