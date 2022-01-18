@@ -3,6 +3,7 @@
     justify-content: space-around;
     text-align: center;
     flex-wrap: wrap;
+    /* background: yellowgreen; */
 }
 
 .containerHomepage {
@@ -10,11 +11,12 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    height: 80vh;
+    /* margin: 0;
+    padding: 0;  */
+    /* box-sizing: border-box; */
+    height: 85vh;
     width: 100vw;
+    /* background: red; */
 }
 
 .homecard1 {
@@ -51,10 +53,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    border-radius: 20px;
+    overflow: hidden;
 }
 .homeImage2 {
     height: 80%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    border-radius: 20px;
+    overflow: hidden;
 }

@@ -23,7 +23,15 @@ function HomePage() {
                     Trouvez l&#039; artisan qu&#039; il vous faut et demandez un devis <Link href="/devis">ici</Link>
                   </Card.Text>
                   <div className={styles.homeImage1}>
-                    <Image width={250} height={220} src={image1} alt="Image artisan" priority="true" placeholder="blur" />
+                    <Image
+                      width={250}
+                      height={220}
+                      className={styles.imageHome}
+                      src={image1}
+                      alt="Image artisan"
+                      priority="true"
+                      placeholder="blur"
+                    />
                   </div>
                 </Card.Body>
               </Card>
@@ -36,7 +44,15 @@ function HomePage() {
                     Estimez le montant de vos aides à la rénovation <Link href="/aides">ici</Link>
                   </Card.Text>
                   <div className={styles.homeImage2}>
-                    <Image src={image2} width={250} height={220} alt="Image billets" priority="true" placeholder="blur" />
+                    <Image
+                      src={image2}
+                      width={250}
+                      height={220}
+                      className={styles.imageHome}
+                      alt="Image billets"
+                      priority="true"
+                      placeholder="blur"
+                    />
                   </div>
                 </Card.Body>
               </Card>

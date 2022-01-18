@@ -1,0 +1,77 @@
+.containerAnnPageCommune {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardContainerAnnPageCommune {
+    width: 70%;
+    height: 90%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 3fr 1fr;
+}
+/** ROW 1 **/
+.firstRowCardAnnPageCommune {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.firstRowCardAnnPageCommune > span {
+    width: 70%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: rgb(211, 211, 211);
+}
+/** ROW 2 **/
+.secondRowCardAnnPageCommune {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secondRowCardAnnPageCommune > span {
+    width: 70%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: rgb(211, 211, 211);
+
+}
+/** ROW 3 **/
+.thirdRowCardAnnPageCommune {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sumUpDevisAnnPageCommune {
+    border: 1px solid #333;
+    background: rgb(211, 211, 211);
+    width: 70%;
+    height: 90%;
+    border-radius: 20px;
+}
+/** ROW 4 **/
+.fourthRowCardAnnPageCommune {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fourthRowCardAnnPageCommune > button {
+    width: 25%;
+    height: 60%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/************ MEDIA QUERIES *************/
+
+@media screen and (max-width: 900px) {
+    .cardContainerAnnPageCommune {
+        width: 94%;
+        height: 94%;
+    }
+}

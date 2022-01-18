@@ -58,9 +58,12 @@ const DevisAllQuestions = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">2</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+              <Dropdown.Item href="#/action-4">4</Dropdown.Item>
+              <Dropdown.Item href="#/action-5">5</Dropdown.Item>
+              <Dropdown.Item href="#/action-Plus">Plus</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </section>
