@@ -1,11 +1,12 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
+import Connexion from '../components/Connexion';
 
 function EspaceClient() {
   return (
     <div>
       <NavBar pageType="devis" />
-      Page Espace CLient
+      <Connexion />
     </div>
   );
 }
