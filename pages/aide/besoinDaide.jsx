@@ -5,11 +5,11 @@ import axios from 'axios';
 import styles from '../../styles/ModeEmploi.module.css';
 //import { Container } from 'react-bootstrap';
 
-function MentionsLegales({ posts }) {
+function besoinDaide({ posts }) {
   return (
     <div>
       <NavBar pageType="devis" />
-      <h1>Mentions legales</h1>
+      <h1>Besoin d Aide</h1>
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'title')
         .map((titleMenu) => {
@@ -55,4 +55,4 @@ export async function getStaticProps() {
   };
 }
 
-export default MentionsLegales;
+export default besoinDaide;

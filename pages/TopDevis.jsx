@@ -1,15 +1,15 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
-import styles from '../../styles/ModeEmploi.module.css';
+import styles from '../styles/TopDevis.modules.css';
 //import { Container } from 'react-bootstrap';
 
-function MentionsLegales({ posts }) {
+function TopDevis({ posts }) {
   return (
     <div>
       <NavBar pageType="devis" />
-      <h1>Mentions legales</h1>
+      <h1>Top devis</h1>
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'title')
         .map((titleMenu) => {
@@ -55,4 +55,4 @@ export async function getStaticProps() {
   };
 }
 
-export default MentionsLegales;
+export default TopDevis;
