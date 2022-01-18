@@ -1,6 +1,6 @@
 import React from 'react';
-import Connexion from '../components/Connexion';
 import NavBar from '../components/NavBar';
+import Connexion from '../components/Connexion';
 
 function EspaceClient() {
   return (

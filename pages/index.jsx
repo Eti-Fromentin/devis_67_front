@@ -41,7 +41,7 @@ function HomePage() {
                 <Card.Title className={styles.cardTitleHome}>Calcul des Aides</Card.Title>
                 <Card.Body>
                   <Card.Text className={styles.cardtexthome}>
-                    Estimez le montant de vos aides à la rénovation <Link href="/aides">ici</Link>
+                    Estimez le montant de vos aides à la rénovation <Link href="/aide">ici</Link>
                   </Card.Text>
                   <div className={styles.homeImage2}>
                     <Image

@@ -13,11 +13,11 @@ const AnnPageCommune = () => {
         </div>
         <div className={styles.thirdRowCardAnnPageCommune}>
           <section className={styles.sumUpDevisAnnPageCommune}>
-              <span>Annuaire PAGE COMMUNE/DEFAUT</span>
+            <span>Annuaire PAGE COMMUNE/DEFAUT</span>
           </section>
         </div>
         <div className={styles.fourthRowCardAnnPageCommune}>
-            <button>SUIVANT</button>
+          <button>SUIVANT</button>
         </div>
       </section>
     </main>
