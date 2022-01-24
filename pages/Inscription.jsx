@@ -78,7 +78,9 @@ function Inscription() {
           <Row className="justify-content-md-center">
             <Col md={8}>
               <Card className={styles.card}>
-                <h1 className="">Inscrivez-vous!</h1>
+                <h1 className="">Inscrivez-vous !</h1>
+                <hr/>
+                  <p>*Donnée obligatoire</p>
                 <Card.Body>
                   <Form onSubmit={handleSubmit(formSubmit)}>
                     <Form.Group className="mb-3" controlId="firstname">

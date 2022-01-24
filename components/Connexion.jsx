@@ -38,7 +38,8 @@ function Connexion() {
           <Row className="justify-content-md-center">
             <Col md={8}>
               <Card className={styles.card}>
-                <h1 className="">BIENVENUE!</h1>
+                <h1 className="">BIENVENUE !</h1>
+                <hr/>
                 <p>Connectez-vous grâce à votre adresse e-mail et votre mot de passe.</p>
                 <Card.Body>
                   <Form onSubmit={handleSubmit(ConnectSubmit)}>
