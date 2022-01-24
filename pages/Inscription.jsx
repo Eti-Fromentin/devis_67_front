@@ -56,6 +56,11 @@ function Inscription() {
           "city": data.city,
           "password": data.password,
         })
+        axios.post('http://localhost:8000/api/auth/login', {
+          "email": user.email,
+          "password": user.password
+        })
+        .then(res => localStorage.setItem("AccessToken", res.headers.accesstoken));
         reset({
           firstname: "",
           lastname: "",
