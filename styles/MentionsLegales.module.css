@@ -1,0 +1,19 @@
+.containerMentionsLegales{
+  display: flex;
+  flex-direction: center;
+  flex-wrap: wrap;
+  width: 70vw;
+  height: 60vh;
+  background-color: aquamarine;
+  align-items:center;
+  
+}
+.textMentionsLegales{
+  background-color: rgb(204, 240, 238);
+  margin:2rem;
+  padding:2rem;
+}
+.titleMentionsLegales{
+  color: blue;
+  
+}
