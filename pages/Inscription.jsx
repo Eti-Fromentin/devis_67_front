@@ -32,6 +32,7 @@ function Inscription() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
@@ -48,6 +49,24 @@ function Inscription() {
       city: data.city,
       password: data.password,
     });
+    axios
+      .post('http://localhost:8000/api/auth/login', {
+        email: data.email,
+        password: data.password,
+      })
+      .then((res) => localStorage.setItem('AccessToken', res.headers.accesstoken));
+    reset({
+      firstname: '',
+      lastname: '',
+      email: '',
+      phone: '',
+      address: '',
+      postalCode: '',
+      city: '',
+      password: '',
+      confirmPassword: '',
+      acceptTerms: false,
+    });
   };
 
   return (
@@ -58,7 +77,9 @@ function Inscription() {
           <Row className="justify-content-md-center">
             <Col md={8}>
               <Card className={styles.card}>
-                <h1 className="">Inscrivez-vous!</h1>
+                <h1 className="">Inscrivez-vous !</h1>
+                <hr />
+                <p>*Donnée obligatoire</p>
                 <Card.Body>
                   <Form onSubmit={handleSubmit(formSubmit)}>
                     <Form.Group className="mb-3" controlId="firstname">
@@ -111,7 +132,7 @@ function Inscription() {
                       <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
                     </Form.Group>
                     <Button variant="primary" type="submit">
-                      S'inscrire
+                      S&#039;inscrire
                     </Button>
                   </Form>
                 </Card.Body>
