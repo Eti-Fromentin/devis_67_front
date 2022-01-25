@@ -34,7 +34,8 @@ return (
           <Col md={8}>
             <Card className={styles.card}>
               <h1 className="">Récupérer mon mot de passe</h1>
-              <p>Renseignez les informations ci-dessous.</p>
+              <hr/>
+              <p>Renseignez votre email ci-dessous.</p>
               <p>Nous vous enverrons un lien pour récupérer votre accès à votre compte Devis67</p>
               <Card.Body>
                 <Form onSubmit={handleSubmit(ConnectSubmit)}>
