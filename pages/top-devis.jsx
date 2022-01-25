@@ -1,27 +1,23 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 //import axios from 'axios';
-import styles from '../../styles/Faq.module.css';
-import { Container } from 'react-bootstrap';
+import styles from '../styles/TopDevis.modules.css';
+//import { Container } from 'react-bootstrap';
 
-function Faq() {
+function TopDevis() {
   return (
     <div>
       <NavBar pageType="devis" />
-
-      <h1>FAQ</h1>
-      <Container>
-        <div className={styles.containerFaq}>
-          <h1>FAQ</h1>
-          <h1>FAQ</h1>
-          <h1>FAQ</h1>
-          <h1>FAQ</h1>
-          <h1>FAQ</h1>
-          <h1>FAQ</h1>
-        </div>
-      </Container>
-
+      <h1>Top devis</h1>
+      <p>Text à changer</p>
+      <div className={styles.containerTopDevis}>
+        <h1>Top Devis</h1>
+        <h1>Top Devis</h1>
+        <h1>Top Devis</h1>
+        <h1>Top Devis</h1>
+        <h1>Top Devis</h1>
+      </div>
       <Footer pageType="devis" />
     </div>
   );
@@ -39,4 +35,4 @@ function Faq() {
 //   };
 // }
 
-export default Faq;
+export default TopDevis;

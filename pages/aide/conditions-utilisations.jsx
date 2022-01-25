@@ -40,8 +40,6 @@ function ConditionsUtilisations({ posts }) {
                   </div>
                 );
               }
-              //}
-              //}
             })}
           </Container>
         </div>
