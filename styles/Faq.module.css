@@ -1,19 +1,23 @@
 .containerFaq{
   display: flex;
   flex-direction: center;
-  flex-wrap: wrap;
   width: 70vw;
   height: 50vh;
-  background-color: aquamarine;
-  align-items:center;
+  
+}
+.h1Faq{
+  margin:2rem;
   
 }
 .textFaq{
+  display: flex;
+  flex-direction: column;
   background-color: rgb(204, 240, 238);
   margin:2rem;
-  padding:2rem;
+  
 }
 .titleFaq{
   color: blue;
-  text-align: center;
+  text-align: left;
+  margin:2rem;
 }
