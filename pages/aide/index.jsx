@@ -33,7 +33,9 @@ function Aide({ posts }) {
                 if (itemMenu.page_section === 'lien') {
                   return (
                     <div key={itemMenu.position}>
-                      <Nav.Link href={itemMenu.pages.url}>{itemMenu.text}</Nav.Link>
+                      <Nav.Link href={itemMenu.pages.url} className={styles.linkAide}>
+                        {itemMenu.text}
+                      </Nav.Link>
                     </div>
                   );
                 } else {

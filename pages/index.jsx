@@ -1,5 +1,7 @@
 import React from 'react';
+//import axios from 'axios';
 import Image from 'next/image';
+import Head from 'next/head';
 import image1 from '../Assets/artisan.jpg';
 import image2 from '../Assets/aides.jpg';
 import Link from 'next/link';
@@ -11,6 +13,10 @@ import Footer from '../components/Footer';
 function HomePage() {
   return (
     <div>
+      <Head>
+        <title>My title</title>
+        <meta content="My page title" key="title" />
+      </Head>
       <NavBar pageType="devis" />
       <div className={styles.home}>
         <Container className={styles.containerHomepage}>
@@ -48,5 +54,22 @@ function HomePage() {
     </div>
   );
 }
+//export async function getStaticProps() {
+// const params = props.match.params;
+// <Switch>
+// <Route path="/:year/:month" component={PostList} />
+// <Switch>
+// <Route path="/:year/:month" component={PostList} />
+//   const posts = await axios
+//     .get('http://localhost:8000/api/pages')
+//     .then((response) => response.data)
+//     .then((data) => data.filter((element) => element.url === params));
+
+//   return {
+//     params: {
+//       posts,
+//     },
+//   };
+// }
 
 export default HomePage;

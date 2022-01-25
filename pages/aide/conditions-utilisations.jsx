@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { HashLink as Link } from 'react-router-hash-link';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import styles from '../../styles/Conditions.module.css';
-import { Container } from 'react-bootstrap';
 
 function ConditionsUtilisations({ posts }) {
   return (
@@ -13,35 +13,39 @@ function ConditionsUtilisations({ posts }) {
       {!posts ? (
         <p>Loading</p>
       ) : (
-        <div>
-          <ul>
-            {posts
-              .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
-              .map((itemMenu) => (
-                <li className={styles.itemsMenu} key={itemMenu.key}>
-                  {itemMenu.text}
-                </li>
-              ))}
-          </ul>
-          <Container>
-            {posts.map((itemMenu) => {
-              if (itemMenu.page_section === 'chapterTitle') {
-                return (
-                  <div key={itemMenu.position}>
-                    <h5 className={styles.titleConditions} key={itemMenu.position}>
-                      {itemMenu.text}
-                    </h5>
-                  </div>
-                );
-              } else if (itemMenu.page_section === 'text') {
-                return (
-                  <div key={itemMenu.position}>
-                    <p className={styles.textConditions}>{itemMenu.text}</p>
-                  </div>
-                );
-              }
-            })}
-          </Container>
+        <div className={styles.containerConditions}>>
+          <div className={styles.textConditions}>
+            <ul>
+              {posts
+                .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
+                .map((itemMenu) => (
+                  <li className={styles.itemsMenu} key={itemMenu.key}>
+                    {itemMenu.text}</li>
+                  // <Link to={`#${itemMenu.key}`}>className={styles.itemsMenu} key={itemMenu.key}>
+                  //   {itemMenu.text}
+                  // </Link>
+                ))}
+            </ul>
+            <div>
+              {posts.map((itemMenu) => {
+                if (itemMenu.page_section === 'chapterTitle') {
+                  return (
+                    <div key={itemMenu.position}>
+                      <h5 className={styles.titleConditions} id={itemMenu.key} key={itemMenu.position}>
+                        {itemMenu.text}
+                      </h5>
+                    </div>
+                  );
+                } else if (itemMenu.page_section === 'text') {
+                  return (
+                    <div key={itemMenu.position}>
+                      <p className={styles.textConditions}>{itemMenu.text}</p>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
         </div>
       )}
       <Footer pageType="devis" />

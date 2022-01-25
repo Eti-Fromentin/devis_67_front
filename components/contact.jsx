@@ -1,16 +1,16 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
-import Connexion from '../components/Connexion';
 import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
+import Renseignement from '../components/Renseignement';
 
-function EspaceClient() {
+function Contact() {
   return (
     <div>
       <NavBar pageType="devis" />
-      <Connexion />
+      <Renseignement />
       <Footer pageType="devis" />
     </div>
   );
 }
 
-export default EspaceClient;
+export default Contact;
