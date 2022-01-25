@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
-import styles from '../styles/Wip.modules.css';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import styles from '../styles/Wip.module.css';
 
 function Wip() {
   return (

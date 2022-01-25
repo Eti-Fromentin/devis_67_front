@@ -44,9 +44,9 @@ function ModeEmploi({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent')
+    .get('http://localhost:8000/api/pagescontent/modeEmploi')
     .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1 && element.page_name === 'modeEmploi'));
+    .then((data) => data.filter((element) => element.visible === 1));
 
   return {
     props: {

@@ -9,11 +9,11 @@ function ConditionsUtilisations({ posts }) {
   return (
     <div>
       <NavBar pageType="devis" />
-      <h1>Conditions d utilisations</h1>
+      <h1>Conditions d&#039; utilisations</h1>
       {!posts ? (
         <p>Loading</p>
       ) : (
-        <div className={styles.containerConditions}>>
+        <div className={styles.containerConditions}>
           <div className={styles.textConditions}>
             <ul>
               {posts
@@ -54,7 +54,7 @@ function ConditionsUtilisations({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent')
+    .get('http://localhost:8000/api/pagescontent/conditions')
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
 

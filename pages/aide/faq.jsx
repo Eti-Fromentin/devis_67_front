@@ -46,9 +46,9 @@ function Faq({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent')
+    .get('http://localhost:8000/api/pagescontent/faq')
     .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1 && element.page_name === 'faq'));
+    .then((data) => data.filter((element) => element.visible === 1));
 
   return {
     props: {

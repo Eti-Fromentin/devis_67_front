@@ -10,7 +10,7 @@ function TopDevis({ posts }) {
     <div>
       <NavBar pageType="devis" />
       {posts
-        .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle')
+        .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle' && titlesMenu.page_name === 'top-devis')
         .map((titleMenu) => {
           return (
             <div key={titleMenu.id}>
@@ -27,7 +27,7 @@ function TopDevis({ posts }) {
         <div className={styles.containerTopDevis}>
           <div className={styles.textTopDevis}>
             {posts
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position < 10)
+              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position < 10 && itemsMenu.page_name === 'top-devis')
               .map((itemMenu) => {
                 if (itemMenu.page_section === 'lien') {
                   return (
@@ -44,7 +44,7 @@ function TopDevis({ posts }) {
           </div>
           <div className={styles.textTopDevis}>
             {posts
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position >= 6)
+              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.page_name === 'faq')
               .map((itemMenu) => {
                 if (itemMenu.page_section === 'title') {
                   return (
@@ -63,9 +63,9 @@ function TopDevis({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent')
+    .get('http://localhost:8000/api/pagescontent/top-devis')
     .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1 && element.page_name === 'top-devis'));
+    .then((data) => data.filter((element) => element.visible === 1));
 
   return {
     props: {
