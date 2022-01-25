@@ -1,12 +1,10 @@
-.containerAide{
+.containerTopDevis{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  
- 
-  
+  align-content: center;
 }
-.textAide{
+
+.textTopDevis{
   display: flex;
   flex-direction: column;
   align-content: space-around;
@@ -17,12 +15,9 @@
   max-width: 90vh;
 }
 
-.titleAide{
+.titleTopDevis{
   color: blue;
   text-align: left;
   margin:2rem;
 
-}
-.linkAide{
-  background.color: green;
 }

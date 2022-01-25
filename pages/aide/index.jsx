@@ -7,7 +7,8 @@ import { Nav } from 'react-bootstrap';
 // import SCAP1 from '../../components/SCAP1';
 
 function Aide({ posts }) {
-  return (
+  
+  );return (
     <div>
       <NavBar pageType="devis" />
       {posts
@@ -60,7 +61,6 @@ function Aide({ posts }) {
       )}
       <Footer pageType="devis" />
     </div>
-  );
 }
 export async function getStaticProps() {
   const posts = await axios
