@@ -22,7 +22,7 @@ const {
 });
 
 const ConnectSubmit = (data) => {
-  console.log(JSON.stringify(data, null, 2));
+  console.log("lien envoyé");
 };
 
 return (
