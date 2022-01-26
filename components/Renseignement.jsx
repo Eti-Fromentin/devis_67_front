@@ -8,8 +8,11 @@ import styles from '../styles/Contact.module.css';
 
 function Renseignement() {
   const ConnectSchema = Yup.object().shape({
-    email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
-    password: Yup.string().required('⚠ Mot de passe requis').min(8, '⚠ Minimum de 8 caractères').max(50, '⚠ Maximum de 50 caractères'),
+    email: Yup.string().required('⚠ Un Email est requis').max(60, '⚠ Maximum de 60 caractères').email('⚠ Email invalide'),
+    lastname: Yup.string().required('⚠ Un nom est requis').matches(/^[aA-zZ]+$/, 'lettres majuscule ou miniscule uniquement').max(45, '⚠ Maximum de 45 caractères'),
+    subject: Yup.string().required('⚠ Un sujet est requis').max(100, '⚠ Maximum de 100 caractères'),
+    message: Yup.string().required('⚠ Un message est requis').max(255, '⚠ Maximum de 255 caractères'),
+    
   });
 
   const {
@@ -39,20 +42,20 @@ function Renseignement() {
                     <Form.Control {...register('email')} size="sm" type="text" placeholder="Entrez votre adresse email" />
                     <p className={styles.error}>{errors.email && errors.email?.message}</p>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="password">
+                  <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Nom</Form.Label>
-                    <Form.Control {...register('password')} size="sm" type="password" placeholder="Entrez votre nom" />
-                    <p className={styles.error}>{errors.password && errors.password?.message}</p>
+                    <Form.Control {...register('lastname')} size="sm" type="text" placeholder="Entrez votre nom" />
+                    <p className={styles.error}>{errors.lastname && errors.lastname?.message}</p>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="password">
+                  <Form.Group className="mb-3" controlId="subject">
                     <Form.Label>Sujet</Form.Label>
-                    <Form.Control {...register('password')} size="sm" type="password" placeholder="Le sujet de votre demande" />
-                    <p className={styles.error}>{errors.password && errors.password?.message}</p>
+                    <Form.Control {...register('subject')} size="sm" type="text" placeholder="Le sujet de votre demande" />
+                    <p className={styles.error}>{errors.subject && errors.subject?.message}</p>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="password">
+                  <Form.Group className="mb-3" controlId="message">
                     <Form.Label>Message</Form.Label>
-                    <Form.Control {...register('password')} size="sm" type="password" placeholder="Votre message" />
-                    <p className={styles.error}>{errors.password && errors.password?.message}</p>
+                    <Form.Control {...register('message')} size="sm" type="text" placeholder="Votre message" />
+                    <p className={styles.error}>{errors.message && errors.message?.message}</p>
                   </Form.Group>
 
                   <Button className={styles.button} variant="primary" type="submit">
