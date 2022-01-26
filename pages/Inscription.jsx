@@ -132,7 +132,7 @@ function Inscription() {
                       <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
                     </Form.Group>
                     <Button variant="primary" type="submit">
-                      S'inscrire
+                      S&#039;inscrire
                     </Button>
                   </Form>
                 </Card.Body>

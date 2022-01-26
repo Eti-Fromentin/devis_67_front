@@ -14,11 +14,9 @@ function Aide({ posts }) {
         .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle')
         .map((titleMenu) => {
           return (
-            <div key={titleMenu.id}>
-              <h5 key={titleMenu.id} className={styles.titleAide}>
-                {titleMenu.text}
-              </h5>
-            </div>
+            <h5 key={titleMenu.id} className={styles.titleAide}>
+              {titleMenu.text}
+            </h5>
           );
         })}
 
@@ -33,7 +31,9 @@ function Aide({ posts }) {
                 if (itemMenu.page_section === 'lien') {
                   return (
                     <div key={itemMenu.position}>
-                      <Nav.Link href={itemMenu.pages.url}>{itemMenu.text}</Nav.Link>
+                      <Nav.Link href={itemMenu.pages.url} className={styles.linkAide}>
+                        {itemMenu.text}
+                      </Nav.Link>
                     </div>
                   );
                 } else {
@@ -62,9 +62,9 @@ function Aide({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent')
+    .get('http://localhost:8000/api/pagescontent/aide')
     .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1 && element.page_name === 'aide'));
+    .then((data) => data.filter((element) => element.visible === 1));
 
   return {
     props: {

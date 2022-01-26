@@ -7,19 +7,18 @@ import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../components/NavBar';
 import styles from '../styles/NewPassword.module.css';
 
-function NewPassword () {
+function NewPassword() {
+  const ConnectSchema = Yup.object().shape({
+    email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
+  });
 
-const ConnectSchema = Yup.object().shape({
-  email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
-});
-
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm({
-  resolver: yupResolver(ConnectSchema),
-});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(ConnectSchema),
+  });
 
 const ConnectSubmit = (data) => {
   console.log("lien envoyé");
