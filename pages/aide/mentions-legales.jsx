@@ -5,7 +5,7 @@ function MentionsLegales() {
   return (
     <div>
       <NavBar pageType="devis" />
-      Page Mentions Légales
+      <h1>JSFNGKRSHFSIEFNGUISO</h1>
     </div>
   );
 }

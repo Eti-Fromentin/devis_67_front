@@ -1,3 +1,17 @@
 .containerNavBar {
-    background: rgb(202, 202, 202);
+    font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
+    border: 1px solid rgb(202, 202, 202);
 }
+
+.navlinks {
+    font-size: 1rem;
+    /* line-height: 1.5rem; */
+    font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
+}
+.navlinks:hover {
+    background: rgb(199, 147, 199);
+    border-radius: 1rem;
+}
+/* .divNavLinks {
+    border
+} */

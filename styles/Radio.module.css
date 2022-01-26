@@ -1,0 +1,7 @@
+.formRadio {
+    background: rgb(223, 223, 223);
+    width: 10%;
+    height: 5%;
+    border: 1px solid purple;
+    border-radius: 10px;
+}

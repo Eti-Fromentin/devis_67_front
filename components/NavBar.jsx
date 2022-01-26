@@ -33,8 +33,10 @@ function NavBar({ pageType }) {
                 {navBarData.length &&
                   navBarData.map((element) => {
                     return (
-                      <div key={element.position}>
-                        <Nav.Link href={element.pages.url}>{element.text}</Nav.Link>
+                      <div key={element.position} className={styles.divNavLinks}>
+                        <Nav.Link href={element.pages.url} className={styles.navlinks}>
+                          {element.text}
+                        </Nav.Link>
                       </div>
                     );
                   })}

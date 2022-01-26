@@ -1,7 +1,7 @@
 
 .footerBackground{
-  background: rgb(202, 202, 202);
   height: 30vh;
+  border: 1px solid rgb(202, 202, 202);
 }
 /** Double footer container **/
 .footerContainer {
@@ -68,6 +68,6 @@
   font-size: 1vw;
 }
 /** LINKS **/
-.linksHoverFooter:hover {
-  color: rgb(7, 7, 212);
+.linksHoverFooter {
+  font-weight: 650;
 }

@@ -21,23 +21,31 @@
 
 .homecard1 {
     height: 95%;
-    background-color: rgb(236, 233, 233);
     margin: 5vh;
     padding: 2vh;
-    border-radius: 5%;
+    border-radius: 0.50rem;
     border-color: 1px solid #333;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgb(217 215 213) 0px 1px 5px;
+    transition: 0.3s;
+}
+.homecard1:hover {
+    background: rgb(110, 79, 110);
+    color: white;
 }
 .homecard2 {
     height: 95%;
-    background-color: rgb(236, 233, 233);
     margin: 5vh;
     padding: 2vh;
-    border-radius: 5%;
+    border-radius: 0.50rem;
     border-color: 1px solid #333;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgb(217 215 213) 0px 1px 5px;
+    transition: 0.3s;
+}
+.homecard2:hover {
+    background: rgb(110, 79, 110);
+    color: white;
 }
 .cardTitleHome {
     font-weight: 700;

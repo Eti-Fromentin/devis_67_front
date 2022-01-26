@@ -1,28 +1,21 @@
 
-/** H1 **/
 .h1ConditionsUtilisations {
-    /* background: grey; */
     padding: 1.5rem;
     font-size: 3vw;
 }
 
-/** BAR **/
 .barConditionsUtilisations {
     border: 1px solid #333;
     width: 70%;
     margin-left: 12%;
 }
 
-/** UL **/
 .containerUlConditionUtilisation {
-    /* background: yellowgreen; */
     padding: 1rem;
     margin-left: 4rem;
     font-size: 1vw;
 }
 
-/** CONTAINER Item Menu **/
 .containerItemMenu {
-    /* background: coral; */
     padding-top: 2rem;
 }
