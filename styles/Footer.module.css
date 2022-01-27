@@ -9,20 +9,17 @@
   display:flex;
   justify-content: space-around;
   flex-direction: row;
- 
 }
 
-.itemsNavBar{
-  line-height: 1rem;
-  font-size: 1rem;
-}
 .footerLigne{
   background-color: cadetblue;
-  height:0.5rem;
+  height:2px;
   
 }
 .footerLink{
   font-size: 12px;
+  line-height: 0rem;
+
 }
 .footerH3{
   font-size:14px;

@@ -1,3 +1,7 @@
-.containerNavBar {
-    background: rgb(202, 202, 202);
-}
+.navBarLink{
+    font-size: 12px;
+    
+  }
+  .containerNavBar{
+      height: 15vh;
+  }
