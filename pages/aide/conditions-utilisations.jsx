@@ -15,15 +15,15 @@ function ConditionsUtilisations({ posts }) {
         ) : (
           <div className={styles.containerConditions}>
             <div className={styles.textConditions}>
-              <ul>
+              <ol>
                 {posts
                   .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
                   .map((itemMenu) => (
                     <li className={styles.itemsMenu} key={itemMenu.key}>
-                      <a href={`#${itemMenu.text}`}>{itemMenu.text}</a>
+                      <a href={`#${itemMenu.text}`} className={styles.linkConditions}>{itemMenu.text}</a>
                     </li>
                   ))}
-              </ul>
+              </ol>
               <div>
                 {posts.map((itemMenu) => {
                   if (itemMenu.page_section === 'chapterTitle') {
