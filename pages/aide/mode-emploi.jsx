@@ -31,7 +31,6 @@ function ModeEmploi({ posts }) {
             .map((itemMenu) => {
               return (
                 <div key={itemMenu.position} className={styles.textModeEmploi}>
-                  <i className="fa fa-file-text-o"></i>
                   <p>{itemMenu.text}</p>
                 </div>
               );
