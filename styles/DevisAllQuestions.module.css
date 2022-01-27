@@ -1,123 +1,130 @@
+.spinnerContainer {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /***** BODY *****/
 .bodyDevisAllQuestions {
-    height: 160vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 5%; */
+  padding: 5%;
 }
 /**** PRINCIPAL CONTAINER ***/
 .containerDevisAllQuestions {
-    overflow: hidden;
-    width: 80%;
-    height: 90%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 4fr 4fr 6fr 2fr;
-    grid-template-areas: "1"
-                         "2"
-                         "3"
-                         "4"
-                         "5";
+  overflow: hidden;
+  width: 90%;
+  height: 90%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  border-radius: 20px;
+  display: grid;
+  gap: 2vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  padding: 5%;
 }
 
 /*** FIRST ROW == TITLE ***/
 .titleContainerDevisAllQuestions {
-    grid-area: "1";
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: '1';
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .titleContainerDevisAllQuestions > h1 {
-    text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 }
 
 /*************** SECOND ROW === nature projets ************************/
 .firstRowDevisAllQuestions {
-    grid-area: "2";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  grid-area: '2';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .firstRowDevisAllQuestions > span {
-    font-size: 2vw;
+  font-size: 2vw;
 }
 /** container checkboxs inputs **/
 .containerCheckboxInput {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 /*** BTN first row **/
 .btnFirstRow {
-    background: rgb(221, 221, 221);
-    width: 20%;
-    height: 60%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: rgb(221, 221, 221);
+  width: 20%;
+  height: 60%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /*************** THIRD ROW === nature projets ************************/
 .secondRowDevisAllQuestions {
-    grid-area: "3";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  grid-area: '3';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .secondRowDevisAllQuestions > span {
-    font-size: 2vw;
+  font-size: 2vw;
 }
 /** container checkboxs inputs **/
 .containerCheckboxInput {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 /*** BTN first row **/
 .btnSecondRow {
-    background: rgb(221, 221, 221);
-    width: 24%;
-    height: 75%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: rgb(221, 221, 221);
+  width: 24%;
+  height: 75%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /*************** FOURTH ROW === Questions communes ************************/
 .thirdRowDevisAllQuestions {
-    grid-area: "4";
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+  grid-area: '4';
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 }
 .thirdRowDevisAllQuestions > span {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 .btnDropDownDevisAllQuestions {
-    margin-top: 3%;
+  margin-top: 3%;
 }
 /******************** FIFTH ROW === low button submit *******************/
 .containerSubmitDevisAllQuestions {
-    grid-area: "5";
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: '5';
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* .containerSubmitDevisAllQuestions > button {
     width: 25%;

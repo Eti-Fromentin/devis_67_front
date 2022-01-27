@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Checkbox = () => {
-    return (
-        <>
-        
-        </>
-    );
+  return <></>;
 };
 
 export default Checkbox;

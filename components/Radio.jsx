@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Card, CardGroup } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import styles from '../styles/Radio.module.css';
-// import FormCheck from 'react-bootstrap/FormCheck';
+import FormCheck from 'react-bootstrap/FormCheck';
 
-const Radio = () => {
+const Radio = ({ elt }) => {
+  const answer = elt.formulaire_possible_answer.answer;
+
+  useEffect(() => {
+    console.log(elt.formulaire_id);
+  }, []);
+
   return (
-    <>
-      <Form className={styles.formRadio}>
-        {['checkbox'].map((type) => (
-          <div key={type.id} className={styles.mb3}>
-            {/* <Form.Check type={type} id={`default-${type}`} label={} /> */}
-          </div>
-        ))}
-      </Form>
-    </>
+    <Form>
+      <FormCheck type="radio" label={answer} name={elt.formulaire_id} />
+    </Form>
   );
 };
 
