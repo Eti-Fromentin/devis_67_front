@@ -7,9 +7,9 @@ const Radio = () => {
   return (
     <>
       <Form className={styles.formRadio}>
-        {['checkbox'].map((type) => (
-          <div key={type.id} className={styles.mb3}>
-            {/* <Form.Check type={type} id={`default-${type}`} label={} /> */}
+        {['Radio'].map((type) => (
+          <div key={type.id} className={styles.mb3Radio}>
+            <Form.Check type={type} id={`default-${type}`} label={`Get data filtered here`} />
           </div>
         ))}
       </Form>

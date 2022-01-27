@@ -61,7 +61,7 @@ function DevisAllQuestions({ posts }) {
         {/* FOURTH-ROW === "Quand voudriez-vous travailler ?" */}
         <section className={styles.thirdRowDevisAllQuestions}>
           <span>Quand voudriez-vous débuter les travaux ?</span>
-          <Dropdown className={styles.btnDropDownDevisAllQuestions}>
+          {/* <Dropdown className={styles.btnDropDownDevisAllQuestions}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               SELECTIONNEZ
             </Dropdown.Toggle>
@@ -74,7 +74,7 @@ function DevisAllQuestions({ posts }) {
               <Dropdown.Item href="#/action-5">5</Dropdown.Item>
               <Dropdown.Item href="#/action-Plus">Plus</Dropdown.Item>
             </Dropdown.Menu>
-          </Dropdown>
+          </Dropdown> */}
         </section>
 
         {/* FIFTH ROW === low button */}
@@ -88,7 +88,7 @@ function DevisAllQuestions({ posts }) {
 
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/from/Fénêtres')
+    .get('http://localhost:8000/api/form/Fénêtres')
     .then((response) => response.data)
     .then((data) => {
       console.log(data);

@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import styles from '../../styles/DevisHome.module.css';
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
-import Radio from '../../components/Radio';
+import { InputGroup, FormControl, Button } from 'react-bootstrap';
 // import axios from 'axios';
 // import { Dropdown } from 'react-bootstrap';
 
@@ -29,10 +29,21 @@ const DevisHome = () => {
             <div className={styles.leftSearchBarDevisHome}>
               {/* search bar */}
               <div className={styles.searchBoxDevisHome}>
-                <input className={styles.searchInputDevisHome} type="text" placeholder="Tapez votre recherche..."></input>
+                {/* <input className={styles.searchInputDevisHome} type="text" placeholder="Tapez votre recherche..."></input>
                 <button className={styles.searchBtnDevisHome}>
                   <i className="fas fa-search"></i>
-                </button>
+                </button> */}
+                <InputGroup className={styles.inputGroupIndexDevis}>
+                  <FormControl
+                    placeholder="Tapez votre recherche"
+                    aria-label="Tapez votre recherche"
+                    className={styles.formControlSearchIndexDevis}
+                    aria-describedby="basic-addon2"
+                  />
+                  <Button variant="outline-secondary" id="button-addon2">
+                    Search
+                  </Button>
+                </InputGroup>
               </div>
             </div>
             {/* options */}
@@ -69,7 +80,6 @@ const DevisHome = () => {
           </aside>
         </section>
       </section>
-      <Radio />
       <Footer />
     </>
   );

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Footer.module.css';
 
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Spinner } from 'react-bootstrap';
 
 function Footer() {
   const [footerData, setFooterData] = useState([]);
@@ -20,7 +20,9 @@ function Footer() {
     <>
       <div>
         {!footerData.length ? (
-          <p>Loading</p>
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
         ) : (
           <div className={styles.footerBackground}>
             {/* COMPONENT NAVBAR PRINCIPAL WRAPPER */}

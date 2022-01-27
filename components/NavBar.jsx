@@ -3,7 +3,7 @@ import logo from '../Assets/logo.png';
 import Image from 'next/image';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Spinner } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css';
 
 function NavBar({ pageType }) {
@@ -18,7 +18,9 @@ function NavBar({ pageType }) {
   return (
     <div>
       {!navBarData.length ? (
-        <p>Loading</p>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
       ) : (
         <Navbar expand="lg" className={styles.containerNavBar}>
           <Container>
