@@ -52,9 +52,10 @@ function DevisAllQuestions({ form, headInfo }) {
                   inline
                   key={elt.id}
                   className={styles.inputRadio}
+                  type="radio"
                   label={elt.formulaire_possible_answer.answer}
-                  name={elt.formulaire_id}
                   value={elt.formulaire_possible_answer.answer}
+                  name={elt.formulaire_id}
                 />
               </Card>
             ))}

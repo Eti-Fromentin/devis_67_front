@@ -2,11 +2,12 @@ import React from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import styles from '../../styles/DevisHome.module.css';
-import Data from '../../dataCategory.json';
+// import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
-import { InputGroup, FormControl, Button } from 'react-bootstrap';
+import { InputGroup, FormControl, Button, Spinner } from 'react-bootstrap';
+import axios from 'axios';
 
-const DevisHome = () => {
+const DevisHome = ({url}) => {
   return (
     <>
       <NavBar pageType="devis" />
@@ -17,10 +18,17 @@ const DevisHome = () => {
           <aside className={styles.leftContainerDevisHome}>
             {/* GRID 3 columns */}
             <div className={styles.leftTextDevisHome}>
-              {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
+              {/* {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
                 return <span key={element.position}>{element.text}</span>;
                 // }
-              })}
+              })} */}
+              {!url ? (
+                <Spinner animation="border" />
+              ) : (
+                url.map((data) => {
+                  <span key={data.id}>{data.url}</span>;
+                })
+              )}
             </div>
             <div className={styles.leftSearchBarDevisHome}>
               {/* search bar */}
@@ -40,9 +48,9 @@ const DevisHome = () => {
             </div>
             {/* options */}
             <div className={styles.leftOptionsDevisHome}>
-              {Data.map((element) => {
+              {/* {Data.map((element) => {
                 return <span key={element.id}>{element.text}</span>;
-              })}
+              })} */}
             </div>
           </aside>
           {/* RIGHT CONTAINER */}
@@ -76,4 +84,17 @@ const DevisHome = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const url = await axios
+    .get('http://localhost:8000/api/homedevis/categories')
+    .then((response) => response.data)
+    .then((res) => res.data);
+
+  return {
+    props: {
+      url,
+    },
+  };
+}
 export default DevisHome;
