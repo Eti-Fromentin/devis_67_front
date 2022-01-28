@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../../styles/DevisAllQuestions.module.css';
 import { Card, Dropdown, Spinner, Form, FormCheck } from 'react-bootstrap';
 import axios from 'axios';
-// import Radio from '../../components/Radio';
 import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';

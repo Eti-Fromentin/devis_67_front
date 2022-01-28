@@ -30,9 +30,6 @@
 }
 
 /****** ----  RADIO CHOICE  ----  *******/
-.containerRadioChoiceComponent {
-  /* background: rgb(206, 98, 35); */
-}
 .containerRadioChoiceComponent > h1 {
   font-size: clamp(15px, 8vw, 22px);
 }
