@@ -43,7 +43,7 @@ function DevisAllQuestions({ form, headInfo }) {
     return (
       <div>
         <h2>{elt.question}</h2>
-        <ButtonGroup type="radio" onChange={(e) => handleListChange(e.target.value, question)}>
+        <ButtonGroup type="radio" onChange={(e) => handleChange(e.target.value, question)}>
           {answer &&
             answer.map((elt) => (
               <Card className={styles.inputCard} key={elt.id}>
@@ -92,7 +92,7 @@ function DevisAllQuestions({ form, headInfo }) {
       <div>
         <h2>{elt.question}</h2>
         <Form className={styles.btnDropDownDevisAllQuestions}>
-          <DropdownButton onSelect={(event) => handleListChange(event, elt.question)} title="Selectionnez votre réponse">
+          <DropdownButton onSelect={(event) => handleChange(event, elt.question)} title="Selectionnez votre réponse">
             {choice.map((elt) => (
               <h2 key={elt.id}>
                 <Dropdown.Item eventKey={elt.formulaire_possible_answer.answer}>{elt.formulaire_possible_answer.answer}</Dropdown.Item>
@@ -110,7 +110,13 @@ function DevisAllQuestions({ form, headInfo }) {
         <h2>{elt.question}</h2>
         <Form.Group className="mb-3">
           <Form.Text>
-            <Form.Control size="sm" type="textarea" id={elt.question} />
+            <Form.Control
+              onChange={(event) => handleChange(event.target.value, elt.question)}
+              size="sm"
+              type="textarea"
+              placeholder={elt.question}
+              id={elt.question}
+            />
             <Form.Text>Entrez votre réponse</Form.Text>
           </Form.Text>
         </Form.Group>
@@ -122,8 +128,17 @@ function DevisAllQuestions({ form, headInfo }) {
     return (
       <div>
         <h2>{elt.question}</h2>
-        <Form.Control type="textarea" id={elt.question} />
-        <Form.Text>Entrez votre réponse</Form.Text>
+        <Form.Group>
+          <Form.Text>
+            <Form.Control
+              onChange={(event) => handleChange(event.target.value, elt.question)}
+              type="textarea"
+              placeholder={elt.question}
+              id={elt.question}
+            />
+            <Form.Text>Entrez votre réponse</Form.Text>
+          </Form.Text>
+        </Form.Group>
       </div>
     );
   };
@@ -142,14 +157,14 @@ function DevisAllQuestions({ form, headInfo }) {
     if (!completedForm.length) {
       setCompletedForm([{ questions: question, answers: event }]);
     } else if (completedForm.some((elt) => elt.questions === question && elt.answers.includes(event))) {
-      console.log(tempArray);
-      console.log(completedForm);
+      // console.log(tempArray);
+      // console.log(completedForm);
       let index = completedForm.findIndex((elt) => elt.answers.includes(event) && elt.questions === question);
       tempArray[index].answers = completedForm[index].answers.replaceAll(event, '');
       setCompletedForm(tempArray);
     } else if (completedForm.some((elt) => elt.questions === question)) {
-      console.log(tempArray);
-      console.log(completedForm);
+      // console.log(tempArray);
+      // console.log(completedForm);
       let index = completedForm.findIndex((elt) => elt.questions === question);
       tempArray[index].answers = completedForm[index].answers.concat(', ', event);
       setCompletedForm(tempArray);
@@ -158,15 +173,15 @@ function DevisAllQuestions({ form, headInfo }) {
     }
   };
 
-  const handleListChange = async (event, question) => {
-    console.log(event);
+  const handleChange = async (event, question) => {
+    // console.log(event);
     if (!completedForm.length) {
       setCompletedForm([{ questions: question, answers: event }]);
     } else if (completedForm.some((elt) => elt.questions === question)) {
       let index = completedForm.findIndex((elt) => elt.questions === question);
       let tempArray = completedForm;
-      console.log(tempArray);
-      console.log(completedForm);
+      // console.log(tempArray);
+      // console.log(completedForm);
       tempArray[index] = { questions: question, answers: event };
       setCompletedForm(tempArray);
     } else {
