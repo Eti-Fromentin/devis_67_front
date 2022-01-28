@@ -7,7 +7,7 @@ import pic from '../../Assets/maison.jpg';
 import { InputGroup, FormControl, Button, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 
-const DevisHome = ({url}) => {
+const DevisHome = ({ url }) => {
   return (
     <>
       <NavBar pageType="devis" />
@@ -22,7 +22,7 @@ const DevisHome = ({url}) => {
                 return <span key={element.position}>{element.text}</span>;
                 // }
               })} */}
-              {!url ? (
+              {!url.length ? (
                 <Spinner animation="border" />
               ) : (
                 url.map((data) => {
@@ -86,10 +86,7 @@ const DevisHome = ({url}) => {
 };
 
 export async function getStaticProps() {
-  const url = await axios
-    .get('http://localhost:8000/api/homedevis/categories')
-    .then((response) => response.data)
-    .then((res) => res.data);
+  const url = await axios.get('http://localhost:8000/api/homedevis/categories').then((response) => response.data);
 
   return {
     props: {
