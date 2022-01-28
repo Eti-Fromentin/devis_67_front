@@ -50,9 +50,10 @@ function DevisAllQuestions({ form, headInfo }) {
                 <FormCheck
                   inline
                   key={elt.id}
+                  type="radio"
                   label={elt.formulaire_possible_answer.answer}
-                  name={elt.formulaire_id}
                   value={elt.formulaire_possible_answer.answer}
+                  name={elt.formulaire_id}
                 />
               </Card>
             ))}
