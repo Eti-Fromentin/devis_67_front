@@ -23,7 +23,7 @@ function NewPassword() {
   const ConnectSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
   };
-  
+
   return (
     <div>
       <NavBar pageType="devis" />
@@ -55,6 +55,8 @@ function NewPassword() {
           </Row>
         </Container>
       </div>
-)};
+    </div>s
+  );
+}
 
 export default NewPassword;

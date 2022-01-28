@@ -4,11 +4,10 @@ import Footer from '../../components/Footer';
 import axios from 'axios';
 import styles from '../../styles/Aide.module.css';
 import { Nav } from 'react-bootstrap';
-// import SCAP1 from '../../components/SCAP1';
 
-function Aide({ posts }) {
+function AideAccueil({ posts }) {
   return (
-    <div>
+    <>
       <NavBar pageType="devis" />
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle')
@@ -57,7 +56,7 @@ function Aide({ posts }) {
         </div>
       )}
       <Footer pageType="devis" />
-    </div>
+    </>
   );
 }
 export async function getStaticProps() {
@@ -73,4 +72,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Aide;
+export default AideAccueil;

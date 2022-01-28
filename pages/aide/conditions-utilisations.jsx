@@ -20,7 +20,9 @@ function ConditionsUtilisations({ posts }) {
                   .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
                   .map((itemMenu) => (
                     <li className={styles.itemsMenu} key={itemMenu.key}>
-                      <a href={`#${itemMenu.text}`} className={styles.linkConditions}>{itemMenu.text}</a>
+                      <a href={`#${itemMenu.text}`} className={styles.linkConditions}>
+                        {itemMenu.text}
+                      </a>
                     </li>
                   ))}
               </ol>

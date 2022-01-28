@@ -1,3 +1,83 @@
+
+/*** SPINNER ***/
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerBackground{
+  height: 30vh;
+  border: 1px solid rgb(202, 202, 202);
+}
+/** Double footer container **/
+.footerContainer {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "1" "2";
+}
+
+/********** LOGO PART ************/
+.logoContainer {
+  grid-area: "1";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navBarBrandFooter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/************** Container All UL *********************/
+/** title **/
+.h3footer {
+  left: 0;
+  width: 110%;
+  font-size: 1.5vw;
+}
+.navContainerUlFooter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: "2";
+}
+/** Container inside UL **/
+.itemsNavBar1{
+  margin-top: 3%;
+  width: 30%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemsNavBar2{
+  width: 30%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.meAuto{
+  height: 50%;
+  font-size: 1vw;
+}
+/** LINKS **/
+.linksHoverFooter {
+  font-weight: 650;
+}
 .footerContainer{
   height: 20vh;
   display: flex;

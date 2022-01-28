@@ -1,3 +1,5 @@
+
+
 .containerModeEmploi{
   display: flex;
   flex-direction: row;
@@ -12,7 +14,8 @@
   background-color: #fefbfa;
 }
 .titleModeEmploi{
-
+  color: blue;
+  text-align: center;
   text-align: left;
   margin-left: 2rem;
   font-size: 16px;

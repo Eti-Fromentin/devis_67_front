@@ -8,7 +8,7 @@
 /**** PRINCIPAL CONTAINER ***/
 .containerDevisHome {
     margin: 1rem;
-    height: 90vh;
+    height: 120vh;
     width: 85%;
     display: grid;
     grid-template-columns: 4fr 2fr;
@@ -23,7 +23,7 @@
 grid-area: "1";
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 1fr 1fr 5fr;
+grid-template-rows: 2fr 2fr 10fr;
 grid-template-areas: "1"
                      "2"
                      "3";
@@ -35,7 +35,6 @@ grid-template-areas: "1"
     align-items: center;
 }
 .leftTextDevisHome > span {
-    background-color: grey;
     border-radius: 15px;
 }
 /*** Search bar  -- START -- ***/
@@ -44,58 +43,15 @@ grid-template-areas: "1"
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background: grey; */
 }
-.searchBoxDevisHome {
-    width: 70%;
-    position: relative;
+
+.inputGroupIndexDevis {
     display: flex;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-  }
-  
-  .searchInputDevisHome {
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    padding: 15px 45px 15px 15px;
-    background-color: #eaeaeb;
-    color: #6c6c6c;
-    border-radius: 6px;
-    border:none;
-    transition: all .4s;
-  }
-  
-  .searchInputDevisHome:focus {
-    border:none;
-    outline:none;
-    box-shadow: 0 1px 12px #b8c6db;
-    -moz-box-shadow: 0 1px 12px #b8c6db;
-    -webkit-box-shadow: 0 1px 12px #b8c6db;
-  }
-  
-  .searchBtnDevisHome {
-    background-color: transparent;
-    font-size: 18px;
-    padding: 6px 9px;
-    margin-left:-45px;
-    border:none;
-    color: #6c6c6c;
-    transition: all .4s;
-    z-index: 10;
-  }
-  
-  .searchBtnDevisHome:hover {
-    transform: scale(1.2);
-    cursor: pointer;
-    color: black;
-  }
-  
-  .searchBtnDevisHome:focus {
-    outline:none;
-    color:black;
-  }
+}
 /*** Search bar  -- END -- ***/
 
 .leftOptionsDevisHome {
@@ -109,13 +65,17 @@ grid-template-areas: "1"
     padding: 2vw;
 }
 .leftOptionsDevisHome > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     font-size: 13px;
-    width: 40%;
+    width: 30%;
     height: 10%;
-    
-    background: rgb(173, 173, 173);
+    background: rgb(141, 68, 141);
+    color: white;
     margin-top: 1%;
+    font-size:clamp(8px, 10vw, 15px);
 }
 
 /******************************** RIGHT CONTAINER **************************************/
