@@ -39,15 +39,24 @@ function DevisAllQuestions({ form, headInfo }) {
 
   const radioChoice = (elt) => {
     const answer = elt.formulaire_join_answer;
+    const question = elt.question;
     return (
       <div>
         <h2>{elt.question}</h2>
-        {answer &&
-          answer.map((elt) => (
-            <Card className={styles.inputCard} key={elt.id}>
-              <FormCheck inline key={elt.id} type="radio" label={elt.formulaire_possible_answer.answer} name={elt.formulaire_id} />
-            </Card>
-          ))}
+        <ButtonGroup type="radio" onChange={(e) => handleListChange(e.target.value, question)}>
+          {answer &&
+            answer.map((elt) => (
+              <Card className={styles.inputCard} key={elt.id}>
+                <FormCheck
+                  inline
+                  key={elt.id}
+                  label={elt.formulaire_possible_answer.answer}
+                  name={elt.formulaire_id}
+                  value={elt.formulaire_possible_answer.answer}
+                />
+              </Card>
+            ))}
+        </ButtonGroup>
       </div>
     );
   };
