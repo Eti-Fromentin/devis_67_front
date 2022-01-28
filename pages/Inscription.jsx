@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import loginContext from '../contexts/loginContext';
 import NavBar from '../components/NavBar';
 import styles from '../styles/Inscription.module.css';
 
@@ -38,6 +39,18 @@ function Inscription() {
     resolver: yupResolver(validationSchema),
   });
 
+  const [account, setAccount] = useState({});
+  const { setUserToken, setUserId } = useContext(loginContext);
+
+  useEffect(() => {
+    if(account.headers) {
+      localStorage.setItem('AccessToken', account.headers.accesstoken),
+      localStorage.setItem('UserId', account.data.userId)
+      setUserToken(account.headers.accesstoken),
+      setUserId(account.data.userId)
+    }
+  }, [account]);
+
   const formSubmit = (data) => {
     axios.post('http://localhost:8000/api/user', {
       firstname: data.firstname,
@@ -54,8 +67,8 @@ function Inscription() {
         email: data.email,
         password: data.password,
       })
-      .then((res) => localStorage.setItem('AccessToken', res.headers.accesstoken));
-      alert("Merci, votre inscription a bien été prise en compte!");
+      .then((res) => setAccount(res));
+      alert("Merci, votre inscription a bien été prise en compte et êtes désormais connecté(e)!");
     reset({
       firstname: '',
       lastname: '',
