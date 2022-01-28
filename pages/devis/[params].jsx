@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../styles/DevisAllQuestions.module.css';
-import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup } from 'react-bootstrap';
+import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import Head from 'next/head';
 import NavBar from '../../components/NavBar';
@@ -12,6 +12,10 @@ function DevisAllQuestions({ form, headInfo }) {
   const [completedForm, setCompletedForm] = useState([]);
   const head = headInfo && headInfo[0];
   const { handleSubmit } = useForm({});
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     console.log(completedForm);
@@ -44,7 +48,7 @@ function DevisAllQuestions({ form, headInfo }) {
     return (
       <section className={styles.containerRadioChoiceComponent}>
         <h2>{elt.question}</h2>
-        <ButtonGroup className={styles.formTagRadioChoice} type="radio" onChange={(e) => handleListChange(e.target.value, question)}>
+        <ButtonGroup className={styles.formTagRadioChoice} type="radio" onChange={(e) => handleChange(e.target.value, question)}>
           {answer &&
             answer.map((elt) => (
               <Card className={styles.inputCardRadioChoice} key={elt.id}>
@@ -96,7 +100,7 @@ function DevisAllQuestions({ form, headInfo }) {
         <Form className={styles.btnDropDownDevisAllQuestions}>
           <DropdownButton
             className={styles.btnDropDownToggleDevisAllQuestions}
-            onSelect={(event) => handleListChange(event, elt.question)}
+            onSelect={(event) => handleChange(event, elt.question)}
             title="Selectionnez votre réponse"
           >
             {choice.map((elt) => (
@@ -118,7 +122,14 @@ function DevisAllQuestions({ form, headInfo }) {
         <h2>{elt.question}</h2>
         <Form.Group className="mb-3">
           <Form.Text>
-            <Form.Control className={styles.formControlShortText} size="sm" type="textarea" id={elt.question} />
+            <Form.Control
+              className={styles.formControlShortText}
+              onChange={(event) => handleChange(event.target.value, elt.question)}
+              size="sm"
+              type="textarea"
+              placeholder={elt.question}
+              id={elt.question}
+            />
             <Form.Text>Entrez votre réponse</Form.Text>
           </Form.Text>
         </Form.Group>
@@ -130,10 +141,17 @@ function DevisAllQuestions({ form, headInfo }) {
     return (
       <section className={styles.containerLongTextComponent}>
         <h2>{elt.question}</h2>
-        <div className={styles.containerFormLongTextComponent}>
-          <Form.Control type="textarea" id={elt.question} />
-          <Form.Text>Entrez votre réponse</Form.Text>
-        </div>
+        <Form.Group className={styles.containerFormLongTextComponent}>
+          <Form.Text>
+            <Form.Control
+              onChange={(event) => handleChange(event.target.value, elt.question)}
+              type="textarea"
+              placeholder={elt.question}
+              id={elt.question}
+            />
+            <Form.Text>Entrez votre réponse</Form.Text>
+          </Form.Text>
+        </Form.Group>
       </section>
     );
   };
@@ -152,14 +170,14 @@ function DevisAllQuestions({ form, headInfo }) {
     if (!completedForm.length) {
       setCompletedForm([{ questions: question, answers: event }]);
     } else if (completedForm.some((elt) => elt.questions === question && elt.answers.includes(event))) {
-      console.log(tempArray);
-      console.log(completedForm);
+      // console.log(tempArray);
+      // console.log(completedForm);
       let index = completedForm.findIndex((elt) => elt.answers.includes(event) && elt.questions === question);
       tempArray[index].answers = completedForm[index].answers.replaceAll(event, '');
       setCompletedForm(tempArray);
     } else if (completedForm.some((elt) => elt.questions === question)) {
-      console.log(tempArray);
-      console.log(completedForm);
+      // console.log(tempArray);
+      // console.log(completedForm);
       let index = completedForm.findIndex((elt) => elt.questions === question);
       tempArray[index].answers = completedForm[index].answers.concat(', ', event);
       setCompletedForm(tempArray);
@@ -168,15 +186,15 @@ function DevisAllQuestions({ form, headInfo }) {
     }
   };
 
-  const handleListChange = async (event, question) => {
-    console.log(event);
+  const handleChange = async (event, question) => {
+    // console.log(event);
     if (!completedForm.length) {
       setCompletedForm([{ questions: question, answers: event }]);
     } else if (completedForm.some((elt) => elt.questions === question)) {
       let index = completedForm.findIndex((elt) => elt.questions === question);
       let tempArray = completedForm;
-      console.log(tempArray);
-      console.log(completedForm);
+      // console.log(tempArray);
+      // console.log(completedForm);
       tempArray[index] = { questions: question, answers: event };
       setCompletedForm(tempArray);
     } else {
@@ -199,15 +217,26 @@ function DevisAllQuestions({ form, headInfo }) {
             <meta name="keywords" content={head.keywords} />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           </Head>
-          <h1>Remplissez ce formulaire et nous vous enverrons les devis dans les plus brefs délais</h1>
+          <h1 className={styles.topTitleDevisForm}>Remplissez ce formulaire et nous vous enverrons les devis dans les plus brefs délais :</h1>
           <Card className={styles.bodyDevisAllQuestions}>
             <Form onSubmit={handleSubmit(formSubmit)} className={styles.containerDevisAllQuestions}>
               {form.map((elt, index) => (
                 <div key={index}>{DevisForm(elt)}</div>
               ))}
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={handleShow}>
                 Valider
               </Button>
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Devis67</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Votre devis est envoyé!</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Fermer
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </Form>
           </Card>
         </>

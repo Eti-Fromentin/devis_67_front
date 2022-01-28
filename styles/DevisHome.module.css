@@ -43,7 +43,7 @@ grid-template-areas: "1"
     display: flex;
     justify-content: center;
     align-items: center;
-    background: grey;
+    /* background: grey; */
 }
 
 .inputGroupIndexDevis {
@@ -65,13 +65,17 @@ grid-template-areas: "1"
     padding: 2vw;
 }
 .leftOptionsDevisHome > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     font-size: 13px;
-    width: 40%;
+    width: 30%;
     height: 10%;
-    
-    background: rgb(173, 173, 173);
+    background: rgb(141, 68, 141);
+    color: white;
     margin-top: 1%;
+    font-size:clamp(8px, 10vw, 15px);
 }
 
 /******************************** RIGHT CONTAINER **************************************/

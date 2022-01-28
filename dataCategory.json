@@ -1,7 +1,8 @@
 [
   {
     "id": 1,
-    "text": "Peinture",
+    "text": "Fenêtres",
+    "categories": "only",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -9,7 +10,7 @@
   },
   {
     "id": 2,
-    "text": "FFFFFFF",
+    "text": "Construction - Extension",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -17,7 +18,7 @@
   },
   {
     "id": 3,
-    "text": "FGZEFEDQD",
+    "text": "Rénovation intérieure",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -25,7 +26,7 @@
   },
   {
     "id": 4,
-    "text": "ZEGFDQSFDF",
+    "text": "Chauffage - Chaudière",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -33,7 +34,7 @@
   },
   {
     "id": 5,
-    "text": "QEDQFQZQFQSF",
+    "text": "Menuiseries (alu, bois, pvc)",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -41,7 +42,7 @@
   },
   {
     "id": 6,
-    "text": "HTHHETHG",
+    "text": "Toiture - Charpente - Couverture",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -49,7 +50,7 @@
   },
   {
     "id": 7,
-    "text": "THTEHE",
+    "text": "Climatisation - Ventilation",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -57,7 +58,7 @@
   },
   {
     "id": 8,
-    "text": "DTHDTHETH",
+    "text": "Electricité - Courant faible",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -65,7 +66,7 @@
   },
   {
     "id": 9,
-    "text": "DHTDTH",
+    "text": "Architecture - Expertise",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -73,7 +74,7 @@
   },
   {
     "id": 10,
-    "text": "AE2EZR3",
+    "text": "Salle de bains - WC - SPA",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -81,7 +82,7 @@
   },
   {
     "id": 11,
-    "text": "AR34RZA4",
+    "text": "Incendie - Sécurité",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -89,7 +90,7 @@
   },
   {
     "id": 12,
-    "text": "ZETEZR3",
+    "text": "Cuisine",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -97,7 +98,7 @@
   },
   {
     "id": 13,
-    "text": "ZT4ZR3RR",
+    "text": "Peinture - Tapisserie",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -105,7 +106,7 @@
   },
   {
     "id": 14,
-    "text": "FDGRFGFGD",
+    "text": "Isolation",
     "position": 1,
     "pages": {
       "url": "/devis"
@@ -113,7 +114,7 @@
   },
   {
     "id": 15,
-    "text": "TY54Y6YU",
+    "text": "Plomberie",
     "position": 1,
     "pages": {
       "url": "/devis"

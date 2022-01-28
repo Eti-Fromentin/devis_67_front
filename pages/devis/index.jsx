@@ -2,12 +2,13 @@ import React from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import styles from '../../styles/DevisHome.module.css';
-// import Data from '../../dataCategory.json';
+import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
-import { InputGroup, FormControl, Button, Spinner } from 'react-bootstrap';
+import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import axios from 'axios';
+import Link from 'next/link';
 
-const DevisHome = ({ url }) => {
+const DevisHome = () => {
   return (
     <>
       <NavBar pageType="devis" />
@@ -18,17 +19,17 @@ const DevisHome = ({ url }) => {
           <aside className={styles.leftContainerDevisHome}>
             {/* GRID 3 columns */}
             <div className={styles.leftTextDevisHome}>
-              {/* {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
+              {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
                 return <span key={element.position}>{element.text}</span>;
                 // }
-              })} */}
-              {!url.length ? (
+              })}
+              {/* {!url.length ? (
                 <Spinner animation="border" />
               ) : (
                 url.map((data) => {
                   <span key={data.id}>{data.url}</span>;
                 })
-              )}
+              )} */}
             </div>
             <div className={styles.leftSearchBarDevisHome}>
               {/* search bar */}
@@ -48,9 +49,54 @@ const DevisHome = ({ url }) => {
             </div>
             {/* options */}
             <div className={styles.leftOptionsDevisHome}>
-              {/* {Data.map((element) => {
+              {/* {Data.filter((element) => element.position === 1).map((element) => {
                 return <span key={element.id}>{element.text}</span>;
               })} */}
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Fenêtres</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Construction - Extension</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Rénovation intérieure</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Chauffage - Chaudière</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Menuiseries (alu, bois, pvc)</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Toiture - Charpente</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Climatisation - Ventilation</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Architecture</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Salle de bains</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Peinture - Tapisserie</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Plomberie</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Sols intérieurs</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Sols extérieurs</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Piscine</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Aménagement intérieur</span>
+              </Link>
             </div>
           </aside>
           {/* RIGHT CONTAINER */}

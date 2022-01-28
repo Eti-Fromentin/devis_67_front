@@ -142,3 +142,9 @@ font-size: clamp(10px, 8vw, 15px);
 .inputFormLongTextComponent:hover {
   box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
 }
+
+/** TITLE **/
+.topTitleDevisForm {
+  font-size:clamp(20px, 9vw, 31px);
+  padding: 2rem;
+}
