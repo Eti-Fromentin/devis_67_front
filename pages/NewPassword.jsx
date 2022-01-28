@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import styles from '../styles/NewPassword.module.css';
 
 function NewPassword() {
@@ -20,8 +21,8 @@ function NewPassword() {
     resolver: yupResolver(ConnectSchema),
   });
 
-const ConnectSubmit = (data) => {
-  console.log("lien envoyé");
+const ConnectSubmit = () => {
+  alert("Le lien vient de vous être envoyé par email")
 };
 
 return (
@@ -56,6 +57,7 @@ return (
         </Row>
       </Container>
     </div>
+    <Footer pageType="devis" />
   </div>
 );
 }

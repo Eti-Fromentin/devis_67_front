@@ -55,6 +55,7 @@ function Inscription() {
         password: data.password,
       })
       .then((res) => localStorage.setItem('AccessToken', res.headers.accesstoken));
+      alert("Merci, votre inscription a bien été prise en compte!");
     reset({
       firstname: '',
       lastname: '',

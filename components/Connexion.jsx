@@ -29,6 +29,7 @@ function Connexion() {
         password: user.password,
       })
       .then((res) => localStorage.setItem('AccessToken', res.headers.accesstoken));
+      alert("Vous êtes désormais connecté(e)");
     reset({
       email: '',
       password: '',

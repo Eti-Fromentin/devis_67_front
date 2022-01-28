@@ -1,21 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Connexion from '../components/Connexion';
-import UserProfile from './[user]';
+import UserProfile from '../components/UserProfile';
 import loginContext from '../contexts/loginContext';
 
+
+
 function EspaceClient() {
+
   const { isLogin } = useContext(loginContext);
-  const loggedin = localStorage.getItem('AccessToken');
-  {
-    loggedin ? isLogin === true : isLogin === false;
-  }
+
   return (
     <div>
       <NavBar pageType="devis" />
-      {isLogin && isLogin === true ? <UserProfile /> : <Connexion />}
-      {/* <Connexion /> */}
+      {isLogin === true ? <UserProfile /> : <Connexion />}
       <Footer pageType="devis" />
     </div>
   );

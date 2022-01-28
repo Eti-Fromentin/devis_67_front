@@ -3,7 +3,7 @@ import axios from 'axios';
 import styles from '../styles/EspaceClient.module.css';
 
 function UserProfile() {
-  const [userTabs, setUserTabs] = useState();
+  const [userTabs, setUserTabs] = useState(1);
 
   const userData = () => {
     setUserTabs(1);
