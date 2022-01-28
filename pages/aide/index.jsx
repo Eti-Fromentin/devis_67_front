@@ -1,14 +1,44 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
-// import SCAP1 from '../../components/SCAP1';
+import Footer from '../../components/Footer';
+import styles from '../../styles/AideAccueil.module.css';
 
-function Aide() {
+const AideAccueil = () => {
   return (
-    <div>
+    <>
       <NavBar pageType="devis" />
-      {/* <SCAP1 /> */}
-    </div>
+      <section className={styles.containerscap1}>
+        <div className={styles.carrescap1}>
+          {/* 1 */}
+          <div className={styles.titlescap1}>
+            Simulez vos aides en quelques minutes afin d’obtenir votre devis au meilleur prix
+            <div className={styles.barscap1}></div>
+            Les travaux concernent :
+          </div>
+          {/* 2 */}
+          <div className={styles.choicescap1}>
+            {/* RIGHT BLOCK */}
+            <div className={styles.leftblockscap1}>
+              <span className={styles.circlescap1}></span>
+              <div className={styles.imageblock}></div>
+              <span>Une Maison</span>
+            </div>
+            {/* RIGHT BLOCK */}
+            <div className={styles.rightblockscap1}>
+              <span className={styles.circlescap1}></span>
+              <div className={styles.imageblock2}></div>
+              <span>Un appartement</span>
+            </div>
+          </div>
+          {/* 3 */}
+          <div className={styles.btnscap1}>
+            <button className={styles.btnscap1}>SUIVANT</button>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
-}
+};
 
-export default Aide;
+export default AideAccueil;

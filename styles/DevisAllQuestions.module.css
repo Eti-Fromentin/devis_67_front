@@ -1,129 +1,147 @@
 
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /***** BODY *****/
 .bodyDevisAllQuestions {
-    height: 160vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
 }
 /**** PRINCIPAL CONTAINER ***/
 .containerDevisAllQuestions {
-    overflow: hidden;
-    width: 80%;
-    height: 90%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 4fr 4fr 6fr 2fr;
-    grid-template-areas: "1"
-                         "2"
-                         "3"
-                         "4"
-                         "5";
+  overflow: hidden;
+  width: 90%;
+  height: 90%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  border-radius: 20px;
+  display: grid;
+  gap: 2vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  padding: 5%;
+  /* background: yellowgreen; */
 }
 
-/*** FIRST ROW == TITLE ***/
-.titleContainerDevisAllQuestions {
-    grid-area: "1";
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/****** ----  RADIO CHOICE  ----  *******/
+.containerRadioChoiceComponent {
+  /* background: rgb(206, 98, 35); */
 }
-.titleContainerDevisAllQuestions > h1 {
-    text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+.containerRadioChoiceComponent > h1 {
+  font-size: clamp(15px, 8vw, 22px);
 }
-
-/*************** SECOND ROW === nature projets ************************/
-.firstRowDevisAllQuestions {
-    grid-area: "2";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.formTagRadioChoice {
+  height: 30vh;
+  /* background: yellow; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
-.firstRowDevisAllQuestions > span {
-    font-size: 2vw;
+.inputCardRadioChoice {
+  /* background: rgb(156, 137, 30); */
+  min-width: 50px;
+  min-height: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
 }
-/** container checkboxs inputs **/
-.containerCheckboxInput {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-/*** BTN first row **/
-.btnFirstRow {
-    background: rgb(221, 221, 221);
-    width: 20%;
-    height: 60%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.inputCardRadioChoice:hover {
+  border: 1px solid purple;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px
 }
 
-/*************** THIRD ROW === nature projets ************************/
-.secondRowDevisAllQuestions {
-    grid-area: "3";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+
+/******  ----  CHECK CHOICE  ----  ******/
+.containerCheckChoiceComponent {
+  /* background: cyan; */
+  padding: 1rem;
 }
-.secondRowDevisAllQuestions > span {
-    font-size: 2vw;
+.containerCheckChoiceComponent > h1 {
+  font-size: clamp(15px, 8vw, 22px);
 }
-/** container checkboxs inputs **/
-.containerCheckboxInput {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.formTagCheckChoice {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
-/*** BTN first row **/
-.btnSecondRow {
-    background: rgb(221, 221, 221);
-    width: 24%;
-    height: 75%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.inputCardCheckChoice {
+  min-width: 30px;
+  min-height: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+}
+.inputCardCheckChoice:hover {
+ border-color: 1px purple;
+}
+.inputCardCheckChoice:hover {
+  border: 1px solid purple;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px
 }
 
-/*************** FOURTH ROW === Questions communes ************************/
-.thirdRowDevisAllQuestions {
-    grid-area: "4";
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+
+/****** ----  LIST CHOICE  ---- ******/
+.containerListChoiceComponent {
+  height: 18vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.thirdRowDevisAllQuestions > span {
-    margin-top: 2%;
+.containerListChoiceComponent > h1 {
+  font-size: clamp(15px, 8vw, 22px);
 }
-.btnDropDownDevisAllQuestions {
-    margin-top: 3%;
+.btnDropDownToggleDevisAllQuestions {
+  background: rgb(139, 21, 134);
+  border: 1px solid purple;
 }
-/******************** FIFTH ROW === low button submit *******************/
-.containerSubmitDevisAllQuestions {
-    grid-area: "5";
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.btnDropDownItemDevisAllQuestions {
+font-size: clamp(10px, 8vw, 15px);
 }
-/* .containerSubmitDevisAllQuestions > button {
-    width: 25%;
-    height: 60%;
-    font-size: 2.5vw;
-    border-radius: 40px;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-} */
+/*****  ---- SHORT TEXT ---- ****/
+.containerShortTextComponent {
+  /* background: yellow; */
+  height: 18vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.containerShortTextComponent > h1 {
+  font-size: clamp(15px, 8vw, 22px);
+}
+.formControlShortText:hover {
+  box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
+}
+
+/**** ---- LONG TEXT ---- ****/
+.containerLongTextComponent {
+  /* background: chartreuse; */
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.containerLongTextComponent > h1 {
+  font-size: clamp(15px, 8vw, 22px);
+}
+.containerFormLongTextComponent {
+  width: 100%;
+}
+.inputFormLongTextComponent {
+  width: 100%;
+  height: 20vh;
+  border: 1px solid #333;
+}
+.inputFormLongTextComponent:hover {
+  box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
+}

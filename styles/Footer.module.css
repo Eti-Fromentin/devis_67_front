@@ -1,4 +1,11 @@
 
+/*** SPINNER ***/
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .footerBackground{
   height: 30vh;
   border: 1px solid rgb(202, 202, 202);

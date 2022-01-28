@@ -77,17 +77,3 @@
 //     </section>
 //   );
 // };
-
-// export async function getStaticProps() {
-//   const text = await axios
-//     .get('http://localhost:8000/api/pagescontent')
-//     .then((response) => response.data)
-//     .then((data) => data);
-
-//   return {
-//     props: {
-//       text,
-//     },
-//   };
-// }
-// export default DevisAllQuestions;

@@ -18,9 +18,9 @@ function NavBar({ pageType }) {
   return (
     <div>
       {!navBarData.length ? (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className={styles.spinnerContainer}>
+          <Spinner animation="border" />
+        </div>
       ) : (
         <Navbar expand="lg" className={styles.containerNavBar}>
           <Container>
