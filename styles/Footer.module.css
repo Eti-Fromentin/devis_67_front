@@ -1,24 +1,26 @@
-.footerBackground{
-  background: rgb(202, 202, 202);
-  height: 40vh;
+.footerContainer{
+  height: 20vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:space-around;
+  flex-direction: row;
+}
+.footerMenu{
+  display:flex;
+  justify-content: space-around;
   flex-direction: row;
 }
 
-/* .footerContainer {
-  height: 90vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  flex-direction: row;
-
-} */
-.itemsNavBar{
-  line-height: 1rem;
-  font-size: 1rem;
-}
-.meAuto{
+.footerLigne{
+  background-color: cadetblue;
+  height:2px;
   
+}
+.footerLink{
+  font-size: 12px;
+  line-height: 0rem;
+
+}
+.footerH3{
+  font-size:14px;
 }
