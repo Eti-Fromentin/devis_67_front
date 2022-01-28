@@ -1,74 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../styles/DevisAllQuestions.module.css';
-import { Card, Dropdown, Spinner, Form, FormCheck } from 'react-bootstrap';
+import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup } from 'react-bootstrap';
 import axios from 'axios';
 import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useForm } from 'react-hook-form';
 
 function DevisAllQuestions({ form, headInfo }) {
+  const [completedForm, setCompletedForm] = useState([]);
+  const head = headInfo && headInfo[0];
+  const { handleSubmit } = useForm({});
+
+  useEffect(() => {
+    console.log(completedForm);
+  }, [completedForm]);
+
+  const configAxios = {
+    method: 'post',
+    url: 'http://localhost:8000/api/devis/80',
+    headers: {
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODAsImlhdCI6MTY0MzAyMzE5MX0.jQb4QHRbbjwFZSN0W8TI4U2kwQFq0l_DNTL4vzSSO10`,
+      'Content-Type': 'application/json',
+    },
+    data: {
+      default: {
+        user_id: 80,
+        category_id: 2,
+      },
+      questionsAnswers: completedForm,
+    },
+  };
+
+  const formSubmit = () => {
+    axios(configAxios);
+    console.table(completedForm);
+  };
+
   const radioChoice = (elt) => {
     const answer = elt.formulaire_join_answer;
+    const question = elt.question;
     return (
       <section className={styles.containerRadioChoiceComponent}>
-        <h1>{elt.question}</h1>
-        <Form className={styles.formTagRadioChoice}>
+        <h2>{elt.question}</h2>
+        <ButtonGroup className={styles.formTagRadioChoice} type="radio" onChange={(e) => handleListChange(e.target.value, question)}>
           {answer &&
             answer.map((elt) => (
               <Card className={styles.inputCardRadioChoice} key={elt.id}>
                 <FormCheck
+                  inline
                   key={elt.id}
                   className={styles.inputRadio}
-                  type="radio"
                   label={elt.formulaire_possible_answer.answer}
                   name={elt.formulaire_id}
+                  value={elt.formulaire_possible_answer.answer}
                 />
               </Card>
             ))}
-        </Form>
+        </ButtonGroup>
       </section>
     );
   };
 
   const checkChoice = (elt) => {
     const answer = elt.formulaire_join_answer;
+    const question = elt.question;
     return (
       <section className={styles.containerCheckChoiceComponent}>
-        <h1>{elt.question}</h1>
-        <Form className={styles.formTagCheckChoice}>
+        <h2>{question}</h2>
+        <ButtonGroup type="checkbox" onChange={(e) => handleCheckChange(e.target.value, question)} className={styles.formTagCheckChoice}>
           {answer &&
             answer.map((elt) => (
               <Card className={styles.inputCardCheckChoice} key={elt.id}>
-                <FormCheck key={elt.id} type="checkbox" label={elt.formulaire_possible_answer.answer} name={elt.formulaire_id} />
+                <FormCheck
+                  inline
+                  key={elt.id}
+                  label={elt.formulaire_possible_answer.answer}
+                  name={elt.formulaire_id}
+                  value={elt.formulaire_possible_answer.answer}
+                />
               </Card>
             ))}
-        </Form>
+        </ButtonGroup>
       </section>
     );
   };
 
   const listChoice = (elt) => {
-    const answer = elt.formulaire_join_answer;
+    const choice = elt.formulaire_join_answer;
     return (
       <section className={styles.containerListChoiceComponent}>
-        <h1>{elt.question}</h1>
-
-        <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic" className={styles.btnDropDownToggleDevisAllQuestions}>
-            SELECTIONNEZ
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu className={styles.btnDropDownMenuDevisAllQuestions}>
-            {answer.map((elt) => (
-              <h2 key={elt.id}>
-                <Dropdown.Item className={styles.btnDropDownItemDevisAllQuestions} href="#/action-1">
+        <h2>{elt.question}</h2>
+        <Form className={styles.btnDropDownDevisAllQuestions}>
+          <DropdownButton
+            className={styles.btnDropDownToggleDevisAllQuestions}
+            onSelect={(event) => handleListChange(event, elt.question)}
+            title="Selectionnez votre réponse"
+          >
+            {choice.map((elt) => (
+              <div className={styles.divKeyListChoice} key={elt.id}>
+                <Dropdown.Item className={styles.btnDropDownItemDevisAllQuestions} eventKey={elt.formulaire_possible_answer.answer}>
                   {elt.formulaire_possible_answer.answer}
                 </Dropdown.Item>
-              </h2>
+              </div>
             ))}
-          </Dropdown.Menu>
-        </Dropdown>
+          </DropdownButton>
+        </Form>
       </section>
     );
   };
@@ -76,11 +114,13 @@ function DevisAllQuestions({ form, headInfo }) {
   const shortText = (elt) => {
     return (
       <section className={styles.containerShortTextComponent}>
-        <h1>{elt.question}</h1>
-        <Form.Text>
-          <Form.Control className={styles.formControlShortText} type="text" id={elt.question} />
-          <Form.Text>Entrez votre réponse</Form.Text>
-        </Form.Text>
+        <h2>{elt.question}</h2>
+        <Form.Group className="mb-3">
+          <Form.Text>
+            <Form.Control className={styles.formControlShortText} size="sm" type="textarea" id={elt.question} />
+            <Form.Text>Entrez votre réponse</Form.Text>
+          </Form.Text>
+        </Form.Group>
       </section>
     );
   };
@@ -88,9 +128,9 @@ function DevisAllQuestions({ form, headInfo }) {
   const longText = (elt) => {
     return (
       <section className={styles.containerLongTextComponent}>
-        <h1>{elt.question}</h1>
+        <h2>{elt.question}</h2>
         <div className={styles.containerFormLongTextComponent}>
-          <Form.Control type="text" id={elt.question} className={styles.inputFormLongTextComponent} />
+          <Form.Control type="textarea" id={elt.question} />
           <Form.Text>Entrez votre réponse</Form.Text>
         </div>
       </section>
@@ -106,7 +146,43 @@ function DevisAllQuestions({ form, headInfo }) {
     else return <h2>{elt.question}</h2>;
   };
 
-  const head = headInfo && headInfo[0];
+  const handleCheckChange = (event, question) => {
+    let tempArray = completedForm;
+    if (!completedForm.length) {
+      setCompletedForm([{ questions: question, answers: event }]);
+    } else if (completedForm.some((elt) => elt.questions === question && elt.answers.includes(event))) {
+      console.log(tempArray);
+      console.log(completedForm);
+      let index = completedForm.findIndex((elt) => elt.answers.includes(event) && elt.questions === question);
+      tempArray[index].answers = completedForm[index].answers.replaceAll(event, '');
+      setCompletedForm(tempArray);
+    } else if (completedForm.some((elt) => elt.questions === question)) {
+      console.log(tempArray);
+      console.log(completedForm);
+      let index = completedForm.findIndex((elt) => elt.questions === question);
+      tempArray[index].answers = completedForm[index].answers.concat(', ', event);
+      setCompletedForm(tempArray);
+    } else {
+      setCompletedForm([...completedForm, { questions: question, answers: event }]);
+    }
+  };
+
+  const handleListChange = async (event, question) => {
+    console.log(event);
+    if (!completedForm.length) {
+      setCompletedForm([{ questions: question, answers: event }]);
+    } else if (completedForm.some((elt) => elt.questions === question)) {
+      let index = completedForm.findIndex((elt) => elt.questions === question);
+      let tempArray = completedForm;
+      console.log(tempArray);
+      console.log(completedForm);
+      tempArray[index] = { questions: question, answers: event };
+      setCompletedForm(tempArray);
+    } else {
+      setCompletedForm([...completedForm, { questions: question, answers: event }]);
+    }
+  };
+
   return (
     <div>
       <NavBar pageType="devis" />
@@ -122,11 +198,15 @@ function DevisAllQuestions({ form, headInfo }) {
             <meta name="keywords" content={head.keywords} />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           </Head>
+          <h1>Remplissez ce formulaire et nous vous enverrons les devis dans les plus brefs délais</h1>
           <Card className={styles.bodyDevisAllQuestions}>
-            <Form className={styles.containerDevisAllQuestions}>
+            <Form onSubmit={handleSubmit(formSubmit)} className={styles.containerDevisAllQuestions}>
               {form.map((elt, index) => (
                 <div key={index}>{DevisForm(elt)}</div>
               ))}
+              <Button variant="primary" type="submit">
+                Valider
+              </Button>
             </Form>
           </Card>
         </>
@@ -154,9 +234,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      // { params: { ... } } // See the "paths" section below
-    ],
+    paths: [],
     fallback: true,
   };
 }
