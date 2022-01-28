@@ -1,36 +1,38 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
-import styles from '../../styles/Aide.module.css';
+import styles from '../styles/TopDevis.module.css';
 import { Nav } from 'react-bootstrap';
 
-function AideAccueil({ posts }) {
+function TopDevis({ posts }) {
   return (
-    <>
+    <div>
       <NavBar pageType="devis" />
       {posts
-        .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle')
+        .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle' && titlesMenu.page_name === 'top-devis')
         .map((titleMenu) => {
           return (
-            <h5 key={titleMenu.id} className={styles.titleAide}>
-              {titleMenu.text}
-            </h5>
+            <div key={titleMenu.id}>
+              <h5 key={titleMenu.id} className={styles.titleTopDevis}>
+                {titleMenu.text}
+              </h5>
+            </div>
           );
         })}
 
       {!posts ? (
         <p>Loading</p>
       ) : (
-        <div className={styles.containerAide}>
-          <div className={styles.textAide}>
+        <div className={styles.containerTopDevis}>
+          <div className={styles.textTopDevis}>
             {posts
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position < 6)
+              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position < 10 && itemsMenu.page_name === 'top-devis')
               .map((itemMenu) => {
                 if (itemMenu.page_section === 'lien') {
                   return (
                     <div key={itemMenu.position}>
-                      <Nav.Link href={itemMenu.pages.url} className={styles.linkAide}>
+                      <Nav.Link href={itemMenu.pages.url} className={styles.linkTopDevis}>
                         {itemMenu.text}
                       </Nav.Link>
                     </div>
@@ -40,13 +42,13 @@ function AideAccueil({ posts }) {
                 }
               })}
           </div>
-          <div className={styles.textAide}>
+          <div className={styles.textTopDevis}>
             {posts
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position >= 6)
+              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.page_name === 'faq')
               .map((itemMenu) => {
                 if (itemMenu.page_section === 'title') {
                   return (
-                    <h5 key={itemMenu.id} className={styles.titleAide}>
+                    <h5 key={itemMenu.id} className={styles.titleTopDevis}>
                       {itemMenu.text}
                     </h5>
                   );
@@ -56,12 +58,12 @@ function AideAccueil({ posts }) {
         </div>
       )}
       <Footer pageType="devis" />
-    </>
+    </div>
   );
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent/aide')
+    .get('http://localhost:8000/api/pagescontent/top-devis')
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
 
@@ -72,4 +74,4 @@ export async function getStaticProps() {
   };
 }
 
-export default AideAccueil;
+export default TopDevis;

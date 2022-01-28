@@ -55,7 +55,7 @@ function NewPassword() {
           </Row>
         </Container>
       </div>
-    </div>
+    </div>s
   );
 }
 

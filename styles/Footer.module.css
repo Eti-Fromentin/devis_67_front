@@ -78,3 +78,29 @@
 .linksHoverFooter {
   font-weight: 650;
 }
+.footerContainer{
+  height: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  flex-direction: row;
+}
+.footerMenu{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.footerLigne{
+  background-color: cadetblue;
+  height:2px;
+  
+}
+.footerLink{
+  font-size: 12px;
+  line-height: 0rem;
+
+}
+.footerH3{
+  font-size:14px;
+}

@@ -12,9 +12,6 @@
 .navlinks:hover {
     background: rgb(199, 147, 199);
 }
-/* .divNavLinks {
-    border
-} */
 
 /*** SPINNER ***/
 .spinnerContainer {
@@ -22,3 +19,10 @@
     justify-content: center;
     align-items: center;
 }
+.navBarLink{
+    font-size: 12px;
+    
+  }
+  .containerNavBar{
+      height: 15vh;
+  }

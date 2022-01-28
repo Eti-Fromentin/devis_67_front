@@ -5,7 +5,7 @@ import styles from '../../styles/ModeEmploi.module.css';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 
 function ModeEmploi({ posts }) {
   return (
@@ -28,38 +28,15 @@ function ModeEmploi({ posts }) {
         <p>Loading</p>
       ) : (
         <div className={styles.containerModeEmploi}>
-          <ol className={styles.containerUlModeEmploi}>
-            {posts
-              .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
-              .map((itemMenu) => (
-                <li className={styles.itemsMenuModeEmploi} key={itemMenu.key}>
-                  {itemMenu.text}
-                </li>
-              ))}
-          </ol>
-          {/* BAR */}
-          <div className={styles.barModeEmploi}></div>
-          <Container className={styles.containerItemMenuModeEmploi}>
-            {posts.map((itemMenu) => {
-              if (itemMenu.page_section === 'chapterTitle') {
-                return <h5 key={itemMenu.key}>{itemMenu.text}</h5>;
-              } else if (itemMenu.page_section === 'text') {
-                return <p>{itemMenu.text}</p>;
-              }
-              {
-                posts
-                  .filter((itemsMenu) => itemsMenu.page_section !== 'title')
-                  .map((itemMenu) => {
-                    return (
-                      <div key={itemMenu.position} className={styles.textModeEmploi}>
-                        <i className="fa fa-file-text-o"></i>
-                        <p>{itemMenu.text}</p>
-                      </div>
-                    );
-                  });
-              }
+          {posts
+            .filter((itemsMenu) => itemsMenu.page_section !== 'title')
+            .map((itemMenu) => {
+              return (
+                <div key={itemMenu.position} className={styles.textModeEmploi}>
+                  <p>{itemMenu.text}</p>
+                </div>
+              );
             })}
-          </Container>
         </div>
       )}
       <Footer pageType="devis" />
@@ -68,9 +45,9 @@ function ModeEmploi({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent')
+    .get('http://localhost:8000/api/pagescontent/modeEmploi')
     .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1 && element.page_name === 'modeEmploi'));
+    .then((data) => data.filter((element) => element.visible === 1));
 
   return {
     props: {

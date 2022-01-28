@@ -1,24 +1,4 @@
 
- /* .h1ModeEmploi {
-    padding: 1.5rem;
-    font-size: 3vw;
-}  */
-
-/* .barModeEmploi {
-    border: 1px solid #333;
-    width: 70%;
-    margin-left: 12%;
-} */
-
-/* .containerUlModeEmploi {
-    padding: 1rem;
-    margin-left: 4rem;
-    font-size: 1vw;
-} */
-
-/* .containerItemMenuModeEmploi {
-    padding-top: 2rem;
-} */
 
 .containerModeEmploi{
   display: flex;
@@ -28,12 +8,15 @@
   
 }
 .textModeEmploi{
-  background-color: rgb(204, 240, 238);
   margin:2rem;
   padding:2rem;
-  border-color: blue;
+  font-size: 14px;
+  background-color: #fefbfa;
 }
 .titleModeEmploi{
   color: blue;
   text-align: center;
+  text-align: left;
+  margin-left: 2rem;
+  font-size: 16px;
 }
