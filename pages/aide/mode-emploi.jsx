@@ -1,15 +1,17 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
-import axios from 'axios';
 import styles from '../../styles/ModeEmploi.module.css';
 
-//import { Container } from 'react-bootstrap';
+import Footer from '../../components/Footer';
+import axios from 'axios';
+
+// import { Container } from 'react-bootstrap';
 
 function ModeEmploi({ posts }) {
   return (
     <div>
       <NavBar pageType="devis" />
+      <h1 className={styles.h1ModeEmploi}>Mode d emploi</h1>
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'title')
         .map((titleMenu) => {
@@ -31,7 +33,6 @@ function ModeEmploi({ posts }) {
             .map((itemMenu) => {
               return (
                 <div key={itemMenu.position} className={styles.textModeEmploi}>
-                  <i className="fa fa-file-text-o"></i>
                   <p>{itemMenu.text}</p>
                 </div>
               );

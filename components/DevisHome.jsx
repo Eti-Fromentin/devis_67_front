@@ -5,15 +5,6 @@ import Data from '../dataCategory.json';
 // import axios from 'axios';
 
 const DevisHome = () => {
-  // const [category, setCategory] = useState([]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get('../JSON/data')
-  //     .then((response) => response.data)
-  //     .then((data) => setCategory(data));
-  // }, []);
-
   return (
     <section className={styles.bodyDevisHome}>
       {/* PRINCIPAL CONTAINER */}

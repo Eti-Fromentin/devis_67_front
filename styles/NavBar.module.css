@@ -1,3 +1,28 @@
 .containerNavBar {
-    background: rgb(202, 202, 202);
+    font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
+    border: 1px solid rgb(202, 202, 202);
 }
+
+.navlinks {
+    font-size: 1rem;
+    /* line-height: 1.5rem; */
+    font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
+    border-radius: 10px;
+}
+.navlinks:hover {
+    background: rgb(199, 147, 199);
+}
+
+/*** SPINNER ***/
+.spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navBarLink{
+    font-size: 12px;
+    
+  }
+  .containerNavBar{
+      height: 15vh;
+  }

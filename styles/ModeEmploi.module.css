@@ -1,3 +1,5 @@
+
+
 .containerModeEmploi{
   display: flex;
   flex-direction: row;
@@ -6,13 +8,15 @@
   
 }
 .textModeEmploi{
-  background-color: rgb(204, 240, 238);
   margin:2rem;
   padding:2rem;
-  border-color: blue;
+  font-size: 14px;
+  background-color: #fefbfa;
 }
 .titleModeEmploi{
   color: blue;
+  text-align: center;
   text-align: left;
   margin-left: 2rem;
+  font-size: 16px;
 }

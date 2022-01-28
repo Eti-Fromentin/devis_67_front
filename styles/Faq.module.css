@@ -1,9 +1,9 @@
 .containerFaq{
   display: flex;
-  flex-direction: center;
+  
   width: 70vw;
   height: 50vh;
-  
+  justify-content: center;
 }
 .h1Faq{
   margin:2rem;
@@ -12,12 +12,16 @@
 .textFaq{
   display: flex;
   flex-direction: column;
-  background-color: rgb(204, 240, 238);
+  
+  
   margin:2rem;
+  font-size: 14px;
+  background-color: #fefbfa;
   
 }
 .titleFaq{
   color: blue;
   text-align: left;
   margin:2rem;
+  font-size: 16px;
 }
