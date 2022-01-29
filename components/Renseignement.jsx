@@ -8,10 +8,10 @@ import styles from '../styles/Contact.module.css';
 
 function Renseignement() {
   const ConnectSchema = Yup.object().shape({
-    email: Yup.string().required('⚠ Un Email est requis').max(60, '⚠ Maximum de 60 caractères').email('⚠ Email invalide'),
-    lastname: Yup.string().required('⚠ Un nom est requis').matches(/^[aA-zZ]+$/, 'lettres majuscule ou miniscule uniquement').max(45, '⚠ Maximum de 45 caractères'),
-    subject: Yup.string().required('⚠ Un sujet est requis').max(100, '⚠ Maximum de 100 caractères'),
-    message: Yup.string().required('⚠ Un message est requis').max(255, '⚠ Maximum de 255 caractères'),
+    email: Yup.string().required('⚠ Un Email est requis').max(55, '⚠ Maximum de 55 caractères').email('⚠ Email invalide'),
+    lastname: Yup.string().required('⚠ Un nom est requis').matches(/^[aA-zZ]+$/, 'lettres majuscule ou miniscule uniquement').max(55, '⚠ Maximum de 55 caractères'),
+    subject: Yup.string().required('⚠ Un sujet est requis').max(45, '⚠ Maximum de 45 caractères'),
+    message: Yup.string().required('⚠ Un message est requis').max(1000, '⚠ Maximum de 1000 caractères'),
     
   });
 
