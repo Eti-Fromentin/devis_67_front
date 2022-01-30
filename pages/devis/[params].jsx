@@ -17,6 +17,7 @@ function DevisAllQuestions({ form, headInfo }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     checkIsLogin();
@@ -32,7 +33,7 @@ function DevisAllQuestions({ form, headInfo }) {
 
   const configAxios = {
     method: 'post',
-    url: `http://localhost:8000/api/devis/${userId}`,
+    url: `${apiUrl}/devis/${userId}`,
     headers: {
       Authorization: `Bearer ${userToken}`,
       'Content-Type': 'application/json',
@@ -249,13 +250,14 @@ function DevisAllQuestions({ form, headInfo }) {
 
 export async function getStaticProps(context) {
   const params = context.params.params;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   let form = null;
   try {
     form = await axios
-      .get(`http://localhost:8000/api/form/${params}`)
+      .get(`${apiUrl}/form/${params}`)
       .then((response) => response.data)
       .then((data) => data.filter((elt) => elt.visible === 1));
-    const headInfo = await axios.get(`http://localhost:8000/api/pagesdetails/${params}`).then((response) => response.data);
+    const headInfo = await axios.get(`${apiUrl}/pagesdetails/${params}`).then((response) => response.data);
     return {
       props: {
         form,

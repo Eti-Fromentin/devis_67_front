@@ -8,6 +8,7 @@ import LoginContext from '../contexts/loginContext';
 import styles from '../styles/Inscription.module.css';
 
 function Inscription() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const validationSchema = Yup.object().shape({
     firstname: Yup.string()
       .required('⚠ Le Prénom est requis')
@@ -48,7 +49,7 @@ function Inscription() {
   }, [account]);
 
   const formSubmit = async (data) => {
-    await axios.post('http://localhost:8000/api/user', {
+    await axios.post(`${apiUrl}/user`, {
       firstname: data.firstname,
       lastname: data.lastname,
       email: data.email,
@@ -59,7 +60,7 @@ function Inscription() {
       password: data.password,
     });
     await axios
-      .post('http://localhost:8000/api/auth/login', {
+      .post(`${apiUrl}/auth/login`, {
         email: data.email,
         password: data.password,
       })

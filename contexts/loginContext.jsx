@@ -20,6 +20,7 @@ export function LoginContextProvider({ children }) {
   const [userToken, setUserToken] = useState();
   const [userId, setUserId] = useState();
   const [userData, setUserData] = useState();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   function registerLogin(account) {
     window.localStorage.setItem('devisAccessToken', account.headers.accesstoken);
@@ -32,7 +33,7 @@ export function LoginContextProvider({ children }) {
   function getUserData() {
     axios({
       method: 'get',
-      url: `http://localhost:8000/api/user/${userId}`,
+      url: `${apiUrl}/user/${userId}`,
       headers: {
         Authorization: `Bearer ${userToken}`,
         'Content-Type': 'application/json',

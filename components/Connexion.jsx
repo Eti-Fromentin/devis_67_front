@@ -9,6 +9,8 @@ import styles from '../styles/Connexion.module.css';
 import axios from 'axios';
 
 function Connexion() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   const ConnectSchema = Yup.object().shape({
     email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
     password: Yup.string().required('⚠ Mot de passe requis').min(8, '⚠ Minimum de 8 caractères').max(50, '⚠ Maximum de 50 caractères'),
@@ -34,7 +36,7 @@ function Connexion() {
 
   const ConnectSubmit = (user) => {
     axios
-      .post('http://localhost:8000/api/auth/login', {
+      .post(`${apiUrl}/auth/login`, {
         email: user.email,
         password: user.password,
       })

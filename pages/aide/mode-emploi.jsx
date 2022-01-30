@@ -5,8 +5,6 @@ import styles from '../../styles/ModeEmploi.module.css';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 
-// import { Container } from 'react-bootstrap';
-
 function ModeEmploi({ posts }) {
   return (
     <div>
@@ -44,8 +42,10 @@ function ModeEmploi({ posts }) {
   );
 }
 export async function getStaticProps() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent/modeEmploi')
+    .get(`${apiUrl}/pagescontent/modeEmploi`)
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
 

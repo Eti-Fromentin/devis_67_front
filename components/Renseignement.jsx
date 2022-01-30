@@ -10,6 +10,7 @@ import axios from 'axios';
 
 function Renseignement() {
   const { isLogin, checkIsLogin, getUserData, userData } = useContext(LoginContext);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     checkIsLogin();
@@ -39,7 +40,7 @@ function Renseignement() {
 
   const formSubmit = async (data) => {
     await axios
-      .post(`http://localhost:8000/api/message`, {
+      .post(`${apiUrl}/message`, {
         user_id: !isLogin && !userData ? null : userData.id,
         subject: data.subject,
         text: data.message,

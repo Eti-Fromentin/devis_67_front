@@ -60,8 +60,10 @@ function AideAccueil({ posts }) {
   );
 }
 export async function getStaticProps() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   const posts = await axios
-    .get('http://localhost:8000/api/pagescontent/aide')
+    .get(`${apiUrl}/pagescontent/aide`)
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
 

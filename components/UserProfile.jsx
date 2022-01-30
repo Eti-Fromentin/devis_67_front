@@ -10,7 +10,6 @@ function UserProfile() {
   useEffect(() => {
     if (isLogin) {
       getUserData();
-      console.log(userData);
     }
   }, []);
 
