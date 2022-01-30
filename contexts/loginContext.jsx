@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import axios from 'axios';
 
 const LoginContext = createContext({
   isLogin: Boolean(),
@@ -9,11 +10,16 @@ const LoginContext = createContext({
   setUserId: () => {},
   registerLogin: () => {},
   checkisLogin: () => {},
+  userData: null,
+  setUserData: () => {},
+  getUserData: () => {},
 });
+
 export function LoginContextProvider({ children }) {
-  const [isLogin, setIsLogin] = useState();
+  const [isLogin, setIsLogin] = useState(false);
   const [userToken, setUserToken] = useState();
   const [userId, setUserId] = useState();
+  const [userData, setUserData] = useState();
 
   function registerLogin(account) {
     window.localStorage.setItem('devisAccessToken', account.headers.accesstoken);
@@ -23,6 +29,19 @@ export function LoginContextProvider({ children }) {
     setIsLogin(true);
   }
 
+  function getUserData() {
+    axios({
+      method: 'get',
+      url: `http://localhost:8000/api/user/${userId}`,
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.data)
+      .then((data) => setUserData(data));
+  }
+
   function checkIsLogin() {
     if (window.localStorage.getItem('devisUserId') !== null) {
       const token = window.localStorage.getItem('devisAccessToken');
@@ -30,6 +49,7 @@ export function LoginContextProvider({ children }) {
       setUserToken(token);
       setUserId(id);
       setIsLogin(true);
+      getUserData;
     }
   }
 
@@ -44,6 +64,9 @@ export function LoginContextProvider({ children }) {
         setUserId,
         registerLogin,
         checkIsLogin,
+        userData,
+        setUserData,
+        getUserData,
       }}
     >
       {children}

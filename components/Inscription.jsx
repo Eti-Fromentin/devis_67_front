@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import LoginContext from '../contexts/loginContext';
-// import NavBar from '../components/NavBar';
 import styles from '../styles/Inscription.module.css';
 
 function Inscription() {
@@ -64,8 +63,8 @@ function Inscription() {
         email: data.email,
         password: data.password,
       })
-      .then((res) => setAccount(res));
-    await alert('Merci, votre inscription a bien été prise en compte et êtes désormais connecté(e)!');
+      .then((res) => setAccount(res))
+      .then(alert('Merci, votre inscription a bien été prise en compte et êtes désormais connecté(e)!'));
     reset({
       firstname: '',
       lastname: '',
