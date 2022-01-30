@@ -1,20 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Connexion from '../components/Connexion';
 import UserProfile from '../components/UserProfile';
-import loginContext from '../contexts/loginContext';
-
-
+import LoginContext from '../contexts/loginContext';
+import Inscription from '../components/Inscription';
 
 function EspaceClient() {
+  const { isLogin, checkIsLogin } = useContext(LoginContext);
 
-  const { isLogin } = useContext(loginContext);
+  useEffect(() => {
+    checkIsLogin();
+  }, []);
 
   return (
     <div>
       <NavBar pageType="devis" />
-      {isLogin === true ? <UserProfile /> : <Connexion />}
+      {isLogin === true ? (
+        <UserProfile />
+      ) : (
+        <>
+          <Connexion /> <Inscription />
+        </>
+      )}
       <Footer pageType="devis" />
     </div>
   );

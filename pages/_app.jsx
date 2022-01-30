@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { loginContextProvider } from '../contexts/loginContext';
+import { LoginContextProvider } from '../contexts/loginContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <loginContextProvider>
+    <LoginContextProvider>
       <Component {...pageProps} />
-    </loginContextProvider>
+    </LoginContextProvider>
   );
 }
 
