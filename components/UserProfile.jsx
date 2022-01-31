@@ -51,8 +51,19 @@ function UserProfile() {
               </div>
             ) : (
               <div className={styles.profileMain}>
-                <li>Devis du 15/01/2022</li>
-                <li>Devis du 25/09/2021</li>
+                <li>Devis du {userData && userData.devis[0].created_at}
+                <p>Catégorie: {userData && userData.devis[0].categories_devis_provider.title}</p>
+                <p>Statut : {userData && userData.devis[0].status === 0 ? "Envoyé" : "en cours de traitement"}</p>
+                <p>Question: {userData && userData.devis[0].questions_answers[0].questions}</p>
+                <p>Réponse: {userData && userData.devis[0].questions_answers[0].answers}</p>
+                </li>
+                <li>
+                Devis du {userData && userData.devis[1].created_at}
+                <p>Catégorie: {userData && userData.devis[1].categories_devis_provider.title}</p>
+                <p>Statut : {userData && userData.devis[1].status === 0 ? "Envoyé" : "en cours de traitement"}</p>
+                <p>Question: {userData && userData.devis[1].questions_answers[0].questions}</p>
+                <p>Réponse: {userData && userData.devis[1].questions_answers[0].answers}</p>
+                </li>
                 <li>Devis du 18/07/2021</li>
                 <li>Devis du 10/04/2021</li>
               </div>
