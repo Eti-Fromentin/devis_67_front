@@ -69,5 +69,10 @@
         justify-content: center;
         flex-direction: row;
     }
+
+    .headerMessages {
+        flex-direction: column;
+        
+    }
     
 }
