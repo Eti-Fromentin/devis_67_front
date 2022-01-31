@@ -8,9 +8,10 @@ import styles from '../styles/NavBar.module.css';
 
 function NavBar({ pageType }) {
   const [navBarData, setNavBarData] = useState([]);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/navbar/')
+      .get(`${apiUrl}/navbar/`)
       .then((response) => response.data)
       .then((data) => setNavBarData(data.filter((element) => element.visible === 1 && element.pagetype === pageType)));
   }, []);

@@ -1,57 +1,64 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState, useContext } from 'react';
+import LoginContext from '../contexts/loginContext';
+import { Spinner } from 'react-bootstrap';
 import styles from '../styles/EspaceClient.module.css';
 
 function UserProfile() {
   const [userTabs, setUserTabs] = useState(1);
+  const { userData, getUserData, isLogin } = useContext(LoginContext);
 
-  const userData = () => {
+  useEffect(() => {
+    if (isLogin) {
+      getUserData();
+    }
+  }, []);
+
+  const userDataTab = () => {
     setUserTabs(1);
   };
-  const devis = () => {
+  const devisTab = () => {
     setUserTabs(2);
   };
 
-  // const [userData, setUserData] = useState();
-  // useEffect(() => {
-  //     axios
-  //       .get('http://localhost:8000/api/user/:id')
-  //       .then((res) => setUserData(res))
-  //   }, []);
-
   return (
     <div>
-      <div className={styles.profileContainer}>
-        <div className={styles.tabs}>
-          <button className={styles.button} onClick={userData}>
-            Mes informations
-          </button>
-          <button className={styles.button} onClick={devis}>
-            Mes devis
-          </button>
+      {!isLogin && !userData.id ? (
+        <div className={styles.spinnerContainer}>
+          <Spinner animation="border" />
         </div>
-        {userTabs &&
-          (userTabs === 1 ? (
-            <div className={styles.profileData}>
-              <ul>
-                <li> Prénom: </li>
-                <li> Nom: </li>
-                <li> Email: </li>
-                <li> Téléphone: </li>
-                <li> Adresse: </li>
-                <li> Code Postal: </li>
-                <li> Ville: </li>
-              </ul>
-            </div>
-          ) : (
-            <div className={styles.profileMain}>
-              <li>Devis du 15/01/2022</li>
-              <li>Devis du 25/09/2021</li>
-              <li>Devis du 18/07/2021</li>
-              <li>Devis du 10/04/2021</li>
-            </div>
-          ))}
-      </div>
+      ) : (
+        <div className={styles.profileContainer}>
+          <div className={styles.tabs}>
+            <button className={styles.button} onClick={userDataTab}>
+              Mes informations
+            </button>
+            <button className={styles.button} onClick={devisTab}>
+              Mes devis
+            </button>
+          </div>
+          {userTabs &&
+            (userTabs === 1 ? (
+              <div className={styles.profileData}>
+                <ul>
+                  <li> Prénom: {userData && userData.firstname} </li>
+                  <li> Nom: {userData && userData.lastname}</li>
+                  <li> Email: {userData && userData.email}</li>
+                  <li> Téléphone: {userData && userData.phone ? userData.phone : 'non renseigné'}</li>
+                  <li> Adresse: {userData && userData.address ? userData.address : 'non renseigné'}</li>
+                  <li> Code Postal: {userData && userData.postalcode}</li>
+                  <li> Ville: {userData && userData.city}</li>
+                </ul>
+              </div>
+            ) : (
+              <div className={styles.profileMain}>
+                <li>Devis du 15/01/2022</li>
+                <li>Devis du 25/09/2021</li>
+                <li>Devis du 18/07/2021</li>
+                <li>Devis du 10/04/2021</li>
+              </div>
+            ))}
+        </div>
+      )}
     </div>
   );
 }

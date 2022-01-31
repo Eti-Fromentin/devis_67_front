@@ -132,7 +132,9 @@ const DevisHome = () => {
 };
 
 export async function getStaticProps() {
-  const url = await axios.get('http://localhost:8000/api/homedevis/categories').then((response) => response.data);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  const url = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
 
   return {
     props: {

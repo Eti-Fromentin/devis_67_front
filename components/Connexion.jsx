@@ -4,17 +4,18 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
-import loginContext from '../contexts/loginContext';
+import LoginContext from '../contexts/loginContext';
 import styles from '../styles/Connexion.module.css';
 import axios from 'axios';
 
 function Connexion() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const ConnectSchema = Yup.object().shape({
     email: Yup.string().required('⚠ Un Email est requis').email('⚠ Email invalide'),
     password: Yup.string().required('⚠ Mot de passe requis').min(8, '⚠ Minimum de 8 caractères').max(50, '⚠ Maximum de 50 caractères'),
   });
-  
+
   const {
     register,
     handleSubmit,
@@ -23,27 +24,24 @@ function Connexion() {
   } = useForm({
     resolver: yupResolver(ConnectSchema),
   });
-  
-  const [result, setResult] = useState({});
-  const { setUserToken, setUserId } = useContext(loginContext);
+
+  const [account, setAccount] = useState({});
+  const { registerLogin } = useContext(LoginContext);
 
   useEffect(() => {
-    if(result.headers) {
-      localStorage.setItem('AccessToken', result.headers.accesstoken),
-      localStorage.setItem('UserId', result.data.userId)
-      setUserToken(result.headers.accesstoken),
-      setUserId(result.data.userId)
+    if (account.headers) {
+      registerLogin(account);
     }
-  }, [result]);
+  }, [account]);
 
   const ConnectSubmit = (user) => {
     axios
-      .post('http://localhost:8000/api/auth/login', {
+      .post(`${apiUrl}/auth/login`, {
         email: user.email,
         password: user.password,
       })
-      .then((res) => setResult(res));
-      alert("Vous êtes désormais connecté(e)");
+      .then((res) => setAccount(res));
+    alert('Vous êtes désormais connecté(e)');
     reset({
       email: '',
       password: '',

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from '../../styles/DevisAllQuestions.module.css';
 import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal } from 'react-bootstrap';
 import axios from 'axios';
@@ -7,31 +7,41 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from 'react-hook-form';
+import LoginContext from '../../contexts/loginContext';
 
 function DevisAllQuestions({ form, headInfo }) {
+  const { isLogin, checkIsLogin, getUserData, userId, userToken } = useContext(LoginContext);
   const [completedForm, setCompletedForm] = useState([]);
   const head = headInfo && headInfo[0];
   const { handleSubmit } = useForm({});
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
-    console.log(completedForm);
-  }, [completedForm]);
+    checkIsLogin();
+    if (isLogin) {
+      getUserData();
+    }
+  }, [isLogin, form]);
+
+  const categoryId = () => {
+    const category = form && form[form.length - 1].category_id;
+    return Number(category);
+  };
 
   const configAxios = {
     method: 'post',
-    url: 'http://localhost:8000/api/devis/80',
+    url: `${apiUrl}/devis/${userId}`,
     headers: {
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODAsImlhdCI6MTY0MzAyMzE5MX0.jQb4QHRbbjwFZSN0W8TI4U2kwQFq0l_DNTL4vzSSO10`,
+      Authorization: `Bearer ${userToken}`,
       'Content-Type': 'application/json',
     },
     data: {
       default: {
-        user_id: 80,
-        category_id: 2,
+        user_id: Number(userId),
+        category_id: categoryId(),
       },
       questionsAnswers: completedForm,
     },
@@ -39,7 +49,6 @@ function DevisAllQuestions({ form, headInfo }) {
 
   const formSubmit = () => {
     axios(configAxios);
-    console.table(completedForm);
   };
 
   const radioChoice = (elt) => {
@@ -170,14 +179,10 @@ function DevisAllQuestions({ form, headInfo }) {
     if (!completedForm.length) {
       setCompletedForm([{ questions: question, answers: event }]);
     } else if (completedForm.some((elt) => elt.questions === question && elt.answers.includes(event))) {
-      // console.log(tempArray);
-      // console.log(completedForm);
       let index = completedForm.findIndex((elt) => elt.answers.includes(event) && elt.questions === question);
       tempArray[index].answers = completedForm[index].answers.replaceAll(event, '');
       setCompletedForm(tempArray);
     } else if (completedForm.some((elt) => elt.questions === question)) {
-      // console.log(tempArray);
-      // console.log(completedForm);
       let index = completedForm.findIndex((elt) => elt.questions === question);
       tempArray[index].answers = completedForm[index].answers.concat(', ', event);
       setCompletedForm(tempArray);
@@ -187,14 +192,11 @@ function DevisAllQuestions({ form, headInfo }) {
   };
 
   const handleChange = async (event, question) => {
-    // console.log(event);
     if (!completedForm.length) {
       setCompletedForm([{ questions: question, answers: event }]);
     } else if (completedForm.some((elt) => elt.questions === question)) {
       let index = completedForm.findIndex((elt) => elt.questions === question);
       let tempArray = completedForm;
-      // console.log(tempArray);
-      // console.log(completedForm);
       tempArray[index] = { questions: question, answers: event };
       setCompletedForm(tempArray);
     } else {
@@ -248,24 +250,29 @@ function DevisAllQuestions({ form, headInfo }) {
 
 export async function getStaticProps(context) {
   const params = context.params.params;
-
-  const form = await axios
-    .get(`http://localhost:8000/api/form/${params}`)
-    .then((response) => response.data)
-    .then((data) => data.filter((elt) => elt.visible === 1));
-  const headInfo = await axios.get(`http://localhost:8000/api/pagesdetails/${params}`).then((response) => response.data);
-  return {
-    props: {
-      form,
-      headInfo,
-    },
-  };
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  let form = null;
+  try {
+    form = await axios
+      .get(`${apiUrl}/form/${params}`)
+      .then((response) => response.data)
+      .then((data) => data.filter((elt) => elt.visible === 1));
+    const headInfo = await axios.get(`${apiUrl}/pagesdetails/${params}`).then((response) => response.data);
+    return {
+      props: {
+        form,
+        headInfo,
+      },
+    };
+  } catch (error) {
+    return 404;
+  }
 }
 
 export async function getStaticPaths() {
   return {
     paths: [],
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 

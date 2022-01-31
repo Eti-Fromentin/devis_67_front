@@ -1,12 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { loginContextProvider } from '../contexts/loginContext';
+import { LoginContextProvider } from '../contexts/loginContext';
+import SSRProvider from 'react-bootstrap/SSRProvider';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <loginContextProvider>
-      <Component {...pageProps} />
-    </loginContextProvider>
+    <SSRProvider>
+      <LoginContextProvider>
+        <Component {...pageProps} />
+      </LoginContextProvider>
+    </SSRProvider>
   );
 }
 
