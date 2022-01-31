@@ -27,7 +27,6 @@
     margin: 2vw;
     border: ridge;
     border-radius: 10px;
-    height: 40vh;
     width: 25vw;
 }
 
@@ -47,12 +46,11 @@
     .profileMain {
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .profileMain li {
-        height: 40vh;
-        width: 70vw;
+        width: 50vw;
     }
     
 }
