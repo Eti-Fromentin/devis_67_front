@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import LoginContext from '../contexts/loginContext';
-import { Accordion, Spinner } from 'react-bootstrap';
+import { Accordion, Tabs, Tab, Spinner } from 'react-bootstrap';
 import styles from '../styles/EspaceClient.module.css';
 
 function UserProfile() {
-  const [userTabs, setUserTabs] = useState(1);
   const { userData, getUserData, isLogin } = useContext(LoginContext);
 
   useEffect(() => {
@@ -13,13 +12,6 @@ function UserProfile() {
     }
   }, []);
 
-  const userDataTab = () => {
-    setUserTabs(1);
-  };
-  const devisTab = () => {
-    setUserTabs(2);
-  };
-
   return (
     <div>
       {!isLogin && !userData.id ? (
@@ -27,17 +19,11 @@ function UserProfile() {
           <Spinner animation="border" />
         </div>
       ) : (
+        <div>
+        {userData && (
         <div className={styles.profileContainer}>
-          <div className={styles.tabs}>
-            <button className={styles.button} onClick={userDataTab}>
-              Mes informations
-            </button>
-            <button className={styles.button} onClick={devisTab}>
-              Mes devis
-            </button>
-          </div>
-          {userTabs &&
-            (userTabs === 1 ? (
+          <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
+            <Tab eventKey="UserProfile" title="Mes Informations">
               <div className={styles.profileData}>
                 <ul>
                   <li> Prénom: {userData && userData.firstname} </li>
@@ -49,36 +35,55 @@ function UserProfile() {
                   <li> Ville: {userData && userData.city}</li>
                 </ul>
               </div>
-            ) : (
+            </Tab>
+            <Tab eventKey="UserDevis" title="Mes Devis">
               <div className={styles.profileMain}>
                 {!userData && !userData.devis.length ? (
                   <p>Aucun devis effectué</p>
                 ) : (
                   userData.devis.map((elt) => (
-                <li>
-                  <div className={styles.headerDevis}>
-                <p>Devis du {elt.created_at.slice(0, 10)}</p>
-                <p>Catégorie: {elt.categories_devis_provider.title}</p>
-                <p>Statut : {elt.status === 0 ? "Envoyé" : "en cours de traitement"}</p>
-                  </div>
-                <Accordion>
-                <Accordion.Header>Détails</Accordion.Header>
-                <Accordion.Body>
-                {elt.questions_answers.map((elt) => 
-                <div className={styles.profileDevis}>
-                  <p>Question: {elt.questions}</p>
-                  <p>Réponse: {elt.answers}</p>
-                </div>
-                )}
-                </Accordion.Body>
-                </Accordion>
-                </li>
+                    <li>
+                      <div className={styles.headerDevis}>
+                        <p>Devis du {elt.created_at.slice(0, 10)}</p>
+                        <p>Catégorie: {elt.categories_devis_provider.title}</p>
+                        <p>Statut : {elt.status === 0 ? 'Envoyé' : 'en cours de traitement'}</p>
+                      </div>
+                      <Accordion>
+                        <Accordion.Header>Détails</Accordion.Header>
+                        <Accordion.Body>
+                          {elt.questions_answers.map((res) => (
+                            <div className={styles.profileDevis}>
+                              <p>Question: {res.questions}</p>
+                              <p>Réponse: {res.answers}</p>
+                            </div>
+                          ))}
+                        </Accordion.Body>
+                      </Accordion>
+                    </li>
                   ))
-                  )}
+                )}
               </div>
-            ))}
-    </div>)
+            </Tab>
+            <Tab eventKey="UserMessages" title="Mes Messages">
+              <div className={styles.profileMessages}>
+              {!userData && !userData.messages.length ? (
+                  <p>Aucun message envoyé</p>
+                ) : (
+                  userData.messages.map((elt) => (
+                      <div className={styles.headerMessages}>
+                        <p>Message du {elt.created_at.slice(0, 10)}</p>
+                        <p>Sujet: {elt.subject}</p>
+                        <p>Texte : {elt.text}</p>
+                      </div>)))}
+              </div>
+            </Tab>
+          </Tabs>
+        </div>
+        )}
+        </div>
+      )}
+    </div>
+  );
 }
-</div>)};
 
 export default UserProfile;

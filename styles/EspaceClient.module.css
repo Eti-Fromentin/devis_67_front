@@ -23,10 +23,8 @@
 .profileMain li {
     text-align: center;
     list-style-type: none;
-    box-shadow: black;
     margin: 2vw;
-    border: ridge;
-    border-radius: 10px;
+    background-color: aliceblue;
 }
 
 .headerDevis {
@@ -38,6 +36,19 @@
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    background-color: ghostwhite;
+}
+
+.headerMessages {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profileMessages {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: ghostwhite;
 }
 
 .tabs {
