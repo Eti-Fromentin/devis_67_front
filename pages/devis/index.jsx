@@ -4,13 +4,14 @@ import Footer from '../../components/Footer';
 import styles from '../../styles/DevisHome.module.css';
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
-import { InputGroup, FormControl, Button } from 'react-bootstrap';
+import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
 import Head from 'next/head';
 import axios from 'axios';
 import Link from 'next/link';
 
-const DevisHome = ({ headInfo }) => {
+const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
+  const devis = devisInfo;
   return (
     <>
       <Head>
@@ -57,10 +58,19 @@ const DevisHome = ({ headInfo }) => {
             </div>
             {/* options */}
             <div className={styles.leftOptionsDevisHome}>
+              {devis.map((element, index) => {
+                return (
+                  <Link key={index} href={element.pages.url}>
+                    <Card className={styles.cardDevisHome} key={index}>
+                      {element.title}
+                    </Card>
+                  </Link>
+                );
+              })}
               {/* {Data.filter((element) => element.position === 1).map((element) => {
                 return <span key={element.id}>{element.text}</span>;
               })} */}
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Fenêtres</span>
               </Link>
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
@@ -68,8 +78,8 @@ const DevisHome = ({ headInfo }) => {
               </Link>
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Rénovation intérieure</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+              </Link> */}
+              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Chauffage - Chaudière</span>
               </Link>
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
@@ -86,8 +96,8 @@ const DevisHome = ({ headInfo }) => {
               </Link>
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Salle de bains</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+              </Link> */}
+              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Peinture - Tapisserie</span>
               </Link>
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
@@ -104,7 +114,7 @@ const DevisHome = ({ headInfo }) => {
               </Link>
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Aménagement intérieur</span>
-              </Link>
+              </Link> */}
             </div>
           </aside>
           {/* RIGHT CONTAINER */}
@@ -142,13 +152,14 @@ const DevisHome = ({ headInfo }) => {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const url = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
+  const devisInfo = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/devis`).then((response) => response.data);
 
   return {
     props: {
-      url,
+      devisInfo,
       headInfo,
+      apiUrl,
     },
   };
 }
