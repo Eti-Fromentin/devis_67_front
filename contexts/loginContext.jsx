@@ -13,6 +13,7 @@ const LoginContext = createContext({
   userData: null,
   setUserData: () => {},
   getUserData: () => {},
+  logOut: () => {},
 });
 
 export function LoginContextProvider({ children }) {
@@ -54,6 +55,15 @@ export function LoginContextProvider({ children }) {
     }
   }
 
+  function logOut() {
+    setUserToken(null);
+    setUserId(null);
+    setIsLogin(false);
+    window.localStorage.removeItem('devisAccessToken');
+    window.localStorage.removeItem('devisUserId');
+    setUserData(null);
+  }
+
   return (
     <LoginContext.Provider
       value={{
@@ -68,6 +78,7 @@ export function LoginContextProvider({ children }) {
         userData,
         setUserData,
         getUserData,
+        logOut,
       }}
     >
       {children}

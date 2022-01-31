@@ -5,12 +5,20 @@ import styles from '../../styles/DevisHome.module.css';
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
+import Head from 'next/head';
 import axios from 'axios';
 import Link from 'next/link';
 
-const DevisHome = () => {
+const DevisHome = ({ headInfo }) => {
+  const head = headInfo && headInfo[0];
   return (
     <>
+      <Head>
+        <title>{head.title}</title>
+        <meta name="description" content={head.description} />
+        <meta name="keywords" content={head.keywords} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar pageType="devis" />
       <section className={styles.bodyDevisHome}>
         {/* PRINCIPAL CONTAINER */}
@@ -135,10 +143,12 @@ export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const url = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
+  const headInfo = await axios.get(`${apiUrl}/pagesdetails/devis`).then((response) => response.data);
 
   return {
     props: {
       url,
+      headInfo,
     },
   };
 }

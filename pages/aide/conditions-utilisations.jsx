@@ -2,11 +2,19 @@ import React from 'react';
 import axios from 'axios';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import Head from 'next/head';
 import styles from '../../styles/Conditions.module.css';
 
-function ConditionsUtilisations({ posts }) {
+function ConditionsUtilisations({ posts, headInfo }) {
+  const head = headInfo && headInfo[0];
   return (
     <div>
+      <Head>
+        <title>{head.title}</title>
+        <meta name="description" content={head.description} />
+        <meta name="keywords" content={head.keywords} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div>
         <NavBar pageType="devis" />
         <h1>Conditions d&#039; utilisations</h1>
@@ -59,9 +67,11 @@ export async function getStaticProps() {
     .get(`${apiUrl}/pagescontent/conditions`)
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
+  const headInfo = await axios.get(`${apiUrl}/pagesdetails/conditions-utilisations`).then((response) => response.data);
   return {
     props: {
       posts,
+      headInfo,
     },
   };
 }

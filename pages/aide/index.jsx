@@ -4,10 +4,18 @@ import Footer from '../../components/Footer';
 import axios from 'axios';
 import styles from '../../styles/Aide.module.css';
 import { Nav } from 'react-bootstrap';
+import Head from 'next/head';
 
-function AideAccueil({ posts }) {
+function AideAccueil({ posts, headInfo }) {
+  const head = headInfo && headInfo[0];
   return (
     <>
+      <Head>
+        <title>{head.title}</title>
+        <meta name="description" content={head.description} />
+        <meta name="keywords" content={head.keywords} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar pageType="devis" />
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle')
@@ -66,10 +74,12 @@ export async function getStaticProps() {
     .get(`${apiUrl}/pagescontent/aide`)
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
+  const headInfo = await axios.get(`${apiUrl}/pagesdetails/aide`).then((response) => response.data);
 
   return {
     props: {
       posts,
+      headInfo,
     },
   };
 }
