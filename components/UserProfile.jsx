@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import LoginContext from '../contexts/loginContext';
-import { Spinner } from 'react-bootstrap';
+import { Accordion, Spinner } from 'react-bootstrap';
 import styles from '../styles/EspaceClient.module.css';
 
 function UserProfile() {
@@ -51,23 +51,34 @@ function UserProfile() {
               </div>
             ) : (
               <div className={styles.profileMain}>
-                <ul>  {!userData && !userData.devis.length ? (
+                {!userData && !userData.devis.length ? (
                   <p>Aucun devis effectué</p>
                 ) : (
                   userData.devis.map((elt) => (
-                <li>Devis du {elt.created_at.slice(0, 10)}
+                <li>
+                  <div className={styles.headerDevis}>
+                <p>Devis du {elt.created_at.slice(0, 10)}</p>
                 <p>Catégorie: {elt.categories_devis_provider.title}</p>
                 <p>Statut : {elt.status === 0 ? "Envoyé" : "en cours de traitement"}</p>
+                  </div>
+                <Accordion>
+                <Accordion.Header>Détails</Accordion.Header>
+                <Accordion.Body>
+                {elt.questions_answers.map((elt) => 
+                <div className={styles.profileDevis}>
+                  <p>Question: {elt.questions}</p>
+                  <p>Réponse: {elt.answers}</p>
+                </div>
+                )}
+                </Accordion.Body>
+                </Accordion>
                 </li>
-                  )
-                ))
-                  }</ul>
+                  ))
+                  )}
               </div>
             ))}
-        </div>
-      )}
-    </div>
-  );
+    </div>)
 }
+</div>)};
 
 export default UserProfile;

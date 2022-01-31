@@ -2,7 +2,7 @@
 .profileData ul {
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: 2vw;
 }
@@ -16,7 +16,7 @@
 .profileMain {
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -27,7 +27,17 @@
     margin: 2vw;
     border: ridge;
     border-radius: 10px;
-    width: 25vw;
+}
+
+.headerDevis {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profileDevis {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 .tabs {
@@ -47,10 +57,6 @@
         display: flex;
         justify-content: center;
         flex-direction: row;
-    }
-
-    .profileMain li {
-        width: 50vw;
     }
     
 }
