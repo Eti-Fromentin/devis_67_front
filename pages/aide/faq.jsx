@@ -1,13 +1,21 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import Head from 'next/head';
 import axios from 'axios';
 import styles from '../../styles/Faq.module.css';
 import { Container } from 'react-bootstrap';
 
-function Faq({ posts }) {
+function Faq({ posts, headInfo }) {
+  const head = headInfo && headInfo[0];
   return (
     <div>
+      <Head>
+        <title>{head.title}</title>
+        <meta name="description" content={head.description} />
+        <meta name="keywords" content={head.keywords} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar pageType="devis" />
       <h1 className={styles.h1Faq}>Foire aux questions</h1>
       <Container>
@@ -51,10 +59,12 @@ export async function getStaticProps() {
     .get(`${apiUrl}/pagescontent/faq`)
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
+  const headInfo = await axios.get(`${apiUrl}/pagesdetails/faq`).then((response) => response.data);
 
   return {
     props: {
       posts,
+      headInfo,
     },
   };
 }

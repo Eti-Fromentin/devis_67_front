@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import LoginContext from '../contexts/loginContext';
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Button } from 'react-bootstrap';
 import styles from '../styles/EspaceClient.module.css';
 
 function UserProfile() {
   const [userTabs, setUserTabs] = useState(1);
-  const { userData, getUserData, isLogin } = useContext(LoginContext);
+  const { userData, getUserData, isLogin, logOut } = useContext(LoginContext);
 
   useEffect(() => {
     if (isLogin) {
@@ -18,6 +18,11 @@ function UserProfile() {
   };
   const devisTab = () => {
     setUserTabs(2);
+  };
+
+  const handleLogOutClick = () => {
+    logOut();
+    alert('Vous êtes maintenant déconnecté.');
   };
 
   return (
@@ -38,17 +43,22 @@ function UserProfile() {
           </div>
           {userTabs &&
             (userTabs === 1 ? (
-              <div className={styles.profileData}>
-                <ul>
-                  <li> Prénom: {userData && userData.firstname} </li>
-                  <li> Nom: {userData && userData.lastname}</li>
-                  <li> Email: {userData && userData.email}</li>
-                  <li> Téléphone: {userData && userData.phone ? userData.phone : 'non renseigné'}</li>
-                  <li> Adresse: {userData && userData.address ? userData.address : 'non renseigné'}</li>
-                  <li> Code Postal: {userData && userData.postalcode}</li>
-                  <li> Ville: {userData && userData.city}</li>
-                </ul>
-              </div>
+              <>
+                <Button onClick={handleLogOutClick} variant="primary">
+                  Déconnexion
+                </Button>
+                <div className={styles.profileData}>
+                  <ul>
+                    <li> Prénom: {userData && userData.firstname} </li>
+                    <li> Nom: {userData && userData.lastname}</li>
+                    <li> Email: {userData && userData.email}</li>
+                    <li> Téléphone: {userData && userData.phone ? userData.phone : 'non renseigné'}</li>
+                    <li> Adresse: {userData && userData.address ? userData.address : 'non renseigné'}</li>
+                    <li> Code Postal: {userData && userData.postalcode}</li>
+                    <li> Ville: {userData && userData.city}</li>
+                  </ul>
+                </div>
+              </>
             ) : (
               <div className={styles.profileMain}>
                 <li>Devis du 15/01/2022</li>
