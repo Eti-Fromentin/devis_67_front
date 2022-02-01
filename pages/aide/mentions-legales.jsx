@@ -3,10 +3,18 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 import styles from '../../styles/MentionsLegales.module.css';
+import Head from 'next/head';
 
-function MentionsLegales({ posts }) {
+function MentionsLegales({ posts, headInfo }) {
+  const head = headInfo && headInfo[0];
   return (
     <div>
+      <Head>
+        <title>{head.title}</title>
+        <meta name="description" content={head.description} />
+        <meta name="keywords" content={head.keywords} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar pageType="devis" />
       <h1>Mentions legales</h1>
       <h2>Toutes les informations</h2>
@@ -44,10 +52,12 @@ export async function getStaticProps() {
     .get(`${apiUrl}/pagescontent/mentions_legales`)
     .then((response) => response.data)
     .then((data) => data.filter((element) => element.visible === 1));
+  const headInfo = await axios.get(`${apiUrl}/pagesdetails/mentions-légales`).then((response) => response.data);
 
   return {
     props: {
       posts,
+      headInfo,
     },
   };
 }

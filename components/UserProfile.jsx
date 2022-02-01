@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import LoginContext from '../contexts/loginContext';
-import { Accordion, Tabs, Tab, Spinner } from 'react-bootstrap';
+import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
 import styles from '../styles/UserProfile.module.css';
 
 function UserProfile() {
@@ -11,6 +11,11 @@ function UserProfile() {
       getUserData();
     }
   }, []);
+
+  const handleLogOutClick = () => {
+    logOut();
+    alert('Vous êtes maintenant déconnecté.');
+  };
 
   return (
     <div>
@@ -24,6 +29,9 @@ function UserProfile() {
             <div className={styles.profileContainer}>
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
+                <Button onClick={handleLogOutClick} variant="primary">
+                  Déconnexion
+                </Button>
                   <div className={styles.profileData}>
                     <ul>
                       <li> Prénom: {userData && userData.firstname} </li>

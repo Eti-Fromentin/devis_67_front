@@ -34,12 +34,16 @@ function Footer() {
               <ul className={styles.itemsNavBar}>
                 {footerData
                   .filter((element) => element.section === 'list1')
-                  .map((element) => {
+                  .map((element, index) => {
                     if (element.category === 'titre') {
-                      return <h3 className={styles.footerH3}>{element.text}</h3>;
+                      return (
+                        <h3 key={index} className={styles.footerH3}>
+                          {element.text}
+                        </h3>
+                      );
                     } else {
                       return (
-                        <div>
+                        <div key={index}>
                           <Container>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from '../../styles/DevisAllQuestions.module.css';
-import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal } from 'react-bootstrap';
+import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import Head from 'next/head';
 import NavBar from '../../components/NavBar';
@@ -220,14 +220,25 @@ function DevisAllQuestions({ form, headInfo }) {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           </Head>
           <h1 className={styles.topTitleDevisForm}>Remplissez ce formulaire et nous vous enverrons les devis dans les plus brefs délais :</h1>
+          {!isLogin && (
+            <Alert variant="danger">
+              Vous ne pouvez pas faire de demande de devis sans être connecté. <Alert.Link href="/espace-client">Inscrivez vous içi!</Alert.Link>
+            </Alert>
+          )}
           <Card className={styles.bodyDevisAllQuestions}>
             <Form onSubmit={handleSubmit(formSubmit)} className={styles.containerDevisAllQuestions}>
               {form.map((elt, index) => (
                 <div key={index}>{DevisForm(elt)}</div>
               ))}
-              <Button variant="primary" type="submit" onClick={handleShow}>
-                Valider
-              </Button>
+              {!isLogin ? (
+                <Button variant="primary" type="submit" disabled>
+                  Valider
+                </Button>
+              ) : (
+                <Button variant="primary" type="submit" onClick={handleShow}>
+                  Valider
+                </Button>
+              )}
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>Devis67</Modal.Title>
