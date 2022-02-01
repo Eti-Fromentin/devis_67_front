@@ -13,17 +13,6 @@ import pic from '../../Assets/maison.jpg';
 
 import styles from '../../styles/DevisHome.module.css';
 
-<<<<<<< HEAD
-import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
-import Head from 'next/head';
-import axios from 'axios';
-import Link from 'next/link';
-
-import styles from '../../styles/DevisHome.module.css';
-
-
-=======
->>>>>>> 7f5e21c873b5060e1c84c6273d006a397d78e2c9
 const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
   const devis = devisInfo;
@@ -70,8 +59,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
-            </div>
-          </aside>
             </div>
           </aside>
           <aside className={styles.rightContainerDevisHome}>

@@ -31,7 +31,7 @@ function HomePage({ headInfo }) {
           <Row>
             <Link href="devis/">
               <Col md={{ order: 'first' }} className={styles.colHomeCard}>
-                <Card className={styles.homecard1}>
+                <Card className={styles.homecard}>
                   <Card.Title className={styles.cardTitleHome}>Formulaire Devis</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>
@@ -54,7 +54,7 @@ function HomePage({ headInfo }) {
             </Link>
             <Link href="aide/">
               <Col md={{ order: 'second' }} className={styles.colHomeCard}>
-                <Card className={styles.homecard2}>
+                <Card className={styles.homecard}>
                   <Card.Title className={styles.cardTitleHome}>Calcul des Aides</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>

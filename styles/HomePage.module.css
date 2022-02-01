@@ -15,7 +15,7 @@
     width: 100vw;
 }
 
-.homecard1 {
+/* .homecard1 {
     min-height: 95%;
     min-width: 95%;
     margin: 5vh;
@@ -24,12 +24,11 @@
     border-color: 1px solid #333;
     box-shadow: rgb(217 215 213) 0px 1px 5px;
     border: 1px solid #333;
-    display: flex;
 }
 .homecard1:hover {
     cursor: pointer;
-}
-.homecard2 {
+} */
+.homecard {
     min-height: 95%;
     min-width: 95%;
     margin: 5vh;
@@ -39,7 +38,7 @@
     box-shadow: rgb(217 215 213) 0px 1px 5px;
     border: 1px solid #333;
 }
-.homecard2:hover {
+.homecard:hover {
     cursor: pointer;
 }
 .cardTitleHome {
@@ -49,7 +48,7 @@
 }
 .cardtexthome {
     width: 70%;
-    font-weight: 500;
+    font-weight: 300;
     font-size:clamp(17px, 1vw, 30px);
 }
 .homeImage {
