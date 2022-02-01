@@ -1,9 +1,12 @@
 import React from 'react';
-import logo from '../Assets/logo.png';
-import Image from 'next/image';
 import axios from 'axios';
+
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, Spinner } from 'react-bootstrap';
+import Image from 'next/image';
+
+import logo from '../Assets/logo.png';
+
 import styles from '../styles/NavBar.module.css';
 
 function NavBar({ pageType }) {
@@ -12,7 +15,7 @@ function NavBar({ pageType }) {
   useEffect(() => {
     axios
       .get(`${apiUrl}/navbar/`)
-      .then((response) => response.data)
+      .then((reponse) => reponse.data)
       .then((data) => setNavBarData(data.filter((element) => element.visible === 1 && element.pagetype === pageType)));
   }, []);
 

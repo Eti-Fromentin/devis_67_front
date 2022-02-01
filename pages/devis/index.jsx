@@ -1,14 +1,33 @@
 import React from 'react';
+import axios from 'axios';
+
+import Head from 'next/head';
+import Link from 'next/link';
+import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import styles from '../../styles/DevisHome.module.css';
+
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+import styles from '../../styles/DevisHome.module.css';
+
+=======
 import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
 import Head from 'next/head';
 import axios from 'axios';
 import Link from 'next/link';
 
+>>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
+=======
+
+import styles from '../../styles/DevisHome.module.css';
+
+
+>>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
 const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
   const devis = devisInfo;
@@ -22,26 +41,15 @@ const DevisHome = ({ headInfo, devisInfo }) => {
       </Head>
       <NavBar pageType="devis" />
       <section className={styles.bodyDevisHome}>
-        {/* PRINCIPAL CONTAINER */}
         <section className={styles.containerDevisHome}>
-          {/* LEFT CONTAINER */}
           <aside className={styles.leftContainerDevisHome}>
-            {/* GRID 3 columns */}
             <div className={styles.leftTextDevisHome}>
               {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
                 return <span key={element.position}>{element.text}</span>;
                 // }
               })}
-              {/* {!url.length ? (
-                <Spinner animation="border" />
-              ) : (
-                url.map((data) => {
-                  <span key={data.id}>{data.url}</span>;
-                })
-              )} */}
             </div>
             <div className={styles.leftSearchBarDevisHome}>
-              {/* search bar */}
               <div className={styles.searchBoxDevisHome}>
                 <InputGroup className={styles.inputGroupIndexDevis}>
                   <FormControl
@@ -56,7 +64,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </InputGroup>
               </div>
             </div>
-            {/* options */}
+
             <div className={styles.leftOptionsDevisHome}>
               {devis.map((element, index) => {
                 return (
@@ -67,6 +75,9 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
               {/* {Data.filter((element) => element.position === 1).map((element) => {
                 return <span key={element.id}>{element.text}</span>;
               })} */}
@@ -115,9 +126,13 @@ const DevisHome = ({ headInfo, devisInfo }) => {
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Aménagement intérieur</span>
               </Link> */}
+>>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
+=======
+
+>>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
             </div>
           </aside>
-          {/* RIGHT CONTAINER */}
+
           <aside className={styles.rightContainerDevisHome}>
             <aside className={styles.hightBlockDevisHome}>
               <div className={styles.titlehightBlockDevisHome}>
@@ -140,7 +155,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </div>
               </div>
             </aside>
-            <aside className={styles.lowBlockDevisHome}>{/* IMAGE URL BACKGROUND */}</aside>
+            <aside className={styles.lowBlockDevisHome}></aside>
           </aside>
         </section>
       </section>

@@ -1,10 +1,13 @@
 import React from 'react';
+import axios from 'axios';
+
+import Head from 'next/head';
+import { Nav } from 'react-bootstrap';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import axios from 'axios';
+
 import styles from '../../styles/Aide.module.css';
-import { Nav } from 'react-bootstrap';
-import Head from 'next/head';
 
 function AideAccueil({ posts, headInfo }) {
   const head = headInfo && headInfo[0];

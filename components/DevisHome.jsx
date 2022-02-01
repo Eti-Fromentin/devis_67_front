@@ -1,26 +1,21 @@
 import React from 'react';
-import styles from '../styles/DevisHome.module.css';
+
 import pic from '../Assets/maison.jpg';
 import Data from '../dataCategory.json';
-// import axios from 'axios';
+
+import styles from '../styles/DevisHome.module.css';
 
 const DevisHome = () => {
   return (
     <section className={styles.bodyDevisHome}>
-      {/* PRINCIPAL CONTAINER */}
       <section className={styles.containerDevisHome}>
-        {/* LEFT CONTAINER */}
         <aside className={styles.leftContainerDevisHome}>
-          {/* GRID 3 columns */}
           <div className={styles.leftTextDevisHome}>
             {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
-              // if (element.position === 5) {
               return <span key={element.position}>{element.text}</span>;
-              // }
             })}
           </div>
           <div className={styles.leftSearchBarDevisHome}>
-            {/* search bar */}
             <div className={styles.searchBoxDevisHome}>
               <input className={styles.searchInputDevisHome} type="text" placeholder="Tapez votre recherche..."></input>
               <button className={styles.searchBtnDevisHome}>
@@ -28,14 +23,14 @@ const DevisHome = () => {
               </button>
             </div>
           </div>
-          {/* options */}
+
           <div className={styles.leftOptionsDevisHome}>
             {Data.map((element) => {
               return <span key={element.id}>{element.text}</span>;
             })}
           </div>
         </aside>
-        {/* RIGHT CONTAINER */}
+
         <aside className={styles.rightContainerDevisHome}>
           <aside className={styles.hightBlockDevisHome}>
             <div className={styles.titlehightBlockDevisHome}>
@@ -58,7 +53,7 @@ const DevisHome = () => {
               </div>
             </div>
           </aside>
-          <aside className={styles.lowBlockDevisHome}>{/* IMAGE URL BACKGROUND */}</aside>
+          <aside className={styles.lowBlockDevisHome}></aside>
         </aside>
       </section>
     </section>
