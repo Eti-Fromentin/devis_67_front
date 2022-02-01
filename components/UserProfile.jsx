@@ -1,14 +1,9 @@
 import React, { useEffect, useContext } from 'react';
+import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
+
 import LoginContext from '../contexts/loginContext';
-<<<<<<< HEAD
-import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
-import styles from '../styles/UserProfile.module.css';
-=======
 
-import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
 import styles from '../styles/UserProfile.module.css';
-
->>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
 
 function UserProfile() {
   const { userData, getUserData, isLogin, logOut } = useContext(LoginContext);

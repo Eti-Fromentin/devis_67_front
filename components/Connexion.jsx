@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
 
 import LoginContext from '../contexts/loginContext';
+
 import styles from '../styles/Connexion.module.css';
 
 function Connexion() {
@@ -77,9 +77,7 @@ function Connexion() {
                   <Button className={styles.button} variant="primary" type="submit">
                     Connexion
                   </Button>
-                  <p>
-                    Pas encore inscrit(e)? Remplissez le formulaire ci-dessous!
-                  </p>
+                  <p>Pas encore inscrit(e)? Remplissez le formulaire ci-dessous!</p>
                 </Form>
               </Card.Body>
             </Card>
