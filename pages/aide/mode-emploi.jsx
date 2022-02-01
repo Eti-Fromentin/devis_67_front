@@ -1,9 +1,11 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
-import styles from '../../styles/ModeEmploi.module.css';
-import Head from 'next/head';
-import Footer from '../../components/Footer';
 import axios from 'axios';
+
+import Head from 'next/head';
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+
+import styles from '../../styles/ModeEmploi.module.css';
 
 function ModeEmploi({ posts, headInfo }) {
   const head = headInfo && headInfo[0];

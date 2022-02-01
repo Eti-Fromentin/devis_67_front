@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+
+import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import Head from 'next/head';
+
 import styles from '../../styles/Conditions.module.css';
 
 function ConditionsUtilisations({ posts, headInfo }) {

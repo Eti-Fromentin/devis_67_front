@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import LoginContext from '../contexts/loginContext';
+
 import { Spinner, Button } from 'react-bootstrap';
+
 import styles from '../styles/EspaceClient.module.css';
 
 function UserProfile() {

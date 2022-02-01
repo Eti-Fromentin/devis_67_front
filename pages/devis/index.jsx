@@ -1,13 +1,17 @@
 import React from 'react';
+import axios from 'axios';
+
+import Head from 'next/head';
+import Link from 'next/link';
+import { InputGroup, FormControl, Button } from 'react-bootstrap';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import styles from '../../styles/DevisHome.module.css';
+
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
-import { InputGroup, FormControl, Button } from 'react-bootstrap';
-import Head from 'next/head';
-import axios from 'axios';
-import Link from 'next/link';
+
+import styles from '../../styles/DevisHome.module.css';
 
 const DevisHome = ({ headInfo }) => {
   const head = headInfo && headInfo[0];
@@ -21,26 +25,15 @@ const DevisHome = ({ headInfo }) => {
       </Head>
       <NavBar pageType="devis" />
       <section className={styles.bodyDevisHome}>
-        {/* PRINCIPAL CONTAINER */}
         <section className={styles.containerDevisHome}>
-          {/* LEFT CONTAINER */}
           <aside className={styles.leftContainerDevisHome}>
-            {/* GRID 3 columns */}
             <div className={styles.leftTextDevisHome}>
               {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
                 return <span key={element.position}>{element.text}</span>;
                 // }
               })}
-              {/* {!url.length ? (
-                <Spinner animation="border" />
-              ) : (
-                url.map((data) => {
-                  <span key={data.id}>{data.url}</span>;
-                })
-              )} */}
             </div>
             <div className={styles.leftSearchBarDevisHome}>
-              {/* search bar */}
               <div className={styles.searchBoxDevisHome}>
                 <InputGroup className={styles.inputGroupIndexDevis}>
                   <FormControl
@@ -55,11 +48,8 @@ const DevisHome = ({ headInfo }) => {
                 </InputGroup>
               </div>
             </div>
-            {/* options */}
+
             <div className={styles.leftOptionsDevisHome}>
-              {/* {Data.filter((element) => element.position === 1).map((element) => {
-                return <span key={element.id}>{element.text}</span>;
-              })} */}
               <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
                 <span>Fenêtres</span>
               </Link>
@@ -107,7 +97,7 @@ const DevisHome = ({ headInfo }) => {
               </Link>
             </div>
           </aside>
-          {/* RIGHT CONTAINER */}
+
           <aside className={styles.rightContainerDevisHome}>
             <aside className={styles.hightBlockDevisHome}>
               <div className={styles.titlehightBlockDevisHome}>

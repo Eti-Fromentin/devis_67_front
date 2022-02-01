@@ -1,12 +1,13 @@
 import React, { useEffect, useContext } from 'react';
-// import Link from 'next/link';
+import LoginContext from '../contexts/loginContext';
+import axios from 'axios';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import LoginContext from '../contexts/loginContext';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
+
 import styles from '../styles/Contact.module.css';
-import axios from 'axios';
 
 function Renseignement() {
   const { isLogin, checkIsLogin, getUserData, userData } = useContext(LoginContext);
