@@ -27,6 +27,7 @@ function UserProfile() {
         <div>
           {userData && (
             <div className={styles.profileContainer}>
+              <h1 id={styles.welcomeUser}>BIENVENU(E) {userData.firstname} {userData.lastname}</h1>
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
                 <Button onClick={handleLogOutClick} variant="primary">

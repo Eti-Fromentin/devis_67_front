@@ -1,3 +1,10 @@
+#welcomeUser {
+    font-size: 26px;
+    text-align: center;
+    margin: 2%;
+    color: black;
+}
+
 
 .profileData ul {
     display: flex;
