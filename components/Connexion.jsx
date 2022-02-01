@@ -40,8 +40,17 @@ function Connexion() {
         email: user.email,
         password: user.password,
       })
-      .then((res) => setAccount(res));
-    alert('Vous êtes désormais connecté(e)');
+      .then((res) => {
+        if (res.status === 200) {
+          setAccount(res);
+          alert('Connexion réussie!');
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          alert('Votre Email ou mot de passe ne correspond pas');
+        }
+      });
     reset({
       email: '',
       password: '',
@@ -75,9 +84,7 @@ function Connexion() {
                   <Button className={styles.button} variant="primary" type="submit">
                     Connexion
                   </Button>
-                  <p>
-                    Pas encore inscrit(e)? Remplissez le formulaire ci-dessous!
-                  </p>
+                  <p>Pas encore inscrit(e)? Remplissez le formulaire ci-dessous!</p>
                 </Form>
               </Card.Body>
             </Card>
