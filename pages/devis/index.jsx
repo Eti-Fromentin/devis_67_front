@@ -13,6 +13,7 @@ import pic from '../../Assets/maison.jpg';
 
 import styles from '../../styles/DevisHome.module.css';
 
+
 const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
   const devis = devisInfo;
@@ -60,6 +61,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
+
             </div>
           </aside>
 
