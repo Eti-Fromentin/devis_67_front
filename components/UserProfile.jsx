@@ -32,11 +32,11 @@ function UserProfile() {
               <h1 id={styles.welcomeUser}>
                 BIENVENU(E) {userData.firstname} {userData.lastname}
               </h1>
+              <Button className={styles.ButtonLogOut} onClick={handleLogOutClick} variant="primary">
+                Déconnexion
+              </Button>
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
-                  <Button onClick={handleLogOutClick} variant="primary">
-                    Déconnexion
-                  </Button>
                   <div className={styles.profileData}>
                     <ul>
                       <li> Prénom: {userData && userData.firstname} </li>
