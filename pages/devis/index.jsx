@@ -10,24 +10,17 @@ import Footer from '../../components/Footer';
 
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 import styles from '../../styles/DevisHome.module.css';
 
-=======
 import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
 import Head from 'next/head';
 import axios from 'axios';
 import Link from 'next/link';
 
->>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
-=======
-
 import styles from '../../styles/DevisHome.module.css';
 
 
->>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
 const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
   const devis = devisInfo;
@@ -64,10 +57,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </InputGroup>
               </div>
             </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> f13728c422018a26d497ec5cacd4ab5a4fc82043
             <div className={styles.leftOptionsDevisHome}>
               {devis.map((element, index) => {
                 return (
@@ -78,69 +67,10 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
-<<<<<<< HEAD
             </div>
           </aside>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-              {/* {Data.filter((element) => element.position === 1).map((element) => {
-                return <span key={element.id}>{element.text}</span>;
-              })} */}
-              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Fenêtres</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Construction - Extension</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Rénovation intérieure</span>
-              </Link> */}
-              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Chauffage - Chaudière</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Menuiseries (alu, bois, pvc)</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Toiture - Charpente</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Climatisation - Ventilation</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Architecture</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Salle de bains</span>
-              </Link> */}
-              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Peinture - Tapisserie</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Plomberie</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Sols intérieurs</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Sols extérieurs</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Piscine</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Aménagement intérieur</span>
-              </Link> */}
->>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
-=======
-
->>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
             </div>
           </aside>
-
->>>>>>> f13728c422018a26d497ec5cacd4ab5a4fc82043
           <aside className={styles.rightContainerDevisHome}>
             <aside className={styles.hightBlockDevisHome}>
               <div className={styles.titlehightBlockDevisHome}>

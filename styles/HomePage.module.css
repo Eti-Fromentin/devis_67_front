@@ -22,11 +22,8 @@
     padding: 2vh;
     border-radius: 0.50rem;
     border-color: 1px solid #333;
-    /* text-align: center; */
     box-shadow: rgb(217 215 213) 0px 1px 5px;
-    /* transition: 0.3s; */
     border: 1px solid #333;
-    background: darkolivegreen;
     display: flex;
 }
 .homecard1:hover {
@@ -39,11 +36,8 @@
     padding: 2vh;
     border-radius: 0.50rem;
     border-color: 1px solid #333;
-    /* text-align: center; */
     box-shadow: rgb(217 215 213) 0px 1px 5px;
-    /* transition: 0.3s; */
     border: 1px solid #333;
-    background: darkolivegreen;
 }
 .homecard2:hover {
     cursor: pointer;
@@ -52,29 +46,20 @@
     font-weight: 700;
     font-size: clamp(10px, 10vw, 25px);
     font-family: 'Roboto', sans-serif;
-    background: darkkhaki;
 }
 .cardtexthome {
     width: 70%;
     font-weight: 500;
     font-size:clamp(17px, 1vw, 30px);
-    background: cyan;
 }
-.homeImage1 {
-    height: 70%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    overflow: hidden;
-    background: yellowgreen;
-}
-.homeImage2 {
-    height: 70%;
+.homeImage {
+    height: 80%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     overflow: hidden;
 }
+
 .imageHome {
     border-radius: 20px;
 }
