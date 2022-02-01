@@ -1,7 +1,14 @@
 import React, { useEffect, useContext } from 'react';
 import LoginContext from '../contexts/loginContext';
+<<<<<<< HEAD
 import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
 import styles from '../styles/UserProfile.module.css';
+=======
+
+import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
+import styles from '../styles/UserProfile.module.css';
+
+>>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
 
 function UserProfile() {
   const { userData, getUserData, isLogin, logOut } = useContext(LoginContext);
@@ -27,12 +34,14 @@ function UserProfile() {
         <div>
           {userData && (
             <div className={styles.profileContainer}>
-              <h1 id={styles.welcomeUser}>BIENVENU(E) {userData.firstname} {userData.lastname}</h1>
+              <h1 id={styles.welcomeUser}>
+                BIENVENU(E) {userData.firstname} {userData.lastname}
+              </h1>
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
-                <Button onClick={handleLogOutClick} variant="primary">
-                  Déconnexion
-                </Button>
+                  <Button onClick={handleLogOutClick} variant="primary">
+                    Déconnexion
+                  </Button>
                   <div className={styles.profileData}>
                     <ul>
                       <li> Prénom: {userData && userData.firstname} </li>
@@ -50,8 +59,8 @@ function UserProfile() {
                     {!userData && !userData.devis.length ? (
                       <p>Aucun devis effectué</p>
                     ) : (
-                      userData.devis.map((elt) => (
-                        <li>
+                      userData.devis.map((elt, index) => (
+                        <li key={index}>
                           <div className={styles.headerDevis}>
                             <p>Devis du {elt.created_at.slice(0, 10)}</p>
                             <p>Catégorie: {elt.categories_devis_provider.title}</p>
@@ -60,8 +69,8 @@ function UserProfile() {
                           <Accordion>
                             <Accordion.Header>Détails</Accordion.Header>
                             <Accordion.Body>
-                              {elt.questions_answers.map((res) => (
-                                <div className={styles.profileDevis}>
+                              {elt.questions_answers.map((res, index) => (
+                                <div key={index} className={styles.profileDevis}>
                                   <p>Question: {res.questions}</p>
                                   <p>Réponse: {res.answers}</p>
                                 </div>
@@ -78,8 +87,8 @@ function UserProfile() {
                     {!userData && !userData.messages.length ? (
                       <p>Aucun message envoyé</p>
                     ) : (
-                      userData.messages.map((elt) => (
-                        <div className={styles.headerMessages}>
+                      userData.messages.map((elt, index) => (
+                        <div key={index} className={styles.headerMessages}>
                           <p>Date {elt.created_at.slice(0, 10)}</p>
                           <p>Sujet: {elt.subject}</p>
                           <p>Message: {elt.text}</p>

@@ -5,7 +5,6 @@
   align-items: center;
 }
 
-/***** BODY *****/
 .bodyDevisAllQuestions {
   height: 100%;
   width: 100%;
@@ -14,7 +13,6 @@
   align-items: center;
   padding: 5%;
 }
-/**** PRINCIPAL CONTAINER ***/
 .containerDevisAllQuestions {
   overflow: hidden;
   width: 90%;
@@ -26,23 +24,19 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   padding: 5%;
-  /* background: yellowgreen; */
 }
 
-/****** ----  RADIO CHOICE  ----  *******/
 .containerRadioChoiceComponent > h1 {
   font-size: clamp(15px, 8vw, 22px);
 }
 .formTagRadioChoice {
   height: 30vh;
-  /* background: yellow; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
 }
 .inputCardRadioChoice {
-  /* background: rgb(156, 137, 30); */
   min-width: 50px;
   min-height: 10px;
   padding: 0.5rem 1rem;
@@ -54,9 +48,7 @@
 }
 
 
-/******  ----  CHECK CHOICE  ----  ******/
 .containerCheckChoiceComponent {
-  /* background: cyan; */
   padding: 1rem;
 }
 .containerCheckChoiceComponent > h1 {
@@ -84,7 +76,6 @@
 }
 
 
-/****** ----  LIST CHOICE  ---- ******/
 .containerListChoiceComponent {
   height: 18vh;
   display: flex;
@@ -103,9 +94,7 @@
 .btnDropDownItemDevisAllQuestions {
 font-size: clamp(10px, 8vw, 15px);
 }
-/*****  ---- SHORT TEXT ---- ****/
 .containerShortTextComponent {
-  /* background: yellow; */
   height: 18vh;
   display: flex;
   flex-direction: column;
@@ -119,9 +108,7 @@ font-size: clamp(10px, 8vw, 15px);
   box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
 }
 
-/**** ---- LONG TEXT ---- ****/
 .containerLongTextComponent {
-  /* background: chartreuse; */
   height: 35vh;
   display: flex;
   flex-direction: column;
@@ -143,7 +130,6 @@ font-size: clamp(10px, 8vw, 15px);
   box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
 }
 
-/** TITLE **/
 .topTitleDevisForm {
   font-size:clamp(20px, 9vw, 31px);
   padding: 2rem;
