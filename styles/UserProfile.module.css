@@ -5,7 +5,6 @@
     color: black;
 }
 
-
 .profileData ul {
     display: flex;
     justify-content: space-around;
@@ -46,16 +45,18 @@
     background-color: ghostwhite;
 }
 
-.headerMessages {
-    display: flex;
-    justify-content: space-evenly;
-}
 
 .profileMessages {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     background-color: ghostwhite;
+    margin: 2%;
+}
+
+.headerMessages {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .tabs {

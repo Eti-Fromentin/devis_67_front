@@ -55,7 +55,7 @@ function UserProfile() {
                           <div className={styles.headerDevis}>
                             <p>Devis du {elt.created_at.slice(0, 10)}</p>
                             <p>Catégorie: {elt.categories_devis_provider.title}</p>
-                            <p>Statut : {elt.status === 0 ? 'Envoyé' : 'en cours de traitement'}</p>
+                            <p>Statut : {elt.status === 0 ? 'Envoyé' : 'En cours de traitement'}</p>
                           </div>
                           <Accordion>
                             <Accordion.Header>Détails</Accordion.Header>
@@ -80,9 +80,9 @@ function UserProfile() {
                     ) : (
                       userData.messages.map((elt) => (
                         <div className={styles.headerMessages}>
-                          <p>Message du {elt.created_at.slice(0, 10)}</p>
+                          <p>Date {elt.created_at.slice(0, 10)}</p>
                           <p>Sujet: {elt.subject}</p>
-                          <p>Description: {elt.text}</p>
+                          <p>Message: {elt.text}</p>
                         </div>
                       ))
                     )}
