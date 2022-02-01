@@ -4,7 +4,7 @@ import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
 import styles from '../styles/UserProfile.module.css';
 
 function UserProfile() {
-  const { userData, getUserData, isLogin } = useContext(LoginContext);
+  const { userData, getUserData, isLogin, logOut } = useContext(LoginContext);
 
   useEffect(() => {
     if (isLogin) {
