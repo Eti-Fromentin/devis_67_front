@@ -1,11 +1,9 @@
-/**** BODY ***/
 .bodyDevisHome {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-/**** PRINCIPAL CONTAINER ***/
 .containerDevisHome {
     margin: 1rem;
     height: 120vh;
@@ -18,7 +16,6 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-/************************** LEFT CONTAINER *****************************/
 .leftContainerDevisHome {
 grid-area: "1";
 display: grid;
@@ -39,14 +36,12 @@ grid-template-areas: "1"
 .leftTextDevisHome > span {
     border-radius: 15px;
 }
-/*** Search bar  -- START -- ***/
 .leftSearchBarDevisHome {
     grid-area: "2";
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    /* background: grey; */
 }
 
 .inputGroupIndexDevis {
@@ -55,7 +50,6 @@ grid-template-areas: "1"
     align-items: center;
     width: 100%;
 }
-/*** Search bar  -- END -- ***/
 
 .leftOptionsDevisHome {
     grid-area: "3";
@@ -82,7 +76,6 @@ grid-template-areas: "1"
    
 }
 
-/******************************** RIGHT CONTAINER **************************************/
 .rightContainerDevisHome {
     grid-area: "2";
     display: grid;
@@ -91,7 +84,6 @@ grid-template-areas: "1"
     grid-template-areas: "1"
                          "2";
 }
-/** aside **/
 .hightBlockDevisHome {
     grid-area: "1";
 }
@@ -116,7 +108,7 @@ grid-template-areas: "1"
 }
 .lowBlockDevisHome {
     grid-area: "2";
-    background: url(../Assets//maison.jpg)no-repeat 50% 50%;
+    background: url(../Assets/maison.jpg)no-repeat 50% 50%;
     box-shadow: rgb(255, 255, 255) 30px 45px 65px inset;
 }
 

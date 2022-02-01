@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from '../public/logo.png';
+import { useEffect, useState } from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
+
 import Image from 'next/image';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import styles from '../styles/Footer.module.css';
 
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import logo from '../public/logo.png';
+import styles from '../styles/Footer.module.css';
 
 function Footer() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -13,7 +14,7 @@ function Footer() {
   useEffect(() => {
     axios
       .get(`${apiUrl}/footer/`)
-      .then((response) => response.data)
+      .then((reponse) => reponse.data)
       .then((data) => setFooterData(data.filter((element) => element.visible === 1)));
   }, []);
 

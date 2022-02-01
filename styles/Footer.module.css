@@ -1,5 +1,4 @@
 
-/*** SPINNER ***/
 .spinnerContainer {
   display: flex;
   justify-content: center;
@@ -10,7 +9,6 @@
   height: 30vh;
   border: 1px solid rgb(202, 202, 202);
 }
-/** Double footer container **/
 .footerContainer {
   height: 100%;
   width: 100%;
@@ -20,7 +18,6 @@
   grid-template-areas: "1" "2";
 }
 
-/********** LOGO PART ************/
 .logoContainer {
   grid-area: "1";
   width: 100%;
@@ -37,8 +34,6 @@
   align-items: center;
 }
 
-/************** Container All UL *********************/
-/** title **/
 .h3footer {
   left: 0;
   width: 110%;
@@ -52,7 +47,6 @@
   align-items: center;
   grid-area: "2";
 }
-/** Container inside UL **/
 .itemsNavBar1{
   margin-top: 3%;
   width: 30%;
@@ -74,7 +68,6 @@
   height: 50%;
   font-size: 1vw;
 }
-/** LINKS **/
 .linksHoverFooter {
   font-weight: 650;
 }

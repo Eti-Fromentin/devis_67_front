@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
+
 import LoginContext from '../contexts/loginContext';
 import styles from '../styles/Connexion.module.css';
-import axios from 'axios';
 
 function Connexion() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -40,8 +42,17 @@ function Connexion() {
         email: user.email,
         password: user.password,
       })
-      .then((res) => setAccount(res));
-    alert('Vous êtes désormais connecté(e)');
+      .then((res) => {
+        if (res.status === 200) {
+          setAccount(res);
+          alert('Connexion réussie!');
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          alert('Votre Email ou mot de passe ne correspond pas');
+        }
+      });
     reset({
       email: '',
       password: '',
@@ -75,9 +86,7 @@ function Connexion() {
                   <Button className={styles.button} variant="primary" type="submit">
                     Connexion
                   </Button>
-                  <p>
-                    Pas encore inscrit(e)? cliquez <Link href="/Inscription">ici</Link>
-                  </p>
+                  <p>Pas encore inscrit(e)? Remplissez le formulaire ci-dessous!</p>
                 </Form>
               </Card.Body>
             </Card>

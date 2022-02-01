@@ -1,9 +1,12 @@
 import React from 'react';
+import axios from 'axios';
+
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import axios from 'axios';
-import styles from '../styles/TopDevis.module.css';
+
 import { Nav } from 'react-bootstrap';
+
+import styles from '../styles/TopDevis.module.css';
 
 function TopDevis({ posts }) {
   return (

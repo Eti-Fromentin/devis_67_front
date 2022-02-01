@@ -1,9 +1,11 @@
 import React from 'react';
+import axios from 'axios';
+
+import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import axios from 'axios';
+
 import styles from '../../styles/MentionsLegales.module.css';
-import Head from 'next/head';
 
 function MentionsLegales({ posts, headInfo }) {
   const head = headInfo && headInfo[0];

@@ -1,14 +1,19 @@
 import React from 'react';
+import axios from 'axios';
+
 import Image from 'next/image';
 import Head from 'next/head';
-import axios from 'axios';
-import image1 from '../Assets/artisan.jpg';
-import image2 from '../Assets/aides.jpg';
 import Link from 'next/link';
-import { Card, Container, Row, Col } from 'react-bootstrap';
-import styles from '../styles/HomePage.module.css';
+
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+
+import { Card, Container, Row, Col } from 'react-bootstrap';
+
+import image1 from '../Assets/artisan.jpg';
+import image2 from '../Assets/aides.jpg';
+
+import styles from '../styles/HomePage.module.css';
 
 function HomePage({ headInfo }) {
   const head = headInfo && headInfo[0];
