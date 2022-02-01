@@ -18,6 +18,7 @@ const LoginContext = createContext({
 
 export function LoginContextProvider({ children }) {
   const [isLogin, setIsLogin] = useState(false);
+  const [isAdminLogin, setIsAdminLogin] = useState(false);
   const [userToken, setUserToken] = useState();
   const [userId, setUserId] = useState();
   const [userData, setUserData] = useState();
@@ -53,6 +54,10 @@ export function LoginContextProvider({ children }) {
       setIsLogin(true);
       getUserData;
     }
+  }
+
+  function checkIsAdminLogin() {
+    
   }
 
   function logOut() {

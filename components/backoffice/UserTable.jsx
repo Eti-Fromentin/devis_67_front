@@ -1,12 +1,8 @@
-import React, { useMemo, useEffect } from 'react';
-import { useTable } from 'react-table';
+import React, { useMemo } from 'react';
+import { useTable, useSortBy } from 'react-table';
 import { Table } from 'react-bootstrap';
 
 function UserTable({ usersData }) {
-  useEffect(() => {
-    console.log(usersData);
-  }, []);
-
   const callToData = usersData.map((elt) => ({
     colNom: elt.firstname + elt.lastname,
     colEmail: elt.email,
@@ -54,7 +50,7 @@ function UserTable({ usersData }) {
       accessor: 'colDevis',
     },
   ]);
-  const tableInstance = useTable({ columns, data });
+  const tableInstance = useTable({ columns, data }, useSortBy);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
@@ -66,6 +62,7 @@ function UserTable({ usersData }) {
             {headerGroup.headers.map((columns) => (
               <th key={columns.accessor} {...columns.getHeaderProps()}>
                 {columns.render('Header')}
+                {/* <span>{columns.isSorted ? (columns.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span> */}
               </th>
             ))}
           </tr>
@@ -86,23 +83,6 @@ function UserTable({ usersData }) {
             </tr>
           );
         })}
-        {/* {!usersData ? (
-      <Spinner animation="border" />
-    ) : (
-      usersData.map((elt, index) => (
-        <tr key={index}>
-          <td>{elt.id}</td>
-          <td>{elt.firstname + elt.lastname}</td>
-          <td>{elt.email}</td>
-          <td>{elt.phone ? elt.phone : 'Non renseigné'}</td>
-          <td>{elt.address ? elt.address : 'Non renseigné'}</td>
-          <td>{elt.postalcode}</td>
-          <td>{elt.city}</td>
-          <td>{elt.messages.length}</td>
-          <td>{elt.devis.length}</td>
-        </tr>
-      ))
-    )} */}
       </tbody>
     </Table>
   );

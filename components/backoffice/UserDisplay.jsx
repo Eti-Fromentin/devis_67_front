@@ -11,7 +11,9 @@ function UserDisplay() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   async function getUsersData() {
-    await checkIsLogin();
+    if (!isLogin) {
+      await checkIsLogin();
+    }
     if (isLogin) {
       const data = await axios({
         method: 'get',
@@ -28,7 +30,7 @@ function UserDisplay() {
 
   useEffect(() => {
     getUsersData();
-  }, [isLogin]);
+  }, []);
 
   return (
     <div className={styles.userDisplayContainer}>
