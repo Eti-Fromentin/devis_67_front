@@ -30,7 +30,7 @@ function HomePage({ headInfo }) {
                   <Card.Title className={styles.cardTitleHome}>Formulaire Devis</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>
-                      Trouvez l&#039; artisan qu&#039; il vous faut et demandez un devis <Link href="/devis">ici</Link>
+                      <span>Trouvez l&#039;artisan qu&#039;il vous faut et demandez un devis</span>
                     </Card.Text>
                     <div className={styles.homeImage1}>
                       <Image
@@ -53,7 +53,7 @@ function HomePage({ headInfo }) {
                   <Card.Title className={styles.cardTitleHome}>Calcul des Aides</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>
-                      Estimez le montant de vos aides à la rénovation <Link href="/aide">ici</Link>
+                      <span>Estimez le montant de vos aides à la rénovation</span>
                     </Card.Text>
                     <div className={styles.homeImage2}>
                       <Image

@@ -22,26 +22,15 @@ const DevisHome = ({ headInfo, devisInfo }) => {
       </Head>
       <NavBar pageType="devis" />
       <section className={styles.bodyDevisHome}>
-        {/* PRINCIPAL CONTAINER */}
         <section className={styles.containerDevisHome}>
-          {/* LEFT CONTAINER */}
           <aside className={styles.leftContainerDevisHome}>
-            {/* GRID 3 columns */}
             <div className={styles.leftTextDevisHome}>
               {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
                 return <span key={element.position}>{element.text}</span>;
                 // }
               })}
-              {/* {!url.length ? (
-                <Spinner animation="border" />
-              ) : (
-                url.map((data) => {
-                  <span key={data.id}>{data.url}</span>;
-                })
-              )} */}
             </div>
             <div className={styles.leftSearchBarDevisHome}>
-              {/* search bar */}
               <div className={styles.searchBoxDevisHome}>
                 <InputGroup className={styles.inputGroupIndexDevis}>
                   <FormControl
@@ -56,7 +45,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </InputGroup>
               </div>
             </div>
-            {/* options */}
             <div className={styles.leftOptionsDevisHome}>
               {devis.map((element, index) => {
                 return (
@@ -67,57 +55,8 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
-              {/* {Data.filter((element) => element.position === 1).map((element) => {
-                return <span key={element.id}>{element.text}</span>;
-              })} */}
-              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Fenêtres</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Construction - Extension</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Rénovation intérieure</span>
-              </Link> */}
-              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Chauffage - Chaudière</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Menuiseries (alu, bois, pvc)</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Toiture - Charpente</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Climatisation - Ventilation</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Architecture</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Salle de bains</span>
-              </Link> */}
-              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Peinture - Tapisserie</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Plomberie</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Sols intérieurs</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Sols extérieurs</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Piscine</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Aménagement intérieur</span>
-              </Link> */}
             </div>
           </aside>
-          {/* RIGHT CONTAINER */}
           <aside className={styles.rightContainerDevisHome}>
             <aside className={styles.hightBlockDevisHome}>
               <div className={styles.titlehightBlockDevisHome}>
@@ -140,7 +79,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </div>
               </div>
             </aside>
-            <aside className={styles.lowBlockDevisHome}>{/* IMAGE URL BACKGROUND */}</aside>
+            <aside className={styles.lowBlockDevisHome}></aside>
           </aside>
         </section>
       </section>

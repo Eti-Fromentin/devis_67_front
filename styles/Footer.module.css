@@ -38,7 +38,6 @@
 }
 
 /************** Container All UL *********************/
-/** title **/
 .h3footer {
   left: 0;
   width: 110%;
@@ -52,7 +51,6 @@
   align-items: center;
   grid-area: "2";
 }
-/** Container inside UL **/
 .itemsNavBar1{
   margin-top: 3%;
   width: 30%;
@@ -74,7 +72,6 @@
   height: 50%;
   font-size: 1vw;
 }
-/** LINKS **/
 .linksHoverFooter {
   font-weight: 650;
 }
@@ -92,9 +89,7 @@
 }
 
 .footerLigne{
-  background-color: cadetblue;
   height:2px;
-  
 }
 .footerLink{
   font-size: 12px;

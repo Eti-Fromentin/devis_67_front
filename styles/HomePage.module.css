@@ -3,7 +3,6 @@
     justify-content: space-around;
     text-align: center;
     flex-wrap: wrap;
-    /* background: yellowgreen; */
 }
 
 .containerHomepage {
@@ -11,64 +10,80 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    /* margin: 0;
-    padding: 0;  */
-    /* box-sizing: border-box; */
     height: 85vh;
     width: 100vw;
-    /* background: red; */
+    overflow: hidden;
 }
 
 .homecard1 {
-    height: 95%;
+    min-height: 95%;
+    min-width: 95%;
     margin: 5vh;
     padding: 2vh;
     border-radius: 0.50rem;
     border-color: 1px solid #333;
-    text-align: center;
+    /* text-align: center; */
     box-shadow: rgb(217 215 213) 0px 1px 5px;
-    transition: 0.3s;
+    /* transition: 0.3s; */
+    border: 1px solid #333;
+    background: darkolivegreen;
+    display: flex;
 }
 .homecard1:hover {
-    background: rgb(110, 79, 110);
-    color: white;
+    cursor: pointer;
 }
 .homecard2 {
-    height: 95%;
+    min-height: 95%;
+    min-width: 95%;
     margin: 5vh;
     padding: 2vh;
     border-radius: 0.50rem;
     border-color: 1px solid #333;
-    text-align: center;
+    /* text-align: center; */
     box-shadow: rgb(217 215 213) 0px 1px 5px;
-    transition: 0.3s;
+    /* transition: 0.3s; */
+    border: 1px solid #333;
+    background: darkolivegreen;
 }
 .homecard2:hover {
-    background: rgb(110, 79, 110);
-    color: white;
+    cursor: pointer;
 }
 .cardTitleHome {
     font-weight: 700;
-    font: 3vw;
+    font-size: clamp(10px, 10vw, 25px);
+    font-family: 'Roboto', sans-serif;
+    background: darkkhaki;
 }
 .cardtexthome {
-    width: 50%;
+    width: 70%;
     font-weight: 500;
     font-size:clamp(17px, 1vw, 30px);
+    background: cyan;
 }
 .homeImage1 {
-    height: 72%;
+    height: 70%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    border-radius: 20px;
     overflow: hidden;
+    background: yellowgreen;
 }
 .homeImage2 {
-    height: 80%;
+    height: 70%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    border-radius: 20px;
     overflow: hidden;
+}
+.imageHome {
+    border-radius: 20px;
+}
+
+@media screen and (max-width:1000px) {
+    .containerHomepage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
