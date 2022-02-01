@@ -11,6 +11,7 @@ import Footer from '../../components/Footer';
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import styles from '../../styles/DevisHome.module.css';
 
@@ -21,6 +22,12 @@ import axios from 'axios';
 import Link from 'next/link';
 
 >>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
+=======
+
+import styles from '../../styles/DevisHome.module.css';
+
+
+>>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
 const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
   const devis = devisInfo;
@@ -68,6 +75,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
               {/* {Data.filter((element) => element.position === 1).map((element) => {
@@ -119,6 +127,9 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 <span>Aménagement intérieur</span>
               </Link> */}
 >>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
+=======
+
+>>>>>>> 94d56238f5c31cff8a2c6a28039b7927b3217b26
             </div>
           </aside>
 
