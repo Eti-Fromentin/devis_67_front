@@ -10,9 +10,17 @@ import Footer from '../../components/Footer';
 
 import Data from '../../dataCategory.json';
 import pic from '../../Assets/maison.jpg';
+<<<<<<< HEAD
 
 import styles from '../../styles/DevisHome.module.css';
 
+=======
+import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
+import Head from 'next/head';
+import axios from 'axios';
+import Link from 'next/link';
+
+>>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
 const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
   const devis = devisInfo;
@@ -60,6 +68,57 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                   </Link>
                 );
               })}
+<<<<<<< HEAD
+=======
+              {/* {Data.filter((element) => element.position === 1).map((element) => {
+                return <span key={element.id}>{element.text}</span>;
+              })} */}
+              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Fenêtres</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Construction - Extension</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Rénovation intérieure</span>
+              </Link> */}
+              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Chauffage - Chaudière</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Menuiseries (alu, bois, pvc)</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Toiture - Charpente</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Climatisation - Ventilation</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Architecture</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Salle de bains</span>
+              </Link> */}
+              {/* <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Peinture - Tapisserie</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Plomberie</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Sols intérieurs</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Sols extérieurs</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Piscine</span>
+              </Link>
+              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
+                <span>Aménagement intérieur</span>
+              </Link> */}
+>>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
             </div>
           </aside>
 

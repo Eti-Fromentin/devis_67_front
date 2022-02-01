@@ -42,7 +42,11 @@ grid-template-areas: "1"
     justify-content: center;
     align-items: center;
     padding: 2rem;
+<<<<<<< HEAD
   
+=======
+    /* background: grey; */
+>>>>>>> cdc5afd302ce9385bf70030fdac18be39cdc02f0
 }
 
 .inputGroupIndexDevis {
