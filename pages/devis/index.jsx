@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import { InputGroup, FormControl, Button } from 'react-bootstrap';
+import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
 
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
@@ -13,8 +13,9 @@ import pic from '../../Assets/maison.jpg';
 
 import styles from '../../styles/DevisHome.module.css';
 
-const DevisHome = ({ headInfo }) => {
+const DevisHome = ({ headInfo, devisInfo }) => {
   const head = headInfo && headInfo[0];
+  const devis = devisInfo;
   return (
     <>
       <Head>
@@ -50,51 +51,15 @@ const DevisHome = ({ headInfo }) => {
             </div>
 
             <div className={styles.leftOptionsDevisHome}>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Fenêtres</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Construction - Extension</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Rénovation intérieure</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Chauffage - Chaudière</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Menuiseries (alu, bois, pvc)</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Toiture - Charpente</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Climatisation - Ventilation</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Architecture</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Salle de bains</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Peinture - Tapisserie</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Plomberie</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Sols intérieurs</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Sols extérieurs</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Piscine</span>
-              </Link>
-              <Link href="http://localhost:3000/devis/F%C3%A9n%C3%AAtres">
-                <span>Aménagement intérieur</span>
-              </Link>
+              {devis.map((element, index) => {
+                return (
+                  <Link key={index} href={element.pages.url}>
+                    <Card className={styles.cardDevisHome} key={index}>
+                      {element.title}
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           </aside>
 
@@ -120,7 +85,7 @@ const DevisHome = ({ headInfo }) => {
                 </div>
               </div>
             </aside>
-            <aside className={styles.lowBlockDevisHome}>{/* IMAGE URL BACKGROUND */}</aside>
+            <aside className={styles.lowBlockDevisHome}></aside>
           </aside>
         </section>
       </section>
@@ -132,13 +97,14 @@ const DevisHome = ({ headInfo }) => {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const url = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
+  const devisInfo = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/devis`).then((response) => response.data);
 
   return {
     props: {
-      url,
+      devisInfo,
       headInfo,
+      apiUrl,
     },
   };
 }

@@ -12,7 +12,10 @@ function Footer() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [footerData, setFooterData] = useState([]);
   useEffect(() => {
-    axios.get(`${apiUrl}/footer/`).then((reponse) => setFooterData(reponse.filter((element) => element.visible === 1)));
+    axios
+      .get(`${apiUrl}/footer/`)
+      .then((reponse) => reponse.data)
+      .then((data) => setFooterData(data.filter((element) => element.visible === 1)));
   }, []);
 
   return (
