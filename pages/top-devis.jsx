@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { Nav } from 'react-bootstrap';
 
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-
-import { Nav } from 'react-bootstrap';
 
 import styles from '../styles/TopDevis.module.css';
 

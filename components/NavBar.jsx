@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, Spinner } from 'react-bootstrap';
 import Image from 'next/image';
 
 import logo from '../Assets/logo.png';
-
 import styles from '../styles/NavBar.module.css';
 
 function NavBar({ pageType }) {
