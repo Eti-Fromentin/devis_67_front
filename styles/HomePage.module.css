@@ -16,12 +16,13 @@
 }
 
 .homecard {
-    height: 95%;
+    min-height: 95%;
+    min-width: 95%;
     margin: 5vh;
     padding: 2vh;
     border-radius: 0.50rem;
     border-color: 1px solid #333;
-    text-align: center;
+    box-shadow: rgb(217 215 213) 0px 1px 5px;
     border: 1px solid #333;
 }
 .homecard:hover {
@@ -29,26 +30,31 @@
 }
 .cardTitleHome {
     font-weight: 700;
-    font: 3vw;
+    font-size: clamp(10px, 10vw, 25px);
+    font-family: 'Roboto', sans-serif;
 }
 .cardtexthome {
-    width: 50%;
-    font-weight: 500;
+    width: 70%;
+    font-weight: 300;
     font-size:clamp(17px, 1vw, 30px);
 }
-.homeImage1 {
-    height: 72%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    border-radius: 20px;
-    overflow: hidden;
-}
-.homeImage2 {
+.homeImage {
     height: 80%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    border-radius: 20px;
     overflow: hidden;
+}
+
+.imageHome {
+    border-radius: 20px;
+}
+
+@media screen and (max-width:1000px) {
+    .containerHomepage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
