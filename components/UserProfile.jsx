@@ -1,8 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
-
 import LoginContext from '../contexts/loginContext';
-
 import styles from '../styles/UserProfile.module.css';
 
 function UserProfile() {

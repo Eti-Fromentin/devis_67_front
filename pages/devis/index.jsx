@@ -47,7 +47,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </InputGroup>
               </div>
             </div>
-
             <div className={styles.leftOptionsDevisHome}>
               {devis.map((element, index) => {
                 return (
@@ -60,7 +59,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
               })}
             </div>
           </aside>
-
           <aside className={styles.rightContainerDevisHome}>
             <aside className={styles.hightBlockDevisHome}>
               <div className={styles.titlehightBlockDevisHome}>
