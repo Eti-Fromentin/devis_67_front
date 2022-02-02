@@ -18,8 +18,8 @@ function MentionsLegales({ posts, headInfo }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <NavBar pageType="devis" />
-      <h1>Mentions legales</h1>
-      <h2>Toutes les informations</h2>
+      <h1 className={styles.h1MentionsLégales}>Mentions legales</h1>
+      <h2 className={styles.h2MentionsLégales}>Toutes les informations :</h2>
       {!posts ? (
         <p>Loading</p>
       ) : (
