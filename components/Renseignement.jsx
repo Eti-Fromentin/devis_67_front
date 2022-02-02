@@ -89,7 +89,7 @@ function Renseignement() {
                       placeholder="Entrez votre nom"
                       defaultValue={userData && userData.lastname}
                     />
-                    <p className={styles.error}>{errors.lastname && errors.lastname?.message}</p>
+                    <p className={styles.error}>{errors.name && errors.name?.message}</p>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="subject">
                     <Form.Label>Sujet*</Form.Label>
@@ -98,7 +98,7 @@ function Renseignement() {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="message">
                     <Form.Label>Message*</Form.Label>
-                    <Form.Control {...register('message')} size="sm" type="text" placeholder="Votre message" />
+                    <Form.Control as="textarea" {...register('message')} size="sm" type="text" placeholder="Votre message" />
                     <p className={styles.error}>{errors.message && errors.message?.message}</p>
                   </Form.Group>
                   <Button className={styles.button} variant="primary" type="submit">
