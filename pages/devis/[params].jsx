@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import LoginContext from '../../contexts/loginContext';
-
 import Head from 'next/head';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
-
 import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from 'react-hook-form';
+
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+import LoginContext from '../../contexts/loginContext';
 
 import styles from '../../styles/DevisAllQuestions.module.css';
 

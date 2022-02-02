@@ -1,14 +1,12 @@
 import React from 'react';
-
 import Link from 'next/link';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
-
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 import styles from '../styles/NewPassword.module.css';
 

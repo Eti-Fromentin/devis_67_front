@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import LoginContext from '../contexts/loginContext';
-
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+
+import LoginContext from '../contexts/loginContext';
 
 import styles from '../styles/Inscription.module.css';
 

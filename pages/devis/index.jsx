@@ -1,16 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-
 import Head from 'next/head';
 import Link from 'next/link';
 import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
 
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-
 import Data from '../../dataCategory.json';
-import pic from '../../Assets/maison.jpg';
 
+import pic from '../../Assets/maison.jpg';
 import styles from '../../styles/DevisHome.module.css';
 
 const DevisHome = ({ headInfo, devisInfo }) => {
@@ -49,7 +47,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                 </InputGroup>
               </div>
             </div>
-
             <div className={styles.leftOptionsDevisHome}>
               {devis.map((element, index) => {
                 return (
@@ -62,7 +59,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
               })}
             </div>
           </aside>
-
           <aside className={styles.rightContainerDevisHome}>
             <aside className={styles.hightBlockDevisHome}>
               <div className={styles.titlehightBlockDevisHome}>

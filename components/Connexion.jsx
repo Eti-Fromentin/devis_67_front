@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
 
 import LoginContext from '../contexts/loginContext';
+
 import styles from '../styles/Connexion.module.css';
 
 function Connexion() {

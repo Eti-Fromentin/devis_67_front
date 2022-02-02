@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-
 import Image from 'next/image';
 import axios from 'axios';
 
@@ -25,7 +24,7 @@ function Footer() {
       ) : (
         <div className={styles.footerBackground}>
           <div className={styles.footerLigne}></div>
-          <Navbar expand="lg" className={styles.footerContainer}>
+          <Navbar className={styles.footerContainer}>
             <div className={styles.footerLogo}>
               <Navbar.Brand href="/">
                 <Image src={logo} alt="image logo" />
