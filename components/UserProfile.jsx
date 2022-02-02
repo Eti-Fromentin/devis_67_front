@@ -94,9 +94,22 @@ function UserProfile() {
                     ) : (
                       userData.messages.map((elt, index) => (
                         <div key={index} className={styles.headerMessages}>
-                          <p>Date {elt.created_at.slice(0, 10)}</p>
-                          <p>Sujet: {elt.subject}</p>
-                          <p>Message: {elt.text}</p>
+                          <Table striped bordered hover>
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Sujet</th>
+                                <th>Message</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>{elt.created_at.slice(0, 10)}</td>
+                                <td>{elt.subject}</td>
+                                <td>{elt.text}</td>
+                              </tr>
+                            </tbody>
+                          </Table>
                         </div>
                       ))
                     )}
