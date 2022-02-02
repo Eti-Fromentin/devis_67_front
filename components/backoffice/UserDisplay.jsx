@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import styles from '../../styles/UserDisplay.module.css';
@@ -7,25 +7,20 @@ import UserTable from './UserTable';
 
 function UserDisplay() {
   const [usersData, setUsersData] = useState([]);
-  const { isLogin, userId, userToken, checkIsLogin } = useContext(LoginContext);
+  const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   async function getUsersData() {
-    if (!isLogin) {
-      await checkIsLogin();
-    }
-    if (isLogin) {
-      const data = await axios({
-        method: 'get',
-        url: `${apiUrl}/user/admin/${userId}`,
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      setUsersData(data.data);
-      console.log(usersData);
-    }
+    const data = await axios({
+      method: 'get',
+      url: `${apiUrl}/user/admin/${userId}`,
+      headers: {
+        Authorization: `Bearer ${adminToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    setUsersData(data.data);
+    console.log(usersData);
   }
 
   useEffect(() => {
