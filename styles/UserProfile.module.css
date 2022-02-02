@@ -5,18 +5,8 @@
     color: black;
 }
 
-.profileData ul {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 2vw;
-}
-
-.profileData li {
-    list-style-type: none;
-    margin: 2vw;
-    margin-bottom: 5vh;
+.profileData {
+    margin: 2vh;
 }
 
 .profileMain {

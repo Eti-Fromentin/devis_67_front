@@ -36,15 +36,30 @@ function UserProfile() {
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
                   <div className={styles.profileData}>
-                    <ul>
-                      <li> Prénom: {userData && userData.firstname} </li>
-                      <li> Nom: {userData && userData.lastname}</li>
-                      <li> Email: {userData && userData.email}</li>
-                      <li> Téléphone: {userData && userData.phone ? userData.phone : 'non renseigné'}</li>
-                      <li> Adresse: {userData && userData.address ? userData.address : 'non renseigné'}</li>
-                      <li> Code Postal: {userData && userData.postalcode}</li>
-                      <li> Ville: {userData && userData.city}</li>
-                    </ul>
+                    <Table responsive="sm" striped bordered hover>
+                      <thead>
+                        <tr>
+                          <th>Prénom</th>
+                          <th>Nom</th>
+                          <th>Email</th>
+                          <th>Téléphone</th>
+                          <th>Adresse</th>
+                          <th>Code Postal</th>
+                          <th>Ville</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{userData && userData.firstname}</td>
+                          <td>{userData && userData.lastname}</td>
+                          <td>{userData && userData.email}</td>
+                          <td>{userData && userData.phone ? userData.phone : 'non renseigné'}</td>
+                          <td>{userData && userData.address ? userData.address : 'non renseigné'}</td>
+                          <td>{userData && userData.postalcode}</td>
+                          <td>{userData && userData.city}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
                   </div>
                 </Tab>
                 <Tab eventKey="UserDevis" title="Mes Devis">
