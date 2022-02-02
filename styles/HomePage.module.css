@@ -15,33 +15,17 @@
     width: 100vw;
 }
 
-.homecard1 {
+.homecard {
     height: 95%;
     margin: 5vh;
     padding: 2vh;
     border-radius: 0.50rem;
     border-color: 1px solid #333;
     text-align: center;
-    box-shadow: rgb(217 215 213) 0px 1px 5px;
-    transition: 0.3s;
+    border: 1px solid #333;
 }
-.homecard1:hover {
-    background: rgb(110, 79, 110);
-    color: white;
-}
-.homecard2 {
-    height: 95%;
-    margin: 5vh;
-    padding: 2vh;
-    border-radius: 0.50rem;
-    border-color: 1px solid #333;
-    text-align: center;
-    box-shadow: rgb(217 215 213) 0px 1px 5px;
-    transition: 0.3s;
-}
-.homecard2:hover {
-    background: rgb(110, 79, 110);
-    color: white;
+.homecard:hover {
+    cursor: pointer;
 }
 .cardTitleHome {
     font-weight: 700;

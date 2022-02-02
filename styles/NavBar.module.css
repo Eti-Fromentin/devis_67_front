@@ -4,13 +4,13 @@
 }
 
 .navlinks {
-    font-size: 1rem;
+    /* font-size: 1vw; */
     font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
     border-radius: 10px;
 }
-.navlinks:hover {
+/* .navlinks:hover {
     background: rgb(199, 147, 199);
-}
+} */
 
 .spinnerContainer {
     display: flex;
@@ -18,8 +18,8 @@
     align-items: center;
 }
 .navBarLink{
-    font-size: 12px;
-    
+    /* font-size: clamp(10px, 10vw, 15px); */
+    font-size: 1.5vw;
   }
   .containerNavBar{
       height: 15vh;

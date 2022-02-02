@@ -1,18 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-
 import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
-
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-
 import { Card, Container, Row, Col } from 'react-bootstrap';
-
 import image1 from '../Assets/artisan.jpg';
 import image2 from '../Assets/aides.jpg';
-
 import styles from '../styles/HomePage.module.css';
 
 function HomePage({ headInfo }) {
@@ -31,7 +26,7 @@ function HomePage({ headInfo }) {
           <Row>
             <Link href="devis/">
               <Col md={{ order: 'first' }}>
-                <Card className={styles.homecard1}>
+                <Card className={styles.homecard}>
                   <Card.Title className={styles.cardTitleHome}>Formulaire Devis</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>
@@ -54,7 +49,7 @@ function HomePage({ headInfo }) {
             </Link>
             <Link href="aide/">
               <Col md={{ order: 'second' }}>
-                <Card className={styles.homecard2}>
+                <Card className={styles.homecard}>
                   <Card.Title className={styles.cardTitleHome}>Calcul des Aides</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>

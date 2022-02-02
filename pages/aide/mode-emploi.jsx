@@ -23,7 +23,7 @@ function ModeEmploi({ posts, headInfo }) {
         .filter((titlesMenu) => titlesMenu.page_section === 'title')
         .map((titleMenu) => {
           return (
-            <div key={titleMenu.id}>
+            <div key={titleMenu.id} className={styles.containerTitleModeEmploi}>
               <h5 key={titleMenu.id} className={styles.titleModeEmploi}>
                 {titleMenu.text}
               </h5>
