@@ -45,6 +45,9 @@
     background-color: ghostwhite;
 }
 
+.profileDevis th{
+    width: 40vw;
+}
 
 .profileMessages {
     display: flex;
@@ -80,7 +83,12 @@
 
     .headerMessages {
         flex-direction: column;
-        
+    }
+
+    .profileDevis {
+        display: block;
+        text-align: center;
+        background-color: ghostwhite;
     }
     
 }

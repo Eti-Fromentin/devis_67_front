@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
+import { Accordion, Button, Table, Tabs, Tab, Spinner } from 'react-bootstrap';
 import LoginContext from '../contexts/loginContext';
 import styles from '../styles/UserProfile.module.css';
 
@@ -64,8 +64,20 @@ function UserProfile() {
                             <Accordion.Body>
                               {elt.questions_answers.map((res, index) => (
                                 <div key={index} className={styles.profileDevis}>
-                                  <p>Question: {res.questions}</p>
-                                  <p>Réponse: {res.answers}</p>
+                                  <Table striped bordered hover>
+                                    <thead>
+                                      <tr>
+                                        <th>Question</th>
+                                        <th>Réponse</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>{res.questions}</td>
+                                        <td>{res.answers}</td>
+                                      </tr>
+                                    </tbody>
+                                  </Table>
                                 </div>
                               ))}
                             </Accordion.Body>
