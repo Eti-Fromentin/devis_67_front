@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
 import Head from 'next/head';
+import { Container } from 'react-bootstrap';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import { Container } from 'react-bootstrap';
 
 import styles from '../../styles/Faq.module.css';
 

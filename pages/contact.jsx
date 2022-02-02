@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-
 import Head from 'next/head';
+
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Renseignement from '../components/Renseignement';
