@@ -138,9 +138,7 @@ function Inscription() {
                     <p>{errors.confirmPassword && errors.confirmPassword?.message}</p>
                   </Form.Group>
                   <Form.Group as={Col} className="mb-3" controlId="Checkbox">
-
-                    <Form.Check {...register('acceptTerms')} type="checkbox" label="Accepter conditions d'utilisations et mentions légales*" />
-
+                    <Form.Check {...register('acceptTerms')} type="checkbox" label="Veuillez accepter les conditions d'utilisations*" />
                     <a href="/aide/conditions-utilisations" target="_blank">
                       ici
                     </a>
