@@ -1,23 +1,28 @@
+
+.h1MentionsLégales {
+  padding: 2rem;
+  font-size: clamp(15px, 9vw, 50px);
+}
+.h2MentionsLégales {
+  padding: 2rem;
+}
+
 .containerMentionsLegales{
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  background: yellowgreen;
+  align-items: center;
+  height: 140vh;
 }
 .textMentionsLegales{
   display: flex;
   flex-direction: column;
-  align-content: space-around;
-  background-color: rgb(246, 250, 250);
   margin-left:2rem;
   max-width: 70vw;
-  font-size: 12px;
-  line-height: 1rem;
+  font-size: clamp(8px, 9vw, 15px);
+  line-height: 1.5rem;
 }
-
 .titleMentionsLegales{
-  color: blue;
   text-align: left;
   padding:2rem;
-  font-size:14px;
+  font-size:clamp(10px, 9vw, 30px);
 }
