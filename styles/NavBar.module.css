@@ -9,6 +9,11 @@
     border-radius: 10px;
 }
 
+.navListContainer {
+    background-color: white;
+    z-index: 1;
+}
+
 .spinnerContainer {
     display: flex;
     justify-content: center;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Card, Container, Form, Row, Col } from 'react-bootstrap';
 
 import LoginContext from '../contexts/loginContext';
 
@@ -101,9 +101,9 @@ function Renseignement() {
                     <Form.Control as="textarea" {...register('message')} size="sm" type="text" placeholder="Votre message" />
                     <p className={styles.error}>{errors.message && errors.message?.message}</p>
                   </Form.Group>
-                  <Button className={styles.button} variant="primary" type="submit">
+                  <button className={styles.buttonSubmit} type="submit">
                     Envoyez
-                  </Button>
+                  </button>
                 </Form>
               </Card.Body>
             </Card>

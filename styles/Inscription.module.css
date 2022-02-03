@@ -16,3 +16,11 @@
 .card p {
     color: #bf1650;
   }
+
+.buttonSubscribe {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: ghostwhite;
+    margin: 2vh;
+}
