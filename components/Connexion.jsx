@@ -83,7 +83,7 @@ function Connexion() {
                   <p>
                     <Link href="/NewPassword">Mot de passe oublié?</Link>
                   </p>
-                  <Button className={styles.button} type="submit">
+                  <Button className={styles.buttonConnect} type="submit">
                     Connexion
                   </Button>
                   <p>Pas encore inscrit(e)? Remplissez le formulaire ci-dessous!</p>
