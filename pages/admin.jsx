@@ -6,6 +6,7 @@ import LoginContext from '../contexts/loginContext';
 
 import styles from '../styles/admin.module.css';
 import AdminLogin from '../components/backoffice/AdminLogIn';
+import NavbarDisplay from '../components/backoffice/NavbarDisplay';
 
 function BackOffice() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -33,9 +34,10 @@ function BackOffice() {
             Side Panel
           </Button>
           <section>
-            <Card className={styles.adminCard}>
-              <UserDisplay />
-            </Card>
+            {/* <Card className={styles.adminCard}> */}
+            {/* <UserDisplay /> */}
+            <NavbarDisplay />
+            {/* </Card> */}
           </section>
         </>
       )}

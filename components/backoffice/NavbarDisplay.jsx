@@ -3,43 +3,43 @@ import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import styles from '../../styles/Tables.module.css';
-import UserTable from './UserTable';
+import NavbarTable from './NavbarTable';
 
-function UserDisplay() {
-  const [usersData, setUsersData] = useState([]);
+function NavbarDisplay() {
+  const [navbarData, setNavbarData] = useState([]);
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const [change, setChange] = useState(false);
 
-  async function getUsersData() {
+  async function getNavbarData() {
     const data = await axios({
       method: 'get',
-      url: `${apiUrl}/user/admin/${userId}`,
+      url: `${apiUrl}/navbar/admin/${userId}`,
       headers: {
         Authorization: `Bearer ${adminToken}`,
         'Content-Type': 'application/json',
       },
     });
-    setUsersData(data.data);
-    console.log(usersData);
+    setNavbarData(data.data);
   }
 
   useEffect(() => {
-    getUsersData();
-  }, []);
+    getNavbarData();
+  }, [change]);
 
   return (
     <div className={styles.userDisplayContainer}>
-      {!usersData.length ? (
+      {!navbarData.length ? (
         <div className={styles.spinnerContainer}>
           <Spinner animation="border" />
         </div>
       ) : (
         <>
-          <UserTable usersData={usersData} />
+          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} getNavbarData={getNavbarData}/>
         </>
       )}
     </div>
   );
 }
 
-export default UserDisplay;
+export default NavbarDisplay;
