@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
-
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Connexion from '../components/Connexion';

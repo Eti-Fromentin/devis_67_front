@@ -52,10 +52,7 @@ function ModeEmploi({ posts, headInfo }) {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const posts = await axios
-    .get(`${apiUrl}/pagescontent/modeEmploi`)
-    .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1));
+  const posts = await axios.get(`${apiUrl}/pagescontent/modeEmploi`).then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/mode-emploi`).then((response) => response.data);
 
   return {
