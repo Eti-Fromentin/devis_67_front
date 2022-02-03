@@ -1,9 +1,9 @@
-
-
 .containerModeEmploi{
   display: flex;
   flex-direction: row;
-  align-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40vh;
 }
 
 
@@ -11,18 +11,14 @@
   margin:2rem;
   padding:2rem;
   font-size: 14px;
-  background-color: #fefbfa;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  min-height: 70%;
 }
 .titleModeEmploi{
-  color: blue;
-  text-align: center;
-  text-align: left;
-  margin-left: 2rem;
-  font-size: 16px;
-}
-
-@media screen and (max-width: 700px) {
-  .containerModeEmploi{
-    flex-direction: column;
-  }
+  padding: 1.5rem;
+  font-size: clamp(10px, 9vw, 30px);
 }

@@ -7,9 +7,7 @@
     font-size: 1rem;
     font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
     border-radius: 10px;
-}
-.navlinks:hover {
-    background: rgb(199, 147, 199);
+    /* background: yellowgreen; */
 }
 
 .navListContainer {
@@ -22,10 +20,23 @@
     justify-content: center;
     align-items: center;
 }
+.divNavLinks {
+    /* background: yellowgreen; */
+    width: 12.5vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .navBarLink{
-    font-size: 12px;
-    
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(10px, 9vw, 17px);
+    /* font-size: 1.5vw; */
+    /* background: yellow; */
+    /* width: 100%; */
+    color: #333;
   }
-  .containerNavBar{
+.containerNavBar{
       height: 15vh;
-  }
+      /* background: grey; */
+}
