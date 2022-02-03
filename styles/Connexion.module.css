@@ -13,8 +13,16 @@
     text-align: center;
 }
 
-.button {
+.buttonConnect {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: ghostwhite;
     margin: 2vh;
+}
+
+.buttonConnect:hover {
+    background-color: cornflowerblue;
 }
 
 .error {

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Accordion, Button, Table, Tabs, Tab, Spinner } from 'react-bootstrap';
+import { Accordion, Table, Tabs, Tab, Spinner } from 'react-bootstrap';
 import LoginContext from '../contexts/loginContext';
 import styles from '../styles/UserProfile.module.css';
 
@@ -30,9 +30,11 @@ function UserProfile() {
               <h1 id={styles.welcomeUser}>
                 BIENVENU(E) {userData.firstname} {userData.lastname}
               </h1>
-              <Button className={styles.ButtonLogOut} onClick={handleLogOutClick} variant="primary">
-                Déconnexion
-              </Button>
+              <div className={styles.ButtonMain}>
+                <button className={styles.ButtonLogOut} onClick={handleLogOutClick}>
+                  Déconnexion
+                </button>
+              </div>
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
                   <div className={styles.profileData}>
