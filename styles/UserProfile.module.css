@@ -5,6 +5,25 @@
     color: black;
 }
 
+.ButtonMain {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 2vh;
+    font-size: 14px;
+}
+
+.ButtonLogOut {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    padding: 7px;
+    color: ghostwhite;
+}
+.ButtonLogOut:hover {
+    background-color: cornflowerblue;
+}
+
 .profileData {
     margin: 2vh;
 }
@@ -79,6 +98,10 @@
         display: block;
         text-align: center;
         background-color: ghostwhite;
+    }
+
+    .ButtonMain {
+        font-size: 10px;
     }
     
 }
