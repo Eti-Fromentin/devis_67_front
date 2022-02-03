@@ -5,18 +5,17 @@
   align-items: center;
   height: 40vh;
 }
-
-
 .textModeEmploi{
   margin:2rem;
   padding:2rem;
   font-size: 14px;
-  background-color: #f3f3f3;
+  box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30%;
-  min-height: 70%;
+  min-height: 60%;
+  font-size: clamp(8px, 9vw, 18px);
 }
 .titleModeEmploi{
   padding: 1.5rem;

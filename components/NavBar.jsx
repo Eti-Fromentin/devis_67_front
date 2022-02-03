@@ -13,8 +13,7 @@ function NavBar({ pageType }) {
   useEffect(() => {
     axios
       .get(`${apiUrl}/navbar/`)
-      .then((reponse) => reponse.data)
-      .then((data) => setNavBarData(data.filter((element) => element.visible === 1 && element.pagetype === pageType)));
+      .then((reponse) => setNavBarData(reponse.data.filter((element) => element.visible === 1 && element.pagetype === pageType)));
   }, []);
 
   return (

@@ -6,10 +6,9 @@
 }
 .containerHomepage {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0; 
     height: 85vh;
     width: 100vw;
 }
@@ -19,9 +18,7 @@
     margin: 5vh;
     padding: 2vh;
     border-radius: 0.50rem;
-    border-color: 1px solid #333;
-    box-shadow: rgb(217 215 213) 0px 1px 5px;
-    border: 1px solid #333;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
 .homecard:hover {
     cursor: pointer;
