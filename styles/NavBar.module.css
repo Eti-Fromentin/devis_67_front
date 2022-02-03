@@ -12,6 +12,11 @@
     background: rgb(199, 147, 199);
 }
 
+.navListContainer {
+    background-color: white;
+    z-index: 1;
+}
+
 .spinnerContainer {
     display: flex;
     justify-content: center;

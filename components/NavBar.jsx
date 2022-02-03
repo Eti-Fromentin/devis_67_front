@@ -30,7 +30,7 @@ function NavBar({ pageType }) {
               <Image src={logo} alt="image logo" />
             </Navbar.Brand>
           </Container>
-          <Container>
+          <Container className={styles.navListContainer}>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
