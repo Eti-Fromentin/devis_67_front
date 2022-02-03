@@ -52,8 +52,7 @@ export async function getStaticProps() {
 
   const posts = await axios
     .get(`${apiUrl}/pagescontent/mentions_legales`)
-    .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1));
+    .then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/mentions-légales`).then((response) => response.data);
 
   return {

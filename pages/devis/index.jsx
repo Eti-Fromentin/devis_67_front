@@ -26,7 +26,6 @@ const DevisHome = ({ headInfo, devisInfo }) => {
             <div className={styles.leftTextDevisHome}>
               {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
                 return <span key={element.position}>{element.text}</span>;
-                // }
               })}
             </div>
             <div className={styles.leftSearchBarDevisHome}>

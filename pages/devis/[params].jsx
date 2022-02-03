@@ -266,10 +266,7 @@ export async function getStaticProps(context) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   let form = null;
   try {
-    form = await axios
-      .get(`${apiUrl}/form/${params}`)
-      .then((response) => response.data)
-      .then((data) => data.filter((elt) => elt.visible === 1));
+    form = await axios.get(`${apiUrl}/form/${params}`).then((response) => response.data.filter((elt) => elt.visible === 1));
     const headInfo = await axios.get(`${apiUrl}/pagesdetails/${params}`).then((response) => response.data);
     return {
       props: {
