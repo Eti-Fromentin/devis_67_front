@@ -15,7 +15,8 @@
   justify-content: center;
   align-items: center;
   width: 30%;
-  min-height: 70%;
+  min-height: 60%;
+  font-size: clamp(8px, 9vw, 18px);
 }
 .titleModeEmploi{
   padding: 1.5rem;

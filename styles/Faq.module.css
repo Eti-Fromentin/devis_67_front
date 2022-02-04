@@ -6,7 +6,6 @@
 }
 .h1Faq{
   margin:2rem;
-  
 }
 .textFaq{
   display: flex;
@@ -14,8 +13,6 @@
   margin:2rem;
   font-size: 14px;
   background-color: #fefbfa;
-
-  
 }
 .titleFaq{
   color: blue;

@@ -4,10 +4,8 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Card, Container, Row, Col } from 'react-bootstrap';
-
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-
 import image1 from '../Assets/artisan.jpg';
 import image2 from '../Assets/aides.jpg';
 import styles from '../styles/HomePage.module.css';
