@@ -17,7 +17,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.textModeEmploi >p {
+.textModeEmploi {
   margin:2rem;
   padding:2rem;
   font-size: 14px;
