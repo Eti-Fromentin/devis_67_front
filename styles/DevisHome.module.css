@@ -166,6 +166,9 @@ grid-template-areas: "1"
         margin-top: 1%;
         font-size: 18px;
     }
+    .cardDevisHome:hover {
+        cursor: pointer;
+    }
     .leftTextDevisHome {
         font-size: 27px;
         font-weight: 700;

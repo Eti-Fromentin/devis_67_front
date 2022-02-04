@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-onchange */
+/* eslint-disable react/display-name */
 import React, { useMemo, useEffect, useState, useContext, useRef, forwardRef } from 'react';
 import { useTable, usePagination, useRowSelect } from 'react-table';
 import Select from 'react-select';
