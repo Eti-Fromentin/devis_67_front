@@ -3,9 +3,9 @@ import axios from 'axios';
 import Head from 'next/head';
 import Link from 'next/link';
 import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import Data from '../../dataCategory.json';
 import styles from '../../styles/DevisHome.module.css';
 
 const DevisHome = ({ headInfo, devisInfo }) => {
@@ -23,11 +23,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
       <section className={styles.bodyDevisHome}>
         <section className={styles.containerDevisHome}>
           <aside className={styles.leftContainerDevisHome}>
-            <div className={styles.leftTextDevisHome}>
-              {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
-                return <span key={element.position}>{element.text}</span>;
-              })}
-            </div>
+            <div className={styles.leftTextDevisHome}>POUR FAIRE VOTRE DEMANDE, SÉLECTIONNEZ UNE DES CATÉGORIES CI-DESSOUS</div>
             <div className={styles.leftSearchBarDevisHome}>
               <div className={styles.searchBoxDevisHome}>
                 <InputGroup className={styles.inputGroupIndexDevis}>

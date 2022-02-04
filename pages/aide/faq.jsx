@@ -30,7 +30,7 @@ function Faq({ posts, headInfo }) {
                 {posts.map((itemMenu) => {
                   if (itemMenu.page_section === 'title') {
                     return (
-                      <div key={itemMenu.position}>
+                      <div key={itemMenu.position} className={styles.containerTitleFaq}>
                         <h5 className={styles.titleFaq} id={itemMenu.key} key={itemMenu.position}>
                           {itemMenu.text}
                         </h5>
@@ -39,7 +39,7 @@ function Faq({ posts, headInfo }) {
                   } else if (itemMenu.page_section === 'text') {
                     return (
                       <div key={itemMenu.position}>
-                        <p className={styles.textConditions}>{itemMenu.text}</p>
+                        <p className={styles.textConitions}>{itemMenu.text}</p>
                       </div>
                     );
                   }
