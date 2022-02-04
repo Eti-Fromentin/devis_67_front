@@ -38,16 +38,17 @@ export function LoginContextProvider({ children }) {
   }
 
   function getUserData() {
-    axios({
-      method: 'get',
-      url: `${apiUrl}/user/${userId}`,
-      headers: {
-        Authorization: `Bearer ${userToken}`,
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.data)
-      .then((data) => setUserData(data));
+    userId &&
+      axios({
+        method: 'get',
+        url: `${apiUrl}/user/${userId}`,
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.data)
+        .then((data) => setUserData(data));
   }
 
   function checkIsLogin() {
