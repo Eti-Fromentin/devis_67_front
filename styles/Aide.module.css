@@ -14,7 +14,9 @@
   max-width: 90vh;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
-
+.linkAide {
+  font-size: clamp(10px, 9vw, 20px)
+}
 .titleAide{
   font-size: clamp(15px, 9vw, 30px);
   text-align: left;
