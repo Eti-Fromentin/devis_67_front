@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
 import Head from 'next/head';
+import { Container } from 'react-bootstrap';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import { Container } from 'react-bootstrap';
 
 import styles from '../../styles/Faq.module.css';
 
@@ -57,10 +57,7 @@ function Faq({ posts, headInfo }) {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const posts = await axios
-    .get(`${apiUrl}/pagescontent/faq`)
-    .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1));
+  const posts = await axios.get(`${apiUrl}/pagescontent/faq`).then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/faq`).then((response) => response.data);
 
   return {

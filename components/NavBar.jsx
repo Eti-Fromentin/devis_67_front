@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, Spinner } from 'react-bootstrap';
 import Image from 'next/image';
 
 import logo from '../Assets/logo.png';
-
 import styles from '../styles/NavBar.module.css';
 
 function NavBar({ pageType }) {
@@ -15,8 +13,7 @@ function NavBar({ pageType }) {
   useEffect(() => {
     axios
       .get(`${apiUrl}/navbar/`)
-      .then((reponse) => reponse.data)
-      .then((data) => setNavBarData(data.filter((element) => element.visible === 1 && element.pagetype === pageType)));
+      .then((reponse) => setNavBarData(reponse.data.filter((element) => element.visible === 1 && element.pagetype === pageType)));
   }, []);
 
   return (
@@ -32,7 +29,7 @@ function NavBar({ pageType }) {
               <Image src={logo} alt="image logo" />
             </Navbar.Brand>
           </Container>
-          <Container>
+          <Container className={styles.navListContainer}>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">

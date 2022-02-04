@@ -1,13 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
-
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Connexion from '../components/Connexion';
 import UserProfile from '../components/UserProfile';
-import LoginContext from '../contexts/loginContext';
 import Inscription from '../components/Inscription';
+import LoginContext from '../contexts/loginContext';
 
 function EspaceClient({ headInfo }) {
   const head = headInfo && headInfo[0];

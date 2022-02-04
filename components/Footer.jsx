@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-
 import Image from 'next/image';
 import axios from 'axios';
 
@@ -12,10 +11,7 @@ function Footer() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [footerData, setFooterData] = useState([]);
   useEffect(() => {
-    axios
-      .get(`${apiUrl}/footer/`)
-      .then((reponse) => reponse.data)
-      .then((data) => setFooterData(data.filter((element) => element.visible === 1)));
+    axios.get(`${apiUrl}/footer/`).then((response) => setFooterData(response.data.filter((element) => element.visible === 1)));
   }, []);
 
   return (
@@ -25,7 +21,7 @@ function Footer() {
       ) : (
         <div className={styles.footerBackground}>
           <div className={styles.footerLigne}></div>
-          <Navbar expand="lg" className={styles.footerContainer}>
+          <Navbar className={styles.footerContainer}>
             <div className={styles.footerLogo}>
               <Navbar.Brand href="/">
                 <Image src={logo} alt="image logo" />

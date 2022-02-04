@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from 'react';
-import LoginContext from '../contexts/loginContext';
 import axios from 'axios';
-
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { Card, Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Card, Container, Form, Row, Col } from 'react-bootstrap';
+
+import LoginContext from '../contexts/loginContext';
 
 import styles from '../styles/Contact.module.css';
 
@@ -89,7 +89,7 @@ function Renseignement() {
                       placeholder="Entrez votre nom"
                       defaultValue={userData && userData.lastname}
                     />
-                    <p className={styles.error}>{errors.lastname && errors.lastname?.message}</p>
+                    <p className={styles.error}>{errors.name && errors.name?.message}</p>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="subject">
                     <Form.Label>Sujet*</Form.Label>
@@ -98,12 +98,12 @@ function Renseignement() {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="message">
                     <Form.Label>Message*</Form.Label>
-                    <Form.Control {...register('message')} size="sm" type="text" placeholder="Votre message" />
+                    <Form.Control as="textarea" {...register('message')} size="sm" type="text" placeholder="Votre message" />
                     <p className={styles.error}>{errors.message && errors.message?.message}</p>
                   </Form.Group>
-                  <Button className={styles.button} variant="primary" type="submit">
+                  <button className={styles.buttonSubmit} type="submit">
                     Envoyez
-                  </Button>
+                  </button>
                 </Form>
               </Card.Body>
             </Card>

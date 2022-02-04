@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import LoginContext from '../../contexts/loginContext';
-
 import Head from 'next/head';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
-
 import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from 'react-hook-form';
+
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+import LoginContext from '../../contexts/loginContext';
 
 import styles from '../../styles/DevisAllQuestions.module.css';
 
@@ -267,10 +266,7 @@ export async function getStaticProps(context) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   let form = null;
   try {
-    form = await axios
-      .get(`${apiUrl}/form/${params}`)
-      .then((response) => response.data)
-      .then((data) => data.filter((elt) => elt.visible === 1));
+    form = await axios.get(`${apiUrl}/form/${params}`).then((response) => response.data.filter((elt) => elt.visible === 1));
     const headInfo = await axios.get(`${apiUrl}/pagesdetails/${params}`).then((response) => response.data);
     return {
       props: {

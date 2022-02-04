@@ -47,7 +47,6 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px
 }
 
-
 .containerCheckChoiceComponent {
   padding: 1rem;
 }
@@ -75,13 +74,12 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px
 }
 
-
 .containerListChoiceComponent {
   height: 18vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
 }
 .containerListChoiceComponent > h1 {
   font-size: clamp(15px, 8vw, 22px);

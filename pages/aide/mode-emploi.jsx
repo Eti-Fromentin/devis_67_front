@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-
 import Head from 'next/head';
+
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 
@@ -18,7 +18,6 @@ function ModeEmploi({ posts, headInfo }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <NavBar pageType="devis" />
-      <h1 className={styles.h1ModeEmploi}>Mode d emploi</h1>
       {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'title')
         .map((titleMenu) => {
@@ -53,10 +52,7 @@ function ModeEmploi({ posts, headInfo }) {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const posts = await axios
-    .get(`${apiUrl}/pagescontent/modeEmploi`)
-    .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1));
+  const posts = await axios.get(`${apiUrl}/pagescontent/modeEmploi`).then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/mode-emploi`).then((response) => response.data);
 
   return {

@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from 'react';
+
+import { Accordion, Table, Tabs, Tab, Spinner } from 'react-bootstrap';
+
 import LoginContext from '../contexts/loginContext';
-import { Accordion, Button, Tabs, Tab, Spinner } from 'react-bootstrap';
 import styles from '../styles/UserProfile.module.css';
 
 function UserProfile() {
@@ -30,21 +32,38 @@ function UserProfile() {
               <h1 id={styles.welcomeUser}>
                 BIENVENU(E) {userData.firstname} {userData.lastname}
               </h1>
-              <Button className={styles.ButtonLogOut} onClick={handleLogOutClick} variant="primary">
-                Déconnexion
-              </Button>
+              <div className={styles.ButtonMain}>
+                <button className={styles.ButtonLogOut} onClick={handleLogOutClick}>
+                  Déconnexion
+                </button>
+              </div>
               <Tabs defaultActiveKey="UserProfile" id="uncontrolled-tab-example" className="justify-content-center">
                 <Tab eventKey="UserProfile" title="Mes Informations">
                   <div className={styles.profileData}>
-                    <ul>
-                      <li> Prénom: {userData && userData.firstname} </li>
-                      <li> Nom: {userData && userData.lastname}</li>
-                      <li> Email: {userData && userData.email}</li>
-                      <li> Téléphone: {userData && userData.phone ? userData.phone : 'non renseigné'}</li>
-                      <li> Adresse: {userData && userData.address ? userData.address : 'non renseigné'}</li>
-                      <li> Code Postal: {userData && userData.postalcode}</li>
-                      <li> Ville: {userData && userData.city}</li>
-                    </ul>
+                    <Table responsive="sm" striped bordered hover>
+                      <thead>
+                        <tr>
+                          <th>Prénom</th>
+                          <th>Nom</th>
+                          <th>Email</th>
+                          <th>Téléphone</th>
+                          <th>Adresse</th>
+                          <th>Code Postal</th>
+                          <th>Ville</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{userData && userData.firstname}</td>
+                          <td>{userData && userData.lastname}</td>
+                          <td>{userData && userData.email}</td>
+                          <td>{userData && userData.phone ? userData.phone : 'non renseigné'}</td>
+                          <td>{userData && userData.address ? userData.address : 'non renseigné'}</td>
+                          <td>{userData && userData.postalcode}</td>
+                          <td>{userData && userData.city}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
                   </div>
                 </Tab>
                 <Tab eventKey="UserDevis" title="Mes Devis">
@@ -64,8 +83,20 @@ function UserProfile() {
                             <Accordion.Body>
                               {elt.questions_answers.map((res, index) => (
                                 <div key={index} className={styles.profileDevis}>
-                                  <p>Question: {res.questions}</p>
-                                  <p>Réponse: {res.answers}</p>
+                                  <Table striped bordered hover>
+                                    <thead>
+                                      <tr>
+                                        <th>Question</th>
+                                        <th>Réponse</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>{res.questions}</td>
+                                        <td>{res.answers}</td>
+                                      </tr>
+                                    </tbody>
+                                  </Table>
                                 </div>
                               ))}
                             </Accordion.Body>
@@ -82,9 +113,22 @@ function UserProfile() {
                     ) : (
                       userData.messages.map((elt, index) => (
                         <div key={index} className={styles.headerMessages}>
-                          <p>Date {elt.created_at.slice(0, 10)}</p>
-                          <p>Sujet: {elt.subject}</p>
-                          <p>Message: {elt.text}</p>
+                          <Table striped bordered hover>
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Sujet</th>
+                                <th>Message</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>{elt.created_at.slice(0, 10)}</td>
+                                <td>{elt.subject}</td>
+                                <td>{elt.text}</td>
+                              </tr>
+                            </tbody>
+                          </Table>
                         </div>
                       ))
                     )}

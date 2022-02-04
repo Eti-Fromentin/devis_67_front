@@ -5,18 +5,27 @@
     color: black;
 }
 
-.profileData ul {
+.ButtonMain {
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 2vw;
+    justify-content: right;
+    align-items: center;
+    margin: 2vh;
+    font-size: 14px;
 }
 
-.profileData li {
-    list-style-type: none;
-    margin: 2vw;
-    margin-bottom: 5vh;
+.ButtonLogOut {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    padding: 7px;
+    color: ghostwhite;
+}
+.ButtonLogOut:hover {
+    background-color: cornflowerblue;
+}
+
+.profileData {
+    margin: 2vh;
 }
 
 .profileMain {
@@ -45,6 +54,9 @@
     background-color: ghostwhite;
 }
 
+.profileDevis th{
+    width: 40vw;
+}
 
 .profileMessages {
     display: flex;
@@ -80,7 +92,16 @@
 
     .headerMessages {
         flex-direction: column;
-        
+    }
+
+    .profileDevis {
+        display: block;
+        text-align: center;
+        background-color: ghostwhite;
+    }
+
+    .ButtonMain {
+        font-size: 10px;
     }
     
 }
