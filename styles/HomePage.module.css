@@ -1,0 +1,53 @@
+.home {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.containerHomepage {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 85vh;
+    width: 100vw;
+}
+.homecard {
+    min-height: 95%;
+    min-width: 95%;
+    margin: 5vh;
+    padding: 2vh;
+    border-radius: 0.50rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+.homecard:hover {
+    cursor: pointer;
+}
+.cardTitleHome {
+    font-weight: 700;
+    font-size: clamp(10px, 10vw, 25px);
+    font-family: 'Roboto', sans-serif;
+}
+.cardtexthome {
+    width: 70%;
+    font-weight: 300;
+    font-size:clamp(17px, 1vw, 30px);
+}
+.homeImage {
+    height: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+}
+.imageHome {
+    border-radius: 20px;
+}
+@media screen and (max-width:1000px) {
+    .containerHomepage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

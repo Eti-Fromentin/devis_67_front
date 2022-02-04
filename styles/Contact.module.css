@@ -1,0 +1,31 @@
+.connexion {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card {
+    background: linear-gradient(#f7f6f5, #ebf1f7);
+    margin: 5vh;
+    padding: 2vh;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.buttonSubmit {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    padding: 7px;
+    color: ghostwhite;
+    margin: 1vh;
+}
+
+.buttonSubmit:hover {
+    background-color: cornflowerblue;
+}
+
+.error {
+    color: #bf1650;
+  }

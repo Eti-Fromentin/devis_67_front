@@ -1,0 +1,28 @@
+.containerAide{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: clamp(15px, 9vw, 20px);
+}
+
+.textAide{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  margin:2rem;
+  padding:2rem;
+  max-width: 90vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 2px 5px;
+}
+
+.titleAide{
+  font-size: clamp(15px, 9vw, 30px);
+  text-align: left;
+  margin:2rem;
+}
+
+@media screen and (max-width: 700px) {
+  .containerAide{
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,36 @@
+.containerNavBar {
+    font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.navlinks {
+    font-size: 1rem;
+    font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
+    border-radius: 10px;
+}
+
+.navListContainer {
+    background-color: white;
+    z-index: 1;
+}
+
+.spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divNavLinks {
+    width: 12.5vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.navBarLink{
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(10px, 9vw, 17px);
+    color: #333;
+  }
+.containerNavBar{
+      height: 15vh;
+}

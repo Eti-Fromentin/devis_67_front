@@ -1,0 +1,22 @@
+.containerTopDevis{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.textTopDevis{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  background-color: rgb(246, 250, 250);
+  margin:2rem;
+  padding:2rem;
+  border-color: blue;
+  max-width: 90vh;
+}
+
+.titleTopDevis{
+  color: blue;
+  text-align: left;
+  margin:2rem;
+}

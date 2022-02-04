@@ -1,0 +1,107 @@
+#welcomeUser {
+    font-size: 26px;
+    text-align: center;
+    margin: 2%;
+    color: black;
+}
+
+.ButtonMain {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 2vh;
+    font-size: 14px;
+}
+
+.ButtonLogOut {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    padding: 7px;
+    color: ghostwhite;
+}
+.ButtonLogOut:hover {
+    background-color: cornflowerblue;
+}
+
+.profileData {
+    margin: 2vh;
+}
+
+.profileMain {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.profileMain li {
+    text-align: center;
+    list-style-type: none;
+    margin: 2vw;
+    background-color: aliceblue;
+}
+
+.headerDevis {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profileDevis {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: ghostwhite;
+}
+
+.profileDevis th{
+    width: 40vw;
+}
+
+.profileMessages {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: ghostwhite;
+    margin: 2%;
+}
+
+.headerMessages {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    border-style: ridge;
+    width: 100%;
+    height: 7vh;
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width: 700px) {
+    .profileMain {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .headerMessages {
+        flex-direction: column;
+    }
+
+    .profileDevis {
+        display: block;
+        text-align: center;
+        background-color: ghostwhite;
+    }
+
+    .ButtonMain {
+        font-size: 10px;
+    }
+    
+}

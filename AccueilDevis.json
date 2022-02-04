@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "text": "Rénovation/Remplacement",
+        "position": 1
+      },
+      {
+        "id": 2,
+        "text": "Rénovation",
+        "position": 1
+      },
+      {
+        "id": 3,
+        "text": "Remplacement",
+        "position": 1
+      }
+]

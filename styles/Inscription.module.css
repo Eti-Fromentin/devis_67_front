@@ -1,0 +1,26 @@
+.inscription {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card {
+    background: linear-gradient(#f7f6f5, #ebf1f7);
+    margin: 5vh;
+    padding: 2vh;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.card p {
+    color: #bf1650;
+  }
+
+.buttonSubscribe {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: ghostwhite;
+    margin: 2vh;
+}
