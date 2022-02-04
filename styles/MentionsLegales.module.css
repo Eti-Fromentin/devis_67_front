@@ -10,9 +10,11 @@
 .containerMentionsLegales{
   margin-top: 0.5rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
   height: 90vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 2px 5px;
+  width: 80%;
   
 }
 .textMentionsLegales{
@@ -21,8 +23,7 @@
   margin-left:2rem;
   max-width: 70vw;
   font-size: clamp(8px, 9vw, 15px);
-  line-height: 1.5rem;
-  
+  line-height: 1.5rem; 
 
 }
 .titleMentionsLegales{
