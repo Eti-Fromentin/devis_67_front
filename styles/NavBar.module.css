@@ -4,13 +4,14 @@
 }
 
 .navlinks {
-    font-size: 1rem;
     font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
     border-radius: 10px;
 }
 
 .navListContainer {
     background-color: white;
+    text-align: center;
+    margin-left: 10px;
     z-index: 1;
 }
 

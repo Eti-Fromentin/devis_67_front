@@ -61,9 +61,13 @@ function Footer() {
               <ul className={styles.itemsNavBar}>
                 {footerData
                   .filter((element) => element.section === 'list2')
-                  .map((element) => {
+                  .map((element, index) => {
                     if (element.category === 'titre') {
-                      return <h3 className={styles.footerH3}>{element.text}</h3>;
+                      return (
+                        <h3 className={styles.footerH3} key={index}>
+                          {element.text}
+                        </h3>
+                      );
                     } else {
                       return (
                         <div>
