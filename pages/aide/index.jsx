@@ -46,7 +46,11 @@ function AideAccueil({ posts, headInfo }) {
                     </div>
                   );
                 } else {
-                  return <p key={itemMenu.position}>{itemMenu.text}</p>;
+                  return (
+                    <p key={itemMenu.position} className={styles.pAide}>
+                      {itemMenu.text}
+                    </p>
+                  );
                 }
               })}
           </div>
