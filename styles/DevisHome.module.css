@@ -64,6 +64,7 @@ grid-template-areas: "1"
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     border-radius: 15px;
     font-size: 13px;
     width: 180px;
@@ -130,10 +131,24 @@ grid-template-areas: "1"
 
 @media screen and (max-width: 900px) {
     .containerDevisHome {
-        display: grid;
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 4fr 2fr;
     } 
+
+    .containerDevisHome {
+        height: fit-content;
+        width: auto;
+    }
+
+    .leftTextDevisHome {
+        font-size: 15px;
+    }
+
+    .cardDevisHome {
+        font-size: 13px;
+        width: 150px;
+    }
 }
 
 

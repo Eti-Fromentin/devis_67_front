@@ -23,7 +23,9 @@ const DevisHome = ({ headInfo, devisInfo }) => {
       <section className={styles.bodyDevisHome}>
         <section className={styles.containerDevisHome}>
           <aside className={styles.leftContainerDevisHome}>
-            <div className={styles.leftTextDevisHome}>POUR FAIRE VOTRE DEMANDE, SÉLECTIONNEZ UNE DES CATÉGORIES CI-DESSOUS</div>
+            <div className={styles.leftTextDevisHome}>
+              <p>POUR FAIRE VOTRE DEMANDE SÉLECTIONNEZ UNE DES CATÉGORIES CI-DESSOUS</p>
+            </div>
             <div className={styles.leftSearchBarDevisHome}>
               <div className={styles.searchBoxDevisHome}>
                 <InputGroup className={styles.inputGroupIndexDevis}>
