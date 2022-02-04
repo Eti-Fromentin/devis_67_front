@@ -201,7 +201,6 @@ grid-template-areas: "1"
         grid-area: "2";
         background: url(../Assets/maison.jpg)no-repeat 50% 50%;
         box-shadow: rgb(255, 255, 255) 50px 60px 80px inset;
-        background-color: blueviolet;
         background-size: cover;
     }
     

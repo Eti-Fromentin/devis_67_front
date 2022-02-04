@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/no-onchange */
-/* eslint-disable react/display-name */
 import React, { useMemo, useEffect, useState, useContext, useRef, forwardRef } from 'react';
 import { useTable, usePagination, useRowSelect } from 'react-table';
 import Select from 'react-select';
 import { Button, Table } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import axios from 'axios';
+import styles from '../../styles/NavBarTable.module.css';
 const _ = require('lodash');
 
 const EditableCell = ({ value: initialValue, row: { index }, column: { id }, updateMyData }) => {
@@ -198,6 +197,7 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
         </tbody>
       </Table>
       <Button
+        className={styles.buttonEffacerLesDonnées}
         variant="danger"
         onClick={() => {
           deleteRow();
@@ -367,7 +367,7 @@ function NavbarTable({ navbarData, setNavbarData }) {
   }, [displayedData]);
 
   return (
-    <>
+    <section className={styles.xyz}>
       <DataTable
         columns={columns}
         data={displayedData}
@@ -376,25 +376,29 @@ function NavbarTable({ navbarData, setNavbarData }) {
         setDisplayedData={setDisplayedData}
         displayedData={displayedData}
       />
-      <Button
-        variant="info"
-        onClick={() => {
-          addEmptyRow();
-        }}
-      >
-        {' '}
-        Ajouter une ligne{' '}
-      </Button>
-      <Button
-        variant="primary"
-        onClick={() => {
-          sendUpdatedData();
-        }}
-      >
-        {' '}
-        Mettre à jour{' '}
-      </Button>
-    </>
+      <section className={styles.buttonsDevis}>
+        <Button
+          className={styles.buttonAjouterUneLigne}
+          variant="info"
+          onClick={() => {
+            addEmptyRow();
+          }}
+        >
+          {' '}
+          Ajouter une ligne{' '}
+        </Button>
+        <Button
+          className={styles.buttonMettreAJour}
+          variant="primary"
+          onClick={() => {
+            sendUpdatedData();
+          }}
+        >
+          {' '}
+          Mettre à jour{' '}
+        </Button>
+      </section>
+    </section>
   );
 }
 

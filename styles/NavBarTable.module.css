@@ -1,0 +1,14 @@
+.buttonEffacerLesDonnées {
+    /* background-color: yellow; */
+    margin-left: 22.5rem;
+}
+/* .xyz {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+} */
+.buttonsDevis {
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

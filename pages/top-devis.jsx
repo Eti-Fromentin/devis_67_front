@@ -11,18 +11,6 @@ function TopDevis({ data, faq }) {
   return (
     <div>
       <NavBar pageType="devis" />
-      {/* {posts
-        .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle' && titlesMenu.page_name === 'top-devis')
-        .map((titleMenu) => {
-          return (
-            <div key={titleMenu.id}>
-              <h5 key={titleMenu.id} className={styles.titleTopDevis}>
-                {titleMenu.text}
-              </h5>
-            </div>
-          );
-        })} */}
-
       {!data ? (
         <p>Loading</p>
       ) : (
