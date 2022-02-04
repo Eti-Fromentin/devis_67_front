@@ -9,7 +9,7 @@ const LoginContext = createContext({
   userId: '',
   setUserId: () => {},
   registerLogin: () => {},
-  checkisLogin: () => {},
+  checkIsLogin: () => {},
   userData: null,
   setUserData: () => {},
   getUserData: () => {},
