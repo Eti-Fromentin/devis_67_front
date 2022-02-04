@@ -28,13 +28,15 @@ function ConditionsUtilisations({ posts, headInfo }) {
               <ol>
                 {posts
                   .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
-                  .map((itemMenu) => (
-                    <li className={styles.itemsMenu} key={itemMenu.key}>
-                      <a href={`#${itemMenu.text}`} className={styles.linkConditions}>
-                        {itemMenu.text}
-                      </a>
-                    </li>
-                  ))}
+                  .map((itemMenu) => {
+                    return (
+                      <li className={styles.itemsMenu} key={itemMenu.key}>
+                        <a href={`#${itemMenu.text}`} className={styles.linkConditions}>
+                          {itemMenu.text}
+                        </a>
+                      </li>
+                    );
+                  })}
               </ol>
               <div>
                 {posts.map((itemMenu) => {
