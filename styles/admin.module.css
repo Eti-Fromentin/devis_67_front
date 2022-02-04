@@ -1,14 +1,19 @@
 .adminContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   margin: auto;
 }
 
+.h1admin {
+  font-size: 4vw;
+}
 .sidePanelBtn {
   margin: 2vw;
-  width: 30vw;
+  width: 10vw;
+  height: 5vh;
+  margin-right: 80vw;
 }
 
 .adminCard {

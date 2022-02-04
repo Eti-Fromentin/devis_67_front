@@ -1,10 +1,23 @@
+
+
+.h1ModeEmploi {
+  padding: 3vw;
+  font-size: clamp(10px, 10vw, 60px);
+}
+.titleModeEmploi{
+  text-align: center;
+  text-align: left;
+  margin-left: 2rem;
+  font-size: clamp(10px, 9vw, 20px);
+  padding: 0.5vw;
+}
 .containerModeEmploi{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
-.textModeEmploi{
+.textModeEmploi >p {
   margin:2rem;
   padding:2rem;
   font-size: 14px;
