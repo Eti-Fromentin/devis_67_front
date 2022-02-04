@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  background-color: rgb(246, 250, 250);
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
   margin:2rem;
   padding:2rem;
   border-color: blue;

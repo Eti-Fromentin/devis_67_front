@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
- 
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  margin-left:10wv;
 }
 .textConditions{
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  background-color: rgb(246, 250, 250);
   margin:2rem;
   max-width: 70vw;
   font-size: 12px;

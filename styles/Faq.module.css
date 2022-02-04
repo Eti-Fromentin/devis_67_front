@@ -1,8 +1,7 @@
 .containerFaq{
   display: flex;
-  
   width: 70vw;
-  height: 50vh;
+  height: 60vh;
   justify-content: center;
 }
 .h1Faq{
@@ -12,11 +11,10 @@
 .textFaq{
   display: flex;
   flex-direction: column;
-  
-  
   margin:2rem;
   font-size: 14px;
   background-color: #fefbfa;
+
   
 }
 .titleFaq{
