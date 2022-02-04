@@ -9,7 +9,6 @@ function NavbarDisplay() {
   const [navbarData, setNavbarData] = useState([]);
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const [change, setChange] = useState(false);
 
   async function getNavbarData() {
     const data = await axios({
@@ -25,7 +24,7 @@ function NavbarDisplay() {
 
   useEffect(() => {
     getNavbarData();
-  }, [change]);
+  }, []);
 
   return (
     <div className={styles.userDisplayContainer}>
@@ -35,7 +34,7 @@ function NavbarDisplay() {
         </div>
       ) : (
         <>
-          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} getNavbarData={getNavbarData}/>
+          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} getNavbarData={getNavbarData} />
         </>
       )}
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import OffCanvas from '../components/backoffice/OffCanvas';
 import UserDisplay from '../components/backoffice/UserDisplay';
 import LoginContext from '../contexts/loginContext';
@@ -18,6 +18,12 @@ function BackOffice() {
     setCategory(category);
   }
 
+  const categoryDisplay = () => {
+    if (category === 'users') return <UserDisplay />;
+    else if (category === 'navbar') return <NavbarDisplay />;
+    else return 'hello ';
+  };
+
   useEffect(() => {
     checkIsAdminLogin();
   }, []);
@@ -34,10 +40,9 @@ function BackOffice() {
             Side Panel
           </Button>
           <section>
-            {/* <Card className={styles.adminCard}> */}
+            {categoryDisplay()}
             {/* <UserDisplay /> */}
-            <NavbarDisplay />
-            {/* </Card> */}
+            {/* <NavbarDisplay /> */}
           </section>
         </>
       )}

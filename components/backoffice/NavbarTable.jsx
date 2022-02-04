@@ -2,6 +2,7 @@
 /* eslint-disable react/display-name */
 import React, { useMemo, useEffect, useState, useContext, useRef, forwardRef } from 'react';
 import { useTable, usePagination, useRowSelect } from 'react-table';
+import Select from 'react-select';
 import { Button, Table } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import axios from 'axios';
@@ -72,9 +73,11 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
       autoResetPage: !skipPageReset,
       initialState: { pageIndex: 0, pageSize: 20 },
       updateMyData,
+      // initialCellStateAccessor,
     },
     usePagination,
     useRowSelect,
+    // useRowState,
     (hooks) => {
       hooks.visibleColumns.push((columns) => [
         {
@@ -215,10 +218,15 @@ function NavbarTable({ navbarData, setNavbarData }) {
     colId: elt.id,
     colText: elt.text,
     colPos: elt.position,
-    colVisi: elt.visible === 1 ? '✅' : '❌',
+    colVisi: elt.visible,
     colLink: elt.pages === '/' ? 'Homepage' : elt.pages,
     colSite: elt.pagetype,
   }));
+
+  const positionList = [
+    { value: 1, label: '✅' },
+    { value: 0, label: '❌' },
+  ];
 
   const data = useMemo(() => callToData, []);
 
@@ -235,6 +243,17 @@ function NavbarTable({ navbarData, setNavbarData }) {
       {
         Header: 'Visible ?',
         accessor: 'colVisi',
+        Cell: ({ row }) => {
+          return (
+            <Select
+              onChange={(e) => {
+                updateMyData(row.index, 'colVisi', e.value);
+              }}
+              options={positionList}
+              defaultValue={{ label: row.original.colVisi === 1 ? '✅' : '❌', value: row.original.colVisi }}
+            />
+          );
+        },
       },
       {
         Header: 'Lien vers ?',
@@ -250,7 +269,6 @@ function NavbarTable({ navbarData, setNavbarData }) {
 
   const [displayedData, setDisplayedData] = useState(data);
   const [skipPageReset, setSkipPageReset] = useState(false);
-  //   const [newData, setNewData] = useState();
 
   const updateMyData = (rowIndex, columnId, value) => {
     setSkipPageReset(true);
@@ -272,11 +290,14 @@ function NavbarTable({ navbarData, setNavbarData }) {
       id: elt.colId,
       position: Number(elt.colPos),
       text: elt.colText,
-      visible: Number(elt.colVisi === '✅' ? 1 : 0),
+      visible: Number(elt.colVisi),
       pagetype: elt.colSite,
       pages: elt.colLink === 'Homepage' ? '/' : elt.colLink,
     }));
     const filteredData = await newData.filter((elt, index) => !_.isEqual(elt, navbarData[index]));
+    // console.log(newData);
+    // console.log(filteredData);
+    // console.log(navbarData);
     await axios({
       method: 'put',
       url: `${apiUrl}/navbar/admin/${userId}`,
@@ -314,7 +335,7 @@ function NavbarTable({ navbarData, setNavbarData }) {
         if (res.status === 201) {
           setDisplayedData([
             ...displayedData,
-            { colId: res.data.id, colText: 'à remplir', colPos: 20, colVisi: '❌', colLink: 'Homepage', colSite: 'devis' },
+            { colId: res.data.id, colText: 'à remplir', colPos: 20, colVisi: 0, colLink: 'Homepage', colSite: 'devis' },
           ]);
         }
       })
@@ -324,10 +345,6 @@ function NavbarTable({ navbarData, setNavbarData }) {
         }
       });
   };
-
-  useEffect(() => {
-    console.log(displayedData);
-  }, []);
 
   useEffect(() => {
     setSkipPageReset(false);
