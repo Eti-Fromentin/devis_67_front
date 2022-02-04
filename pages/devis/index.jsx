@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { InputGroup, FormControl, Button, Card } from 'react-bootstrap';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import Data from '../../dataCategory.json';
+
+import pic from '../../Assets/maison.jpg';
+
 import styles from '../../styles/DevisHome.module.css';
 
 const DevisHome = ({ headInfo, devisInfo }) => {
@@ -24,9 +26,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
         <section className={styles.containerDevisHome}>
           <aside className={styles.leftContainerDevisHome}>
             <div className={styles.leftTextDevisHome}>
-              {Data.filter((element) => element.position === 5 && element.id === 16).map((element) => {
-                return <span key={element.position}>{element.text}</span>;
-              })}
+              <p>POUR FAIRE VOTRE DEMANDE SÉLECTIONNEZ UNE DES CATÉGORIES CI-DESSOUS</p>
             </div>
             <div className={styles.leftSearchBarDevisHome}>
               <div className={styles.searchBoxDevisHome}>

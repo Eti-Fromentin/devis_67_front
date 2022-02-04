@@ -16,7 +16,7 @@
 .buttonConnect {
     border: none;
     border-radius: 10px;
-    background-color: blueviolet;
+    background-color: rgb(141, 68, 141);
     color: ghostwhite;
     margin: 2vh;
 }
