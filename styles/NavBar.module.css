@@ -7,7 +7,11 @@
     font-size: 1rem;
     font-family: Moderat-Bold, "Helvetica Neue", Arial, sans-serif;
     border-radius: 10px;
-    /* background: yellowgreen; */
+}
+
+.navListContainer {
+    background-color: white;
+    z-index: 1;
 }
 
 .spinnerContainer {
@@ -16,7 +20,6 @@
     align-items: center;
 }
 .divNavLinks {
-    /* background: yellowgreen; */
     width: 12.5vw;
     display: flex;
     justify-content: space-evenly;
@@ -26,12 +29,8 @@
     font-weight: 700;
     font-family: 'Times New Roman', Times, serif;
     font-size: clamp(10px, 9vw, 17px);
-    /* font-size: 1.5vw; */
-    /* background: yellow; */
-    /* width: 100%; */
     color: #333;
   }
 .containerNavBar{
       height: 15vh;
-      /* background: grey; */
 }
