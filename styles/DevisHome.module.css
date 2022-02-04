@@ -31,8 +31,8 @@ grid-template-areas: "1"
     font-weight: 700;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     grid-area: "1";
-    display: flex;
     padding: 1rem;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -48,7 +48,7 @@ grid-template-areas: "1"
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    border: 1px solid #333;
 }
 
 .leftOptionsDevisHome {
@@ -95,6 +95,7 @@ grid-template-areas: "1"
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     font-size: clamp(10px, 9vw, 17px);
+    color: blue;
     font-weight: 500;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -120,9 +121,12 @@ grid-template-areas: "1"
     align-items: flex-start;
 }
 .lowBlockDevisHome {
+    width: 100%;
+    height: 100%;
     grid-area: "2";
     background: url(../Assets/maison.jpg)no-repeat 50% 50%;
     box-shadow: rgb(255, 255, 255) 50px 60px 80px inset;
+    background-size: cover;
 }
 
 @media screen and (max-width: 900px) {
@@ -145,4 +149,62 @@ grid-template-areas: "1"
         font-size: 13px;
         width: 150px;
     }
+}
+
+
+@media screen and (mIN-width: 1400px) {
+    .cardDevisHome {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 15px;
+        font-size: 13px;
+        width: 300px;
+        height: 3rem;
+        background: rgb(141, 68, 141);
+        color: white;
+        margin-top: 1%;
+        font-size: 18px;
+    }
+    .cardDevisHome:hover {
+        cursor: pointer;
+    }
+    .leftTextDevisHome {
+        font-size: 27px;
+        font-weight: 700;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        grid-area: "1";
+        display: flex;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .titlehightBlockDevisHome {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 3px 0px;
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        padding: 1vw;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        font-size: 25px;
+        color: blue;
+        font-weight: 500;
+        font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .infohightBlockDevisHome > span {
+        font-weight: 700;
+        font-size: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .lowBlockDevisHome {
+        grid-area: "2";
+        background: url(../Assets/maison.jpg)no-repeat 50% 50%;
+        box-shadow: rgb(255, 255, 255) 50px 60px 80px inset;
+        background-size: cover;
+    }
+    
 }

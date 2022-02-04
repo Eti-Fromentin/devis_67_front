@@ -35,15 +35,13 @@ function BackOffice() {
       ) : (
         <>
           <OffCanvas handleChoice={handleChoice} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
-          <h1>Devis67 Back Office</h1>
-          <Button className={styles.sidePanelBtn} variant="primary" onClick={() => handleShow()}>
-            Side Panel
-          </Button>
-          <section>
-            {categoryDisplay()}
-            {/* <UserDisplay /> */}
-            {/* <NavbarDisplay /> */}
-          </section>
+          <h1 className={styles.h1admin}>Devis67 Back Office</h1>
+          <div className={styles.containerSidePanel}>
+            <Button className={styles.sidePanelBtn} variant="primary" onClick={() => handleShow()}>
+              Side Panel
+            </Button>
+          </div>
+          <section className={styles.sectionCategorySectionDisplay}>{categoryDisplay()}</section>
         </>
       )}
     </div>
