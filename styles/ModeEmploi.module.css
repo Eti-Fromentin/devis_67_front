@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  height: 40vh;
 }
 .textModeEmploi{
   margin:2rem;
@@ -20,4 +19,15 @@
 .titleModeEmploi{
   padding: 1.5rem;
   font-size: clamp(10px, 9vw, 30px);
+}
+
+@media screen and (max-width: 700px) {
+  .containerModeEmploi{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textModeEmploi{
+    width: 80%;
+  }
 }
