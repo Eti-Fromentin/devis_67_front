@@ -19,7 +19,7 @@ function MentionsLegales({ posts, headInfo }) {
       </Head>
       <NavBar pageType="devis" />
       <h1 className={styles.h1MentionsLégales}>Mentions legales</h1>
-      <h2 className={styles.h2MentionsLégales}>Toutes les informations :</h2>
+      <h2 className={styles.h2MentionsLégales}>Toutes les informations</h2>
       {!posts ? (
         <p>Loading</p>
       ) : (
@@ -52,8 +52,7 @@ export async function getStaticProps() {
 
   const posts = await axios
     .get(`${apiUrl}/pagescontent/mentions_legales`)
-    .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1));
+    .then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/mentions-légales`).then((response) => response.data);
 
   return {

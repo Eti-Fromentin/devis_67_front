@@ -8,6 +8,11 @@
     border-radius: 10px;
 }
 
+.navListContainer {
+    background-color: white;
+    z-index: 1;
+}
+
 .spinnerContainer {
     display: flex;
     justify-content: center;
@@ -20,7 +25,10 @@
     align-items: center;
 }
 .navBarLink{
-    font-size: 1.5vw;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(10px, 9vw, 17px);
+    color: #333;
   }
 .containerNavBar{
       height: 15vh;

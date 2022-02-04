@@ -76,10 +76,7 @@ function AideAccueil({ posts, headInfo }) {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const posts = await axios
-    .get(`${apiUrl}/pagescontent/aide`)
-    .then((response) => response.data)
-    .then((data) => data.filter((element) => element.visible === 1));
+  const posts = await axios.get(`${apiUrl}/pagescontent/aide`).then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/aide`).then((response) => response.data);
 
   return {

@@ -144,7 +144,7 @@ function Inscription() {
                     </a>
                     <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
                   </Form.Group>
-                  <Button variant="primary" type="submit">
+                  <Button className={styles.buttonSubscribe} type="submit">
                     S&#039;inscrire
                   </Button>
                 </Form>

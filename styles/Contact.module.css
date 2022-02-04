@@ -13,8 +13,17 @@
     text-align: center;
 }
 
-.button {
-    margin: 2vh;
+.buttonSubmit {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(141, 68, 141);
+    padding: .375rem .75rem;
+    color: ghostwhite;
+    margin: 1vh;
+}
+
+.buttonSubmit:hover {
+    background-color: cornflowerblue;
 }
 
 .error {
