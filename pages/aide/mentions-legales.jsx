@@ -19,7 +19,7 @@ function MentionsLegales({ posts, headInfo }) {
       </Head>
       <NavBar pageType="devis" />
       <h1 className={styles.h1MentionsLégales}>Mentions legales</h1>
-      <h2 className={styles.h2MentionsLégales}>Toutes les informations :</h2>
+      <h2 className={styles.h2MentionsLégales}>Toutes les informations</h2>
       {!posts ? (
         <p>Loading</p>
       ) : (
