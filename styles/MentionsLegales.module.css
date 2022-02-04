@@ -10,13 +10,10 @@
 .containerMentionsLegales{
   margin-top: 0.5rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 90vh;
-  box-shadow: rgba(0, 0, 0, 0.35) 5px 2px 5px;
-  width: 80%;
-  
+  justify-content: center;
+  align-items: center;
 }
+
 .textMentionsLegales{
   display: flex;
   flex-direction: column;
