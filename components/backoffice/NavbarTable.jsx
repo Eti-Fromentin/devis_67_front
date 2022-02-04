@@ -6,6 +6,7 @@ import Select from 'react-select';
 import { Button, Table } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import axios from 'axios';
+import DevisAllQuestions from '../../pages/devis/[params]';
 const _ = require('lodash');
 
 const EditableCell = ({ value: initialValue, row: { index }, column: { id }, updateMyData }) => {
@@ -228,6 +229,11 @@ function NavbarTable({ navbarData, setNavbarData }) {
     { value: 0, label: '❌' },
   ];
 
+  const typeList = [
+    { value: 'devis', label: 'Devis' },
+    { value: 'aides', label: 'Aides' },
+  ];
+
   const data = useMemo(() => callToData, []);
 
   const columns = useMemo(
@@ -262,6 +268,17 @@ function NavbarTable({ navbarData, setNavbarData }) {
       {
         Header: 'Partie du site',
         accessor: 'colSite',
+        Cell: ({ row }) => {
+          return (
+            <Select
+              onChange={(e) => {
+                updateMyData(row.index, 'colSite', e.value);
+              }}
+              options={typeList}
+              defaultValue={{ label: row.original.colSite === 'devis' ? 'Devis' : 'Aides', value: row.original.colSite }}
+            />
+          );
+        },
       },
     ],
     [],
