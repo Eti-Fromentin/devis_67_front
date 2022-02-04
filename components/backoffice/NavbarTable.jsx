@@ -6,7 +6,6 @@ import Select from 'react-select';
 import { Button, Table } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import axios from 'axios';
-import DevisAllQuestions from '../../pages/devis/[params]';
 const _ = require('lodash');
 
 const EditableCell = ({ value: initialValue, row: { index }, column: { id }, updateMyData }) => {
