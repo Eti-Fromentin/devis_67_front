@@ -7,11 +7,11 @@ import Footer from '../components/Footer';
 
 import styles from '../styles/TopDevis.module.css';
 
-function TopDevis({ posts }) {
+function TopDevis({ data, faq }) {
   return (
     <div>
       <NavBar pageType="devis" />
-      {posts
+      {/* {posts
         .filter((titlesMenu) => titlesMenu.page_section === 'chaperTitle' && titlesMenu.page_name === 'top-devis')
         .map((titleMenu) => {
           return (
@@ -21,32 +21,27 @@ function TopDevis({ posts }) {
               </h5>
             </div>
           );
-        })}
+        })} */}
 
-      {!posts ? (
+      {!data ? (
         <p>Loading</p>
       ) : (
         <div className={styles.containerTopDevis}>
+          <h2>Les plus demandés</h2>
+          <h3>Le top des devis demandés par les utilisateurs</h3>
+          <h3>Voici le top 10 des devis demandés par les utilisateurs du service de devis gratuit proposé par devis67</h3>
           <div className={styles.textTopDevis}>
-            {posts
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.position < 10 && itemsMenu.page_name === 'top-devis')
-              .map((itemMenu) => {
-                if (itemMenu.page_section === 'lien') {
-                  return (
-                    <div key={itemMenu.position}>
-                      <Nav.Link href={itemMenu.pages.url} className={styles.linkTopDevis}>
-                        {itemMenu.text}
-                      </Nav.Link>
-                    </div>
-                  );
-                } else {
-                  return <p key={itemMenu.position}>{itemMenu.text}</p>;
-                }
-              })}
+            {data.map((itemMenu) => (
+              <div key={itemMenu.position}>
+                <Nav.Link href={itemMenu.url} className={styles.linkTopDevis}>
+                  {itemMenu.text}
+                </Nav.Link>
+              </div>
+            ))}
           </div>
           <div className={styles.textTopDevis}>
-            {posts
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.page_name === 'faq')
+            {faq
+              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.page_name === 'modeEmploi')
               .map((itemMenu) => {
                 if (itemMenu.page_section === 'title') {
                   return (
@@ -66,11 +61,12 @@ function TopDevis({ posts }) {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const posts = await axios.get(`${apiUrl}/pagescontent/top-devis`).then((response) => response.data.filter((element) => element.visible === 1));
-
+  const data = await axios.get(`${apiUrl}/topten`).then((response) => response.data.filter((element) => element.visible === 1));
+  const faq = await axios.get(`${apiUrl}/pagescontent/modeEmploi`).then((response) => response.data.filter((element) => element.visible === 1));
   return {
     props: {
-      posts,
+      data,
+      faq,
     },
   };
 }
