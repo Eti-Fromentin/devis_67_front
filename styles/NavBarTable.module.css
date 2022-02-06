@@ -1,8 +1,9 @@
 .buttonEffacerLesDonnées {
-    margin-left: 22.5rem;
+  /* margin-left: 22.5rem; */
 }
 .buttonsDevis {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5%;
 }

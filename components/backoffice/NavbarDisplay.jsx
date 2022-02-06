@@ -7,6 +7,7 @@ import NavbarTable from './NavbarTable';
 
 function NavbarDisplay() {
   const [navbarData, setNavbarData] = useState([]);
+  const [urls, setUrls] = useState([]);
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -22,8 +23,21 @@ function NavbarDisplay() {
     setNavbarData(data.data);
   }
 
+  async function getUrlData() {
+    const data = await axios({
+      method: 'get',
+      url: `${apiUrl}/pagesdetails/admin/${userId}`,
+      headers: {
+        Authorization: `Bearer ${adminToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    setUrls(data.data);
+  }
+
   useEffect(() => {
     getNavbarData();
+    getUrlData();
   }, []);
 
   return (
@@ -34,7 +48,7 @@ function NavbarDisplay() {
         </div>
       ) : (
         <>
-          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} getNavbarData={getNavbarData} />
+          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} urls={urls} />
         </>
       )}
     </div>
