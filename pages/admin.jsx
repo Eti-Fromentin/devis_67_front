@@ -38,7 +38,7 @@ function BackOffice() {
           <h1 className={styles.h1admin}>Devis67 Back Office</h1>
           <div className={styles.containerSidePanel}>
             <Button className={styles.sidePanelBtn} variant="primary" onClick={() => handleShow()}>
-              Side Panel
+              Menu
             </Button>
           </div>
           <section className={styles.sectionCategorySectionDisplay}>{categoryDisplay()}</section>

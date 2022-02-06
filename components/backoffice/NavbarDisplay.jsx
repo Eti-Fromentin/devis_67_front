@@ -4,6 +4,7 @@ import { Spinner } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import styles from '../../styles/Tables.module.css';
 import NavbarTable from './NavbarTable';
+import NavDND from './NavbarDND';
 
 function NavbarDisplay() {
   const [navbarData, setNavbarData] = useState([]);
@@ -35,6 +36,7 @@ function NavbarDisplay() {
       ) : (
         <>
           <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} getNavbarData={getNavbarData} />
+          {/* <NavDND navbarData={navbarData} setNavbarData={setNavbarData} getNavbarData={getNavbarData} /> */}
         </>
       )}
     </div>

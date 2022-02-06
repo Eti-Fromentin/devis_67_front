@@ -7,9 +7,11 @@ import { Button, Table } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import axios from 'axios';
 import styles from '../../styles/NavBarTable.module.css';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
 const _ = require('lodash');
 
-const EditableCell = ({ value: initialValue, row: { index }, column: { id }, updateMyData }) => {
+const EditableCell = ({ value: initialValue, row, column: { id }, updateMyData }) => {
   const [value, setValue] = useState(initialValue);
 
   const onChange = (e) => {
@@ -17,7 +19,7 @@ const EditableCell = ({ value: initialValue, row: { index }, column: { id }, upd
   };
 
   const onBlur = () => {
-    updateMyData(index, id, value);
+    updateMyData(row.index, id, value);
   };
 
   useEffect(() => {
@@ -31,20 +33,20 @@ const defaultColumn = {
   Cell: EditableCell,
 };
 
-const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
-  const defaultRef = useRef();
-  const resolvedRef = ref || defaultRef;
+// const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
+//   const defaultRef = useRef();
+//   const resolvedRef = ref || defaultRef;
 
-  useEffect(() => {
-    resolvedRef.current.indeterminate = indeterminate;
-  }, [resolvedRef, indeterminate]);
+//   useEffect(() => {
+//     resolvedRef.current.indeterminate = indeterminate;
+//   }, [resolvedRef, indeterminate]);
 
-  return (
-    <>
-      <input type="checkbox" ref={resolvedRef} {...rest} />
-    </>
-  );
-});
+//   return (
+//     <>
+//       <input type="checkbox" ref={resolvedRef} {...rest} />
+//     </>
+//   );
+// });
 
 function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedData, displayedData }) {
   const { userId, adminToken } = useContext(LoginContext);
@@ -52,80 +54,106 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
 
   const {
     getTableProps,
-    getTableBodyProps,
+    // getTableBodyProps,
     headerGroups,
     prepareRow,
-    selectedFlatRows,
-    page,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    state: { pageIndex, pageSize },
+    // selectedFlatRows,
+    // page,
+    rows,
+    // canPreviousPage,
+    // canNextPage,
+    // pageOptions,
+    // pageCount,
+    // gotoPage,
+    // nextPage,
+    // previousPage,
+    // setPageSize,
+    // state: { pageIndex, pageSize },
   } = useTable(
     {
       columns,
       data,
       defaultColumn,
-      autoResetPage: !skipPageReset,
-      initialState: { pageIndex: 0, pageSize: 20 },
+      // autoResetPage: !skipPageReset,
+      // initialState: { pageIndex: 0, pageSize: 20 },
       updateMyData,
+      // reorderData,
       // initialCellStateAccessor,
     },
-    usePagination,
-    useRowSelect,
+    // usePagination,
+    // useRowSelect,
     // useRowState,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => [
-        {
-          id: 'selection',
-          Header: ({ getToggleAllRowsSelectedProps }) => (
-            <div>
-              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-            </div>
-          ),
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-            </div>
-          ),
-        },
-        ...columns,
-      ]);
-    },
+    // (hooks) => {
+    //   hooks.visibleColumns.push((columns) => [
+    //     {
+    //       id: 'selection',
+    //       Header: ({ getToggleAllRowsSelectedProps }) => (
+    //         <div>
+    //           <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+    //         </div>
+    //       ),
+    //       Cell: ({ row }) => (
+    //         <div>
+    //           <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+    //         </div>
+    //       ),
+    //     },
+    //     ...columns,
+    //   ]);
+    // },
   );
 
-  const deleteRow = async () => {
-    const items = selectedFlatRows.map((elt) => elt.original);
-    const itemsToDelete = await items.map((elt) => ({ id: elt.colId }));
-    await axios({
-      method: 'delete',
-      url: `${apiUrl}/navbar/admin/${userId}`,
-      headers: {
-        Authorization: `Bearer ${adminToken}`,
-        'Content-Type': 'application/json',
-      },
-      data: itemsToDelete,
-    })
-      .then((res) => {
-        if (res.status === 204) {
-          setDisplayedData(displayedData.filter((elt) => !itemsToDelete.some((element) => elt.colId === element.id)));
-        }
-      })
-      .catch((err) => {
-        if (err.response) {
-          alert("Oups, une erreur s'est produite");
-        }
-      });
+  // const deleteRow = async () => {
+  //   const items = selectedFlatRows.map((elt) => elt.original);
+  //   const itemsToDelete = await items.map((elt) => ({ id: elt.colId }));
+  //   await axios({
+  //     method: 'delete',
+  //     url: `${apiUrl}/navbar/admin/${userId}`,
+  //     headers: {
+  //       Authorization: `Bearer ${adminToken}`,
+  //       'Content-Type': 'application/json',
+  //     },
+  //     data: itemsToDelete,
+  //   })
+  //     .then((res) => {
+  //       if (res.status === 204) {
+  //         setDisplayedData(displayedData.filter((elt) => !itemsToDelete.some((element) => elt.colId === element.id)));
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       if (err.response) {
+  //         alert("Oups, une erreur s'est produite");
+  //       }
+  //     });
+  // };
+
+  const handleDragEnd = (result) => {
+    // const { source, destination } = result;
+    // if (!destination) return;
+    // reorderData(source.index, destination.index);
+    console.log(result);
   };
+
+  const UpDownArrow = (props) => (
+    <span {...props.dragHandleProps} className={props.className} aria-label="move" role="img">
+      ↕️
+    </span>
+  );
 
   return (
     <>
-      <div className="pagination">
+      {/* {' '}
+      <Button
+        className={styles.buttonEffacerLesDonnées}
+        variant="danger"
+        onClick={() => {
+          deleteRow();
+        }}
+      >
+        {' '}
+        Effacer les données{' '}
+      </Button> */}
+      {/* <div className="pagination">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>{' '}
@@ -168,8 +196,8 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
             </option>
           ))}
         </select>
-      </div>
-      <Table {...getTableProps()}>
+      </div> */}
+      <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup, index) => (
             <tr key={index} {...headerGroup.getHeaderGroupProps()}>
@@ -181,7 +209,7 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        {/* <tbody {...getTableBodyProps()}>
           {page.map((row, i) => {
             prepareRow(row);
             return (
@@ -196,18 +224,43 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
               </tr>
             );
           })}
-        </tbody>
-      </Table>
-      <Button
-        className={styles.buttonEffacerLesDonnées}
-        variant="danger"
-        onClick={() => {
-          deleteRow();
-        }}
-      >
-        {' '}
-        Effacer les données{' '}
-      </Button>
+        </tbody> */}
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <Droppable droppableId="table-body">
+            {(provided, snapshot) => (
+              <tbody ref={provided.innerRef} {...provided.droppableProps}>
+                {rows.map((row) => {
+                  prepareRow(row);
+                  return (
+                    <Draggable draggableId={row.original.id} key={row.original.id} index={row.index}>
+                      {(provided, snapshot) => {
+                        return (
+                          <tr
+                            {...row.getRowProps()}
+                            {...provided.draggableProps}
+                            // {...provided.dragHandleProps}
+                            ref={provided.innerRef}
+                            isDragging={snapshot.isDragging}
+                          >
+                            {row.cells.map((cell, index) => (
+                              <td key={index} {...cell.getCellProps()}>
+                                {cell.render('Cell', {
+                                  dragHandleProps: provided.dragHandleProps,
+                                  isSomethingDragging: snapshot.isDraggingOver,
+                                })}
+                              </td>
+                            ))}
+                          </tr>
+                        );
+                      }}
+                    </Draggable>
+                  );
+                })}
+              </tbody>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </table>
     </>
   );
 }
@@ -215,6 +268,12 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
 function NavbarTable({ navbarData, setNavbarData }) {
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  const UpDownArrow = (props) => (
+    <span {...props.dragHandleProps} className={props.className} aria-label="move" role="img">
+      ↕️
+    </span>
+  );
 
   const callToData = navbarData.map((elt) => ({
     colId: elt.id,
@@ -237,11 +296,32 @@ function NavbarTable({ navbarData, setNavbarData }) {
 
   const data = useMemo(() => callToData, []);
 
-  const columns = useMemo(
-    () => [
+  const columns = useMemo(() => {
+    const TextCell = (props) => {
+      return (
+        <>
+          <EditableCell {...props} />
+        </>
+      );
+    };
+    const ArrowCell = (props) => {
+      return (
+        <>
+          <UpDownArrow {...props} />
+        </>
+      );
+    };
+
+    return [
+      {
+        Header: '',
+        accessor: 'arrow',
+        Cell: ArrowCell,
+      },
       {
         Header: 'Text',
         accessor: 'colText',
+        Cell: TextCell,
       },
       {
         Header: 'Position',
@@ -281,9 +361,8 @@ function NavbarTable({ navbarData, setNavbarData }) {
           );
         },
       },
-    ],
-    [],
-  );
+    ];
+  }, []);
 
   const [displayedData, setDisplayedData] = useState(data);
   const [skipPageReset, setSkipPageReset] = useState(false);
