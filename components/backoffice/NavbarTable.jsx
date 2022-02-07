@@ -125,6 +125,17 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
 
   return (
     <>
+      {' '}
+      <Button
+        className={styles.buttonEffacerLesDonnées}
+        variant="danger"
+        onClick={() => {
+          deleteRow();
+        }}
+      >
+        {' '}
+        Effacer les données{' '}
+      </Button>
       <div className="pagination">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
@@ -198,94 +209,98 @@ function DataTable({ columns, data, updateMyData, skipPageReset, setDisplayedDat
           })}
         </tbody>
       </Table>
-      <Button
-        className={styles.buttonEffacerLesDonnées}
-        variant="danger"
-        onClick={() => {
-          deleteRow();
-        }}
-      >
-        {' '}
-        Effacer les données{' '}
-      </Button>
     </>
   );
 }
 
-function NavbarTable({ navbarData, setNavbarData }) {
+function NavbarTable({ navbarData, setNavbarData, urls }) {
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const callToData = navbarData.map((elt) => ({
-    colId: elt.id,
-    colText: elt.text,
-    colPos: elt.position,
-    colVisi: elt.visible,
-    colLink: elt.pages === '/' ? 'Homepage' : elt.pages,
-    colSite: elt.pagetype,
-  }));
+  // const callToData = navbarData.map((elt) => ({
+  //   id: elt.id,
+  //   text: elt.text,
+  //   position: elt.position,
+  //   visible: elt.visible,
+  //   pages: elt.pages === '/' ? 'Homepage' : elt.pages,
+  //   pagetype: elt.pagetype,
+  // }));
 
   const positionList = [
     { value: 1, label: '✅' },
     { value: 0, label: '❌' },
   ];
 
+  const urlsList = urls.map((elt) => ({ value: elt.url, label: elt.url }));
+
   const typeList = [
     { value: 'devis', label: 'Devis' },
     { value: 'aides', label: 'Aides' },
   ];
 
-  const data = useMemo(() => callToData, []);
+  const data = useMemo(() => navbarData, []);
+  const [displayedData, setDisplayedData] = useState(data);
 
   const columns = useMemo(
     () => [
       {
         Header: 'Text',
-        accessor: 'colText',
-      },
-      {
-        Header: 'Position',
-        accessor: 'colPos',
+        accessor: 'text',
       },
       {
         Header: 'Visible ?',
-        accessor: 'colVisi',
+        accessor: 'visible',
         Cell: ({ row }) => {
           return (
             <Select
               onChange={(e) => {
-                updateMyData(row.index, 'colVisi', e.value);
+                updateMyData(row.index, 'visible', e.value);
               }}
               options={positionList}
-              defaultValue={{ label: row.original.colVisi === 1 ? '✅' : '❌', value: row.original.colVisi }}
+              defaultValue={{ label: row.original.visible === 1 ? '✅' : '❌', value: row.original.visible }}
             />
           );
         },
       },
       {
         Header: 'Lien vers ?',
-        accessor: 'colLink',
-      },
-      {
-        Header: 'Partie du site',
-        accessor: 'colSite',
+        accessor: 'pages',
         Cell: ({ row }) => {
           return (
             <Select
               onChange={(e) => {
-                updateMyData(row.index, 'colSite', e.value);
+                console.log(e.value);
+                updateMyData(row.index, 'pages', e.value);
               }}
-              options={typeList}
-              defaultValue={{ label: row.original.colSite === 'devis' ? 'Devis' : 'Aides', value: row.original.colSite }}
+              options={urlsList}
+              defaultValue={{ label: row.original.pages, value: row.original.pages }}
             />
           );
         },
       },
+      {
+        Header: 'Partie du site',
+        accessor: 'pagetype',
+        Cell: ({ row }) => {
+          return (
+            <Select
+              onChange={(e) => {
+                updateMyData(row.index, 'pagetype', e.value);
+              }}
+              options={typeList}
+              defaultValue={{ label: row.original.pagetype === 'devis' ? 'Devis' : 'Aides', value: row.original.pagetype }}
+            />
+          );
+        },
+      },
+      {
+        Header: 'Position',
+        accessor: 'position',
+      },
     ],
-    [],
+    [displayedData],
   );
 
-  const [displayedData, setDisplayedData] = useState(data);
   const [skipPageReset, setSkipPageReset] = useState(false);
 
   const updateMyData = (rowIndex, columnId, value) => {
@@ -305,12 +320,12 @@ function NavbarTable({ navbarData, setNavbarData }) {
 
   const sendUpdatedData = async () => {
     const newData = await displayedData.map((elt) => ({
-      id: elt.colId,
-      position: Number(elt.colPos),
-      text: elt.colText,
-      visible: Number(elt.colVisi),
-      pagetype: elt.colSite,
-      pages: elt.colLink === 'Homepage' ? '/' : elt.colLink,
+      id: elt.id,
+      position: Number(elt.position),
+      text: elt.text,
+      visible: Number(elt.visible),
+      pagetype: elt.pagetype,
+      pages: elt.pages === 'Homepage' ? '/' : elt.pages,
     }));
     const filteredData = await newData.filter((elt, index) => !_.isEqual(elt, navbarData[index]));
     // console.log(newData);
@@ -353,7 +368,7 @@ function NavbarTable({ navbarData, setNavbarData }) {
         if (res.status === 201) {
           setDisplayedData([
             ...displayedData,
-            { colId: res.data.id, colText: 'à remplir', colPos: 20, colVisi: 0, colLink: 'Homepage', colSite: 'devis' },
+            { colId: res.data.id, text: 'à remplir', position: 20, visible: 0, pages: 'Homepage', pagetype: 'devis' },
           ]);
         }
       })
@@ -370,14 +385,6 @@ function NavbarTable({ navbarData, setNavbarData }) {
 
   return (
     <section className={styles.xyz}>
-      <DataTable
-        columns={columns}
-        data={displayedData}
-        updateMyData={updateMyData}
-        skipPageReset={skipPageReset}
-        setDisplayedData={setDisplayedData}
-        displayedData={displayedData}
-      />
       <section className={styles.buttonsDevis}>
         <Button
           className={styles.buttonAjouterUneLigne}
@@ -400,6 +407,14 @@ function NavbarTable({ navbarData, setNavbarData }) {
           Mettre à jour{' '}
         </Button>
       </section>
+      <DataTable
+        columns={columns}
+        data={displayedData}
+        updateMyData={updateMyData}
+        skipPageReset={skipPageReset}
+        setDisplayedData={setDisplayedData}
+        displayedData={displayedData}
+      />
     </section>
   );
 }
