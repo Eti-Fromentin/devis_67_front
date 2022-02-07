@@ -21,7 +21,7 @@
   max-width: 70vw;
   font-size: clamp(8px, 9vw, 15px);
   line-height: 1.5rem; 
-
+  background-color: yellow;
 }
 .titleMentionsLegales{
   text-align: left;
