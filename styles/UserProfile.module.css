@@ -62,6 +62,7 @@
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    flex-wrap: wrap;
     background-color: ghostwhite;
     margin: 2%;
 }
@@ -102,6 +103,10 @@
 
     .ButtonMain {
         font-size: 10px;
+    }
+
+    .headerDevis p {
+        margin: 1rem;
     }
     
 }

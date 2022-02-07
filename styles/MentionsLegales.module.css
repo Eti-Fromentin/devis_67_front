@@ -12,17 +12,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  
 }
+
 .textMentionsLegales{
   display: flex;
   flex-direction: column;
   margin-left:2rem;
   max-width: 70vw;
   font-size: clamp(8px, 9vw, 15px);
-  line-height: 1.5rem;
-  
+  line-height: 1.5rem; 
 
 }
 .titleMentionsLegales{

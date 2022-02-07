@@ -19,7 +19,7 @@ function ConditionsUtilisations({ posts, headInfo }) {
       </Head>
       <div>
         <NavBar pageType="devis" />
-        <h1>Conditions d&#039; utilisations</h1>
+        <h1 id={styles.headingConditions}>Conditions d&apos;utilisations</h1>
         {!posts ? (
           <p>Loading</p>
         ) : (
@@ -28,13 +28,15 @@ function ConditionsUtilisations({ posts, headInfo }) {
               <ol>
                 {posts
                   .filter((itemsMenu) => itemsMenu.page_section === 'chapterTitle')
-                  .map((itemMenu) => (
-                    <li className={styles.itemsMenu} key={itemMenu.key}>
-                      <a href={`#${itemMenu.text}`} className={styles.linkConditions}>
-                        {itemMenu.text}
-                      </a>
-                    </li>
-                  ))}
+                  .map((itemMenu) => {
+                    return (
+                      <li className={styles.itemsMenu} key={itemMenu.key}>
+                        <a href={`#${itemMenu.text}`} className={styles.linkConditions}>
+                          {itemMenu.text}
+                        </a>
+                      </li>
+                    );
+                  })}
               </ol>
               <div>
                 {posts.map((itemMenu) => {
