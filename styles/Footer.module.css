@@ -88,10 +88,24 @@
   height:2px;
 }
 .footerLink{
-  font-size: 12px;
-  line-height: 0rem;
-
+  font-size:clamp(8px, 10vw, 18px);
+  line-height: 0.5rem;
 }
 .footerH3{
   font-size:14px;
+}
+
+@media screen and (max-width: 530px) {
+  .footerLink {
+    font-size: 15px;
+    line-height: .8rem;
+  }
+  .footerBackground{
+    height: 40vh;
+    border: 1px solid rgb(202, 202, 202);
+  }
+  .footerContainer {
+    height: 100%;
+    width: 100%;
+  }
 }

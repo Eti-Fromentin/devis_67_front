@@ -21,7 +21,7 @@
   margin:2rem;
   padding:2rem;
   font-size: 14px;
-  box-shadow:rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   justify-content: center;
   align-items: center;

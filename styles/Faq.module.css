@@ -8,13 +8,16 @@
   display: flex;
   flex-direction: column;
   margin:2rem;
-  font-size: 14px;
-  box-shadow: rgba(0, 0, 0, 0.35) 5px 2px 5px;
-
+  font-size: clamp(10px, 10vw, 17px);
 }
 .titleFaq{
-  color: blue;
+  color: #800080;
   text-align: left;
   margin:2rem;
-  font-size: clamp(10px, 10vw, 20px);
+  font-size: clamp(10px, 10vw, 27px);
+}
+
+.h1Faq {
+  padding: 4rem;
+  font-size: clamp(15px, 9vw, 50px);
 }
