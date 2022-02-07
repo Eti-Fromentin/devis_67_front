@@ -8,33 +8,41 @@ import styles from '../../styles/NavBarTable.module.css';
 
 function NavbarTable({ navbarData, setNavbarData, urls }) {
   const [table] = useState('navbar');
+  const [emptyRowTable] = useState({
+    text: 'à remplir',
+    position: 20,
+    visible: 0,
+    pages_id: 1,
+    pagetype: 'devis',
+  });
 
   const dataToUpdate = (data) => {
+    console.log(data);
     const newData = data.map((elt) => ({
-      id: elt.colId,
-      position: Number(elt.colPos),
-      text: elt.colText,
-      visible: Number(elt.colVisi),
-      pagetype: elt.colSite,
-      pages: elt.colLink === 'Homepage' ? '/' : elt.colLink,
+      id: elt.id,
+      position: Number(elt.position),
+      text: elt.text,
+      visible: Number(elt.visible),
+      pagetype: elt.pagetype,
+      pages: elt.pages,
     }));
-
+    console.log(newData);
     return newData;
   };
 
-  const newEmptyRow = (res) => {
-    const emptyRow = { colId: res.data.id, colText: 'à remplir', colPos: 20, colVisi: 0, colLink: 'Homepage', colSite: 'devis' };
+  const newEmptyRowDisplay = (res) => {
+    const emptyRow = { id: res.data.id, text: 'à remplir', position: 20, visible: 0, pages: 1, pagetype: 'devis' };
     return emptyRow;
   };
 
-  const callToData = navbarData.map((elt) => ({
-    colId: elt.id,
-    colText: elt.text,
-    colPos: elt.position,
-    colVisi: elt.visible,
-    colLink: elt.pages === '/' ? 'Homepage' : elt.pages,
-    colSite: elt.pagetype,
-  }));
+  // const callToData = navbarData.map((elt) => ({
+  //   colId: elt.id,
+  //   colText: elt.text,
+  //   colPos: elt.position,
+  //   colVisi: elt.visible,
+  //   colLink: elt.pages,
+  //   colSite: elt.pagetype,
+  // }));
 
   const positionList = [
     { value: 1, label: '✅' },
@@ -48,62 +56,65 @@ function NavbarTable({ navbarData, setNavbarData, urls }) {
     { value: 'aides', label: 'Aides' },
   ];
 
-  const data = useMemo(() => callToData, []);
+  const data = useMemo(() => navbarData, [navbarData]);
 
   const columns = useMemo(
     () => [
       {
-        Header: 'Text',
-        accessor: 'colText',
-      },
-      {
-        Header: 'Position',
-        accessor: 'colPos',
+        Header: 'text',
+        accessor: 'text',
       },
       {
         Header: 'Visible ?',
-        accessor: 'colVisi',
+        accessor: 'visible',
         Cell: ({ row }) => {
           return (
             <Select
               onChange={(e) => {
-                updateMyData(row.index, 'colVisi', e.value);
+                console.log(e.value);
+                updateMyData(row.index, 'visible', e.value);
               }}
               options={positionList}
-              defaultValue={{ label: row.original.colVisi === 1 ? '✅' : '❌', value: row.original.colVisi }}
+              defaultValue={{ label: row.original.visible === 1 ? '✅' : '❌', value: row.original.visible }}
             />
           );
         },
       },
       {
         Header: 'Lien vers ?',
-        accessor: 'colLink',
+        accessor: 'pages',
         Cell: ({ row }) => {
           return (
             <Select
               onChange={(e) => {
-                updateMyData(row.index, 'colLink', e.value);
+                console.log(e.value);
+                updateMyData(row.index, 'pages', e.value);
               }}
               options={urlsList}
-              defaultValue={{ label: row.original.colLink === '/' ? 'Homepage' : row.original.colLink, value: row.original.colLink }}
+              defaultValue={{ label: row.original.pages, value: row.original.pages }}
             />
           );
         },
       },
       {
         Header: 'Partie du site',
-        accessor: 'colSite',
+        accessor: 'pagetype',
         Cell: ({ row }) => {
           return (
             <Select
               onChange={(e) => {
-                updateMyData(row.index, 'colSite', e.value);
+                console.log(e.value);
+                updateMyData(row.index, 'pagetype', e.value);
               }}
               options={typeList}
-              defaultValue={{ label: row.original.colSite === 'devis' ? 'Devis' : 'Aides', value: row.original.colSite }}
+              defaultValue={{ label: row.original.pagetype === 'devis' ? 'Devis' : 'Aides', value: row.original.pagetype }}
             />
           );
         },
+      },
+      {
+        Header: 'Position',
+        accessor: 'position',
       },
     ],
     [],
@@ -127,15 +138,18 @@ function NavbarTable({ navbarData, setNavbarData, urls }) {
     );
   };
 
+  console.log('paul', displayedData, navbarData, data);
+
   useEffect(() => {
     setSkipPageReset(false);
+    console.log(displayedData);
   }, [displayedData]);
 
   return (
     <section className={styles.xyz}>
       <DataTable
         columns={columns}
-        data={displayedData}
+        data={data}
         table={table}
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
@@ -143,8 +157,10 @@ function NavbarTable({ navbarData, setNavbarData, urls }) {
         displayedData={displayedData}
         setTableData={setNavbarData}
         tableData={navbarData}
-        newEmptyRow={newEmptyRow}
+        newEmptyRowDisplay={newEmptyRowDisplay}
         dataToUpdate={dataToUpdate}
+        newEmptyRowTable={emptyRowTable}
+        setSkipPageReset={setSkipPageReset}
       />
     </section>
   );

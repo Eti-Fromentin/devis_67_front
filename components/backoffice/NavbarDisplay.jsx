@@ -42,7 +42,7 @@ function NavbarDisplay() {
 
   return (
     <div className={styles.userDisplayContainer}>
-      {!navbarData.length ? (
+      {!navbarData.length || !urls.length ? (
         <div className={styles.spinnerContainer}>
           <Spinner animation="border" />
         </div>

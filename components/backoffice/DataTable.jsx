@@ -59,7 +59,8 @@ function DataTable({
   setTableData,
   tableData,
   dataToUpdate,
-  newEmptyRow,
+  newEmptyRowDisplay,
+  newEmptyRowTable,
 }) {
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -114,6 +115,7 @@ function DataTable({
   const sendUpdatedData = async () => {
     const newData = await dataToUpdate(displayedData);
     const filteredData = await newData.filter((elt, index) => !_.isEqual(elt, tableData[index]));
+    console.log(filteredData);
     await axios({
       method: 'put',
       url: `${apiUrl}/${table}/admin/${userId}`,
@@ -130,6 +132,7 @@ function DataTable({
           setTableData([...newData, { body }]);
         }
       })
+      .then(setDisplayedData(tableData))
       .catch((err) => {
         if (err.response) {
           alert("Oups, une erreur s'est produite");
@@ -145,11 +148,11 @@ function DataTable({
         Authorization: `Bearer ${adminToken}`,
         'Content-Type': 'application/json',
       },
-      data: newEmptyRow,
+      data: newEmptyRowTable,
     })
       .then((res) => {
         if (res.status === 201) {
-          setDisplayedData([...displayedData, newEmptyRow(res)]);
+          setDisplayedData([...displayedData, newEmptyRowDisplay(res)]);
         }
       })
       .catch((err) => {
@@ -159,9 +162,14 @@ function DataTable({
       });
   };
 
+  console.log('hello', displayedData, data);
+
   const deleteRow = async () => {
     const items = selectedFlatRows.map((elt) => elt.original);
-    const itemsToDelete = await items.map((elt) => ({ id: elt.colId }));
+    const itemsToDelete = await items.map((elt) => ({ id: elt.id }));
+    console.log(items);
+    console.log(itemsToDelete);
+    console.log(displayedData);
     await axios({
       method: 'delete',
       url: `${apiUrl}/${table}/admin/${userId}`,
@@ -173,7 +181,7 @@ function DataTable({
     })
       .then((res) => {
         if (res.status === 204) {
-          setDisplayedData(displayedData.filter((elt) => !itemsToDelete.some((element) => elt.colId === element.id)));
+          setDisplayedData(displayedData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)));
         }
       })
       .catch((err) => {
@@ -182,6 +190,11 @@ function DataTable({
         }
       });
   };
+
+  // useEffect(() => {
+  //   setSkipPageReset(false);
+  //   setTableData(displayedData);
+  // }, [displayedData]);
 
   return (
     <>
