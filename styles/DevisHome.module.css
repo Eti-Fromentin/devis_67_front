@@ -17,14 +17,14 @@
 }
 
 .leftContainerDevisHome {
-grid-area: "1";
-display: grid;
-padding: 1rem;
-grid-template-columns: 1fr;
-grid-template-rows: 2fr 2fr;
-grid-template-areas: "1"
-                     "2"
-                     "3";
+    grid-area: "1";
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 2fr;
+    grid-template-areas: "1"
+    "2"
+    "3";
 }
 .leftTextDevisHome {
     font-size: 1.3vw;
@@ -58,7 +58,7 @@ grid-template-areas: "1"
     align-items: center;
     flex-direction: row;
     flex-wrap:wrap ;
-
+    
 }
 .cardDevisHome {
     display: flex;
@@ -86,7 +86,7 @@ grid-template-areas: "1"
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "1"
-                         "2";
+    "2";
 }
 .titlehightBlockDevisHome {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 3px 0px;
@@ -136,11 +136,11 @@ grid-template-areas: "1"
 
 @media screen and (max-width: 900px) {
     .containerDevisHome {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 4fr 2fr;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 4fr 2fr;
     } 
-
+    
     .containerDevisHome {
         height: fit-content;
         width: auto;
