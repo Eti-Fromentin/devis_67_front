@@ -23,7 +23,7 @@ function HomePage({ headInfo }) {
       <NavBar pageType="devis" />
       <div className={styles.home}>
         <Container className={styles.containerHomepage}>
-          <Row>
+          <Row className={styles.row}>
             <Link href="devis/">
               <Col md={{ order: 'first' }} className={styles.colHomeCard}>
                 <Card className={styles.homecard}>
