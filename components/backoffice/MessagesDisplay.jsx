@@ -3,42 +3,55 @@ import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 import LoginContext from '../../contexts/loginContext';
 import styles from '../../styles/Tables.module.css';
-import UserTable from './UserTable';
+import MessagesTable from './MessagesTable';
 
-function UserDisplay() {
-  const [usersData, setUsersData] = useState([]);
+function MessagesDisplay() {
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const [messagesData, setMessagesData] = useState([]);
 
-  async function getUsersData() {
+  async function getMessagesData() {
     const data = await axios({
       method: 'get',
-      url: `${apiUrl}/user/admin/${userId}`,
+      url: `${apiUrl}/message/admin/${userId}`,
       headers: {
         Authorization: `Bearer ${adminToken}`,
         'Content-Type': 'application/json',
       },
     });
-    setUsersData(data.data);
+    setMessagesData(data.data);
+  }
+
+  async function updateMessage(id, value) {
+    await axios({
+      method: 'put',
+      url: `${apiUrl}/message/admin/${userId}`,
+      headers: {
+        Authorization: `Bearer ${adminToken}`,
+        'Content-Type': 'application/json',
+      },
+      data: {
+        id: id,
+        statut: value,
+      },
+    });
   }
 
   useEffect(() => {
-    getUsersData();
+    getMessagesData();
   }, []);
 
   return (
     <div className={styles.userDisplayContainer}>
-      {!usersData.length ? (
+      {!messagesData.length ? (
         <div className={styles.spinnerContainer}>
           <Spinner animation="border" />
         </div>
       ) : (
-        <>
-          <UserTable usersData={usersData} />
-        </>
+        <>{messagesData.length && <MessagesTable messagesData={messagesData} updateMessage={updateMessage} />}</>
       )}
     </div>
   );
 }
 
-export default UserDisplay;
+export default MessagesDisplay;

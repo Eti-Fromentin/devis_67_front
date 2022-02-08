@@ -174,10 +174,10 @@ function DataTable({
     })
       .then((res) => {
         if (res.status === 204) {
-          console.log(
-            'deleted',
-            tableData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)),
-          );
+          // console.log(
+          //   'deleted',
+          //   tableData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)),
+          // );
           setTableData(tableData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)));
         }
       })
