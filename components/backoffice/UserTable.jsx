@@ -16,55 +16,6 @@ function UserTable({ usersData }) {
   }));
 
   const data = useMemo(() => callToData, []);
-  //     [
-  //       {
-  //         colId: 79,
-  //         isAdmin: 0,
-  //         created_at: '2022-01-25T21:56:28.000Z',
-  //         colNom: 'Arni',
-  //         lastname: 'bgn',
-  //         colEmail: 'arnibgn@email.com',
-  //         colPhone: 123456,
-  //         colAdress: 'LE MONT ROTI',
-  //         ColPostal: 75017,
-  //         colCity: 'Paris',
-  //         status: 0,
-  //         messages: 1,
-  //         devis: 15,
-  //       },
-  //       {
-  //         colId: 80,
-  //         isAdmin: 0,
-  //         created_at: '2022-01-24T21:56:28.000Z',
-  //         colNom: 'Arniaea',
-  //         lastname: 'bgnfdf',
-  //         colEmail: 'arnibqsgn@email.com',
-  //         colPhone: 12345678,
-  //         colAdress: 'le chauve',
-  //         ColPostal: 75017,
-  //         colCity: 'Paris',
-  //         status: 0,
-  //         messages: 5,
-  //         devis: 1,
-  //       },
-  //       {
-  //         colId: 86,
-  //         isAdmin: 0,
-  //         created_at: '2022-01-13T21:56:28.000Z',
-  //         colNom: 'Arnnghi',
-  //         lastname: 'bghhfn',
-  //         colEmail: 'arnibgdkkn@email.com',
-  //         colPhone: 12345674,
-  //         colAdress: 'whatever',
-  //         ColPostal: 75017,
-  //         colCity: 'Parissq',
-  //         status: 0,
-  //         messages: 8,
-  //         devis: 13,
-  //       },
-  //     ],
-  //   [],
-  // );
 
   const columns = useMemo(
     () => [

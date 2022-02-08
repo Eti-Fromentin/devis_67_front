@@ -48,7 +48,7 @@ function NavbarDisplay() {
         </div>
       ) : (
         <>
-          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} urls={urls} getNavbarData={getNavbarData} />
+          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} urls={urls} getNavbarData={getNavbarData} refresData={getNavbarData} />
         </>
       )}
     </div>
