@@ -18,7 +18,8 @@
   align-items: center;
 }
 .textModeEmploi {
-  margin:2rem;
+  margin-top:4rem;
+  margin-bottom: 6rem;
   padding:2rem;
   font-size: 14px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

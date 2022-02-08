@@ -16,7 +16,7 @@
     align-items: center;
 }
 .homecard {
-    margin: 7vh;
+    margin: 6rem 3rem 6rem 3rem;
     padding: 2vh;
     border-radius: 0.50rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
