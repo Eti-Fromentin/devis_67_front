@@ -4,3 +4,44 @@
   justify-content: space-evenly;
   margin: 3vw;
 }
+
+/* pagination */
+.pagination {
+  /* background-color: rosybrown; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+/* BUTTON */
+/* .sectionButtonRightLeft {
+  background-color: aqua;
+} */
+.doubleLeft,
+.simpleLeft,
+.doubleRight,
+.simpleRight {
+  color: #333;
+  font-size: 20px;
+}
+
+/*second section*/
+.spanContainerPage1of1 {
+  /* background-color: beige; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Page Number */
+.spanContainerAllerALaPage {
+  /* background: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .selectContainerPageSize {
+  background-color: blueviolet;
+} */

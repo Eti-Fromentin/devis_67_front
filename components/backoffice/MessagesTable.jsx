@@ -3,6 +3,7 @@ import React, { useMemo, Fragment, useCallback } from 'react';
 import { useExpanded, useTable, useSortBy } from 'react-table';
 import { Table } from 'react-bootstrap';
 import Select from 'react-select';
+import styles from '../../styles/MessagesTable.module.css';
 
 function MessagesTable({ messagesData, updateMessage }) {
   const statusList = [
@@ -29,6 +30,7 @@ function MessagesTable({ messagesData, updateMessage }) {
         Cell: ({ row }) => {
           return (
             <Select
+              className={styles.containerSelectMessageTable}
               onChange={(e) => {
                 updateMyData(row, e.value);
               }}
