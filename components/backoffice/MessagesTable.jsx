@@ -52,7 +52,7 @@ function MessagesTable({ messagesData, updateMessage }) {
       },
       {
         Header: 'Email',
-        accessor: 'sender_email',
+        accessor: (row) => <a href={`mailto:${row.sender_email}`}> {row.sender_email} </a>,
       },
     ],
     [messagesData],

@@ -2,8 +2,10 @@
 /* eslint-disable react/display-name */
 import React, { useMemo, useEffect, useState } from 'react';
 import Select from 'react-select';
-import styles from '../../styles/NavBarTable.module.css';
+
 import DataTable from './DataTable';
+
+import styles from '../../styles/NavBarTable.module.css';
 
 function NavbarTable({ navbarData, setNavbarData, urls, refreshData }) {
   const [table] = useState('navbar');

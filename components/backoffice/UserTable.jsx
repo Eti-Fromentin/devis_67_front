@@ -1,59 +1,48 @@
+/* eslint-disable react/display-name */
 import React, { useMemo } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { Table } from 'react-bootstrap';
 
 function UserTable({ usersData }) {
-  const callToData = usersData.map((elt) => ({
-    colId: elt.id,
-    colNom: elt.firstname + elt.lastname,
-    colEmail: elt.email,
-    colTel: elt.phone ? elt.phone : 'non renseigné',
-    colAdress: elt.adress ? elt.adress : 'non renseigné',
-    colPostal: elt.postalcode,
-    colVille: elt.city,
-    colMessages: elt.messages.length,
-    colDevis: elt.devis.length,
-  }));
-
-  const data = useMemo(() => callToData, []);
+  const data = useMemo(() => usersData, []);
 
   const columns = useMemo(
     () => [
       {
         Header: '#',
-        accessor: 'colId',
+        accessor: 'id',
       },
       {
         Header: 'Nom',
-        accessor: 'colNom',
+        accessor: (row) => row.firstname + row.lastname,
       },
       {
         Header: 'Email',
-        accessor: 'colEmail',
+        accessor: (row) => <a href={`mailto:${row.email}`}> {row.email} </a>,
       },
       {
         Header: 'Téléphone',
-        accessor: 'colTel',
+        accessor: (row) => (row.phone ? row.phone : 'non renseigné'),
       },
       {
         Header: 'Adresse',
-        accessor: 'colAdress',
+        accessor: (row) => (row.address ? row.address : 'non renseigné'),
       },
       {
         Header: 'Code Postal',
-        accessor: 'colPostal',
+        accessor: 'postalcode',
       },
       {
         Header: 'Ville',
-        accessor: 'colVille',
+        accessor: 'city',
       },
       {
-        Header: 'Nbre de messages',
-        accessor: 'colMessages',
+        Header: 'Messages',
+        accessor: (row) => row.messages.length,
       },
       {
-        Header: 'Nbres de devis',
-        accessor: 'colDevis',
+        Header: 'Devis',
+        accessor: (row) => row.devis.length,
       },
     ],
     [],
