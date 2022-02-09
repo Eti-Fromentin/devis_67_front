@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import Image from 'next/image';
-
 import axios from 'axios';
 
 import logo from '../public/logo.png';
