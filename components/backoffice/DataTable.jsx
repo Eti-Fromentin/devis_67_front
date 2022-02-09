@@ -85,11 +85,9 @@ function DataTable({
       autoResetPage: !skipPageReset,
       initialState: { pageIndex: 0, pageSize: 20 },
       updateMyData,
-      // initialCellStateAccessor,
     },
     usePagination,
     useRowSelect,
-    // useRowState,
     (hooks) => {
       hooks.visibleColumns.push((columns) => [
         {
@@ -112,10 +110,6 @@ function DataTable({
 
   const sendUpdatedData = async () => {
     const newData = await dataToUpdate(tableData);
-    // const filteredData = await newData.filter((elt, index) => !_.isEqual(elt, tableData[index]));
-    // console.log(newData);
-    // console.log(filteredData);
-    // console.log(tableData);
     await axios({
       method: 'put',
       url: `${apiUrl}/${table}/admin/${userId}`,
@@ -164,7 +158,6 @@ function DataTable({
   const deleteRow = async () => {
     const items = selectedFlatRows.map((elt) => elt.original);
     const itemsToDelete = await items.map((elt) => ({ id: elt.id }));
-    // console.log('delete', items, itemsToDelete);
     await axios({
       method: 'delete',
       url: `${apiUrl}/${table}/admin/${userId}`,
@@ -176,10 +169,6 @@ function DataTable({
     })
       .then((res) => {
         if (res.status === 204) {
-          // console.log(
-          //   'deleted',
-          //   tableData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)),
-          // );
           setTableData(tableData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)));
         }
       })
@@ -189,10 +178,6 @@ function DataTable({
         }
       });
   };
-
-  // useEffect(() => {
-  // console.log('data', tableData);
-  // }, [tableData]);
 
   return (
     <>
