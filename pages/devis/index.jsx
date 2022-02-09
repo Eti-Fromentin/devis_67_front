@@ -107,7 +107,7 @@ const DevisHome = ({ headInfo, devisInfo }) => {
                       </g>
                     </g>
                   </svg>
-                  Comparez et sélectionnez lartisan de votre choix.
+                  Comparez et sélectionnez l&apos;artisan de votre choix.
                 </div>
               </div>
             </aside>

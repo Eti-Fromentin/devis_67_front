@@ -224,7 +224,7 @@ function DevisAllQuestions({ form, headInfo }) {
           <h1 className={styles.topTitleDevisForm}>Remplissez ce formulaire et nous vous enverrons les devis dans les plus brefs délais :</h1>
           {!isLogin && (
             <Alert variant="danger">
-              Vous ne pouvez pas faire de demande de devis sans être connecté. <Alert.Link href="/espace-client">Inscrivez vous içi!</Alert.Link>
+              Vous ne pouvez pas faire de demande de devis sans être connecté. <Alert.Link href="/espace-client">Inscrivez vous ici!</Alert.Link>
             </Alert>
           )}
           <Card className={styles.bodyDevisAllQuestions}>
@@ -237,7 +237,8 @@ function DevisAllQuestions({ form, headInfo }) {
                   Valider
                 </Button>
               ) : (
-                <Button variant="primary" type="submit" onClick={handleShow}>
+                <Button variant="primary" type="submit" onClick={handleShow()}>
+                  {' '}
                   Valider
                 </Button>
               )}

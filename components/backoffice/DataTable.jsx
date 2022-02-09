@@ -214,26 +214,28 @@ function DataTable({
         </Button>
       </section>
 
-      <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
-        </button>{' '}
-        <span>
+      <div className={styles.pagination}>
+        <section className={styles.sectionButtonRightLeft}>
+          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className={styles.doubleLeft}>
+            {'<<'}
+          </button>{' '}
+          <button onClick={() => previousPage()} disabled={!canPreviousPage} className={styles.simpleLeft}>
+            {'<'}
+          </button>{' '}
+          <button onClick={() => nextPage()} disabled={!canNextPage} className={styles.doubleRight}>
+            {'>'}
+          </button>{' '}
+          <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage} className={styles.simpleRight}>
+            {'>>'}
+          </button>{' '}
+        </section>
+        <span className={styles.spanContainerPage1of1}>
           Page{' '}
           <strong>
             {pageIndex + 1} of {pageOptions.length}
           </strong>{' '}
         </span>
-        <span>
+        <span className={styles.spanContainerAllerALaPage}>
           | Aller à la page:{' '}
           <input
             type="number"
@@ -246,6 +248,7 @@ function DataTable({
           />
         </span>{' '}
         <select
+          className={styles.selectContainerPageSize}
           value={pageSize}
           onChange={(e) => {
             setPageSize(Number(e.target.value));
@@ -261,7 +264,7 @@ function DataTable({
       <Table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup, index) => (
-            <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+            <tr key={index} {...headerGroup.getHeaderGroupProps()} className={styles.trDataTable}>
               {headerGroup.headers.map((column, index) => (
                 <th key={index} {...column.getHeaderProps()}>
                   {column.render('Header')}

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Card, Container, Row, Col } from 'react-bootstrap';
+
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import image1 from '../Assets/artisan.jpg';
@@ -26,7 +27,7 @@ function HomePage({ headInfo }) {
           <Row className={styles.row}>
             <Link href="devis/">
               <Col md={{ order: 'first' }} className={styles.colHomeCard}>
-                <Card className={styles.homecard}>
+                <Card className={styles.homecard1}>
                   <Card.Title className={styles.cardTitleHome}>Formulaire Devis</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>
@@ -49,11 +50,11 @@ function HomePage({ headInfo }) {
             </Link>
             <Link href="aide/">
               <Col md={{ order: 'second' }} className={styles.colHomeCard}>
-                <Card className={styles.homecard}>
+                <Card className={styles.homecard2}>
                   <Card.Title className={styles.cardTitleHome}>Calcul des Aides</Card.Title>
                   <Card.Body>
                     <Card.Text className={styles.cardtexthome}>
-                      <span>Estimez le montant de vos aides à la rénovation</span>
+                      <span>Estimez le montant de vos aides à la rénovation !</span>
                     </Card.Text>
                     <div className={styles.homeImage}>
                       <Image

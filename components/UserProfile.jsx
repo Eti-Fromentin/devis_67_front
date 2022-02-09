@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-
 import { Accordion, Table, Tabs, Tab, Spinner } from 'react-bootstrap';
 
 import LoginContext from '../contexts/loginContext';

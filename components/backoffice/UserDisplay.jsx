@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
-
 import UserTable from './UserTable';
 import LoginContext from '../../contexts/loginContext';
 
