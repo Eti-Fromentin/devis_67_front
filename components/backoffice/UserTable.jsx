@@ -52,7 +52,7 @@ function UserTable({ usersData }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
   return (
-    <Table {...getTableProps()}>
+    <Table striped bordered hover {...getTableProps()}>
       <thead>
         {headerGroups.map((headerGroup, index) => (
           <tr key={index} {...headerGroup.getHeaderGroupProps()}>

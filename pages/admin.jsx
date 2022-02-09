@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
 import OffCanvas from '../components/backoffice/OffCanvas';
 import UserDisplay from '../components/backoffice/UserDisplay';
@@ -26,7 +26,16 @@ function BackOffice() {
     else if (category === 'messages') return <MessagesDisplay />;
     else if (category === 'navbar') return <NavbarDisplay />;
     else if (category === 'categories_devis') return <CategDisplay />;
-    else return 'hello ';
+    else
+      return (
+        <Card className={styles.adminCard}>
+          <p>Depuis le bouton à gauche, vous avez accès aux différentes catégories d&apos;administration et personnalisation de votre site.</p>
+          <p>
+            Vous avew accès aux messages reçus, les demandes de devis, et également personnaliser les pages du site et les formulaires de demande de
+            devis{' '}
+          </p>
+        </Card>
+      );
   };
 
   useEffect(() => {
@@ -40,10 +49,10 @@ function BackOffice() {
       ) : (
         <>
           <OffCanvas handleChoice={handleChoice} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
-          <h1 className={styles.h1admin}>Devis67 Back Office</h1>
+          <h1 className={styles.h1admin}>Devis67 Administration</h1>
           <div className={styles.containerSidePanel}>
             <Button className={styles.sidePanelBtn} variant="primary" onClick={() => handleShow()}>
-              Side Panel
+              Menu
             </Button>
           </div>
           <section className={styles.sectionCategorySectionDisplay}>{categoryDisplay()}</section>

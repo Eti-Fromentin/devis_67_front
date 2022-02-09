@@ -81,7 +81,7 @@ function MessagesTable({ messagesData, updateMessage }) {
   );
 
   return (
-    <Table {...getTableProps()}>
+    <Table striped bordered hover {...getTableProps()}>
       <thead>
         {headerGroups.map((headerGroup, index) => (
           <tr key={index} {...headerGroup.getHeaderGroupProps()}>

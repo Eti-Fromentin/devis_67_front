@@ -33,3 +33,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.cardTable {
+  min-width: 70vw;
+  padding-bottom: 3vh;
+  margin-bottom: 10vh;
+}

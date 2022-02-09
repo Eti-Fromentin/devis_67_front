@@ -7,7 +7,8 @@
 }
 
 .h1admin {
-  font-size: 4vw;
+  font-size: 3vw;
+  margin: 50px;
 }
 .sidePanelBtn {
   margin: 2vw;
@@ -17,7 +18,7 @@
 }
 
 .adminCard {
-  width: 85vw;
-  min-height: 30vh;
+  width: 60vw;
+  min-height: 15vh;
   padding: 5vh;
 }
