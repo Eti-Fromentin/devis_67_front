@@ -9,13 +9,14 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    height: 85vh;
-    width: 100vw;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .homecard {
-    min-height: 95%;
-    min-width: 95%;
-    margin: 5vh;
+    margin: 6rem 3rem 6rem 3rem;
     padding: 2vh;
     border-radius: 0.50rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;

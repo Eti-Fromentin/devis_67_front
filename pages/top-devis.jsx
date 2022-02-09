@@ -15,31 +15,37 @@ function TopDevis({ data, faq }) {
         <p>Loading</p>
       ) : (
         <div className={styles.containerTopDevis}>
-          <h2>Les plus demandés</h2>
-          <h3>Le top des devis demandés par les utilisateurs</h3>
-          <h3>Voici le top 10 des devis demandés par les utilisateurs du service de devis gratuit proposé par devis67</h3>
-          <div className={styles.textTopDevis}>
-            {data.map((itemMenu) => (
-              <div key={itemMenu.position}>
-                <Nav.Link href={itemMenu.url} className={styles.linkTopDevis}>
-                  {itemMenu.text}
-                </Nav.Link>
-              </div>
-            ))}
-          </div>
-          <div className={styles.textTopDevis}>
-            {faq
-              .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.page_name === 'modeEmploi')
-              .map((itemMenu) => {
-                if (itemMenu.page_section === 'title') {
-                  return (
-                    <h5 key={itemMenu.id} className={styles.titleTopDevis}>
-                      {itemMenu.text}
-                    </h5>
-                  );
-                } else return <p key={itemMenu.position}>{itemMenu.text}</p>;
-              })}
-          </div>
+          <section className={styles.containerTitleTopDevis}>
+            <h2 className={styles.H2TopDevis}>Les plus demandés</h2>
+            <h3 className={styles.H3TopDevis}>Le top des devis demandés par les utilisateurs</h3>
+            <h3 className={styles.H4TopDevis}>
+              Voici le top 10 des devis demandés par les utilisateurs du service de devis gratuit proposé par devis67
+            </h3>
+          </section>
+          <section className={styles.wrapperTextTopDevis}>
+            <div className={styles.textTopDevis}>
+              {data.map((itemMenu) => (
+                <div key={itemMenu.position}>
+                  <Nav.Link href={itemMenu.url} className={styles.linkTopDevis}>
+                    {itemMenu.text}
+                  </Nav.Link>
+                </div>
+              ))}
+            </div>
+            <div className={styles.textTopDevis}>
+              {faq
+                .filter((itemsMenu) => itemsMenu.page_section !== 'chaperTitle' && itemsMenu.page_name === 'modeEmploi')
+                .map((itemMenu) => {
+                  if (itemMenu.page_section === 'title') {
+                    return (
+                      <h5 key={itemMenu.id} className={styles.titleTopDevis}>
+                        {itemMenu.text}
+                      </h5>
+                    );
+                  } else return <p key={itemMenu.position}>{itemMenu.text}</p>;
+                })}
+            </div>
+          </section>
         </div>
       )}
       <Footer pageType="devis" />

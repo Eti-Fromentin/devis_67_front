@@ -6,11 +6,12 @@
 
 .card {
     background: linear-gradient(#f7f6f5, #ebf1f7);
-    margin: 5vh;
     padding: 2vh;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px;
     text-align: center;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
 }
 
 .card p {
