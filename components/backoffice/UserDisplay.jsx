@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
+
 import LoginContext from '../../contexts/loginContext';
-import styles from '../../styles/Tables.module.css';
 import UserTable from './UserTable';
+
+import styles from '../../styles/Tables.module.css';
 
 function UserDisplay() {
   const [usersData, setUsersData] = useState([]);
@@ -20,7 +22,6 @@ function UserDisplay() {
       },
     });
     setUsersData(data.data);
-    console.log(usersData);
   }
 
   useEffect(() => {

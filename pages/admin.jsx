@@ -4,9 +4,11 @@ import OffCanvas from '../components/backoffice/OffCanvas';
 import UserDisplay from '../components/backoffice/UserDisplay';
 import LoginContext from '../contexts/loginContext';
 
-import styles from '../styles/admin.module.css';
 import AdminLogin from '../components/backoffice/AdminLogIn';
 import NavbarDisplay from '../components/backoffice/NavbarDisplay';
+import MessagesDisplay from '../components/backoffice/MessagesDisplay';
+
+import styles from '../styles/admin.module.css';
 
 function BackOffice() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -20,6 +22,7 @@ function BackOffice() {
 
   const categoryDisplay = () => {
     if (category === 'users') return <UserDisplay />;
+    else if (category === 'messages') return <MessagesDisplay />;
     else if (category === 'navbar') return <NavbarDisplay />;
     else return 'hello ';
   };

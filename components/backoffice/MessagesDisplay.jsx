@@ -1,58 +1,59 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
-import LoginContext from '../../contexts/loginContext';
-import styles from '../../styles/Tables.module.css';
-import NavbarTable from './NavbarTable';
 
-function NavbarDisplay() {
-  const [navbarData, setNavbarData] = useState([]);
-  const [urls, setUrls] = useState([]);
+import LoginContext from '../../contexts/loginContext';
+import MessagesTable from './MessagesTable';
+
+import styles from '../../styles/Tables.module.css';
+
+function MessagesDisplay() {
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const [messagesData, setMessagesData] = useState([]);
 
-  async function getNavbarData() {
+  async function getMessagesData() {
     const data = await axios({
       method: 'get',
-      url: `${apiUrl}/navbar/admin/${userId}`,
+      url: `${apiUrl}/message/admin/${userId}`,
       headers: {
         Authorization: `Bearer ${adminToken}`,
         'Content-Type': 'application/json',
       },
     });
-    setNavbarData(data.data);
+    setMessagesData(data.data);
   }
 
-  async function getUrlData() {
-    const data = await axios({
-      method: 'get',
-      url: `${apiUrl}/pagesdetails/admin/${userId}`,
+  async function updateMessage(id, value) {
+    await axios({
+      method: 'put',
+      url: `${apiUrl}/message/admin/${userId}`,
       headers: {
         Authorization: `Bearer ${adminToken}`,
         'Content-Type': 'application/json',
       },
+      data: {
+        id: id,
+        statut: value,
+      },
     });
-    setUrls(data.data);
   }
 
   useEffect(() => {
-    getNavbarData();
-    getUrlData();
+    getMessagesData();
   }, []);
 
   return (
     <div className={styles.userDisplayContainer}>
-      {!navbarData.length || !urls.length ? (
+      {!messagesData.length ? (
         <div className={styles.spinnerContainer}>
           <Spinner animation="border" />
         </div>
       ) : (
-        <>
-          <NavbarTable navbarData={navbarData} setNavbarData={setNavbarData} urls={urls} getNavbarData={getNavbarData} refresData={getNavbarData} />
-        </>
+        <>{messagesData.length && <MessagesTable messagesData={messagesData} updateMessage={updateMessage} />}</>
       )}
     </div>
   );
 }
 
-export default NavbarDisplay;
+export default MessagesDisplay;
