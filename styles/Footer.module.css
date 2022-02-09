@@ -6,8 +6,11 @@
 }
 
 .footerBackground{
-  height: 30vh;
+  height: 23vh;
   border: 1px solid rgb(202, 202, 202);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .footerContainer {
   height: 100%;
