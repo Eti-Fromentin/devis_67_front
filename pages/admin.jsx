@@ -7,6 +7,7 @@ import LoginContext from '../contexts/loginContext';
 import AdminLogin from '../components/backoffice/AdminLogIn';
 import NavbarDisplay from '../components/backoffice/NavbarDisplay';
 import MessagesDisplay from '../components/backoffice/MessagesDisplay';
+import CategDisplay from '../components/backoffice/CategDisplay';
 
 import styles from '../styles/admin.module.css';
 
@@ -24,6 +25,7 @@ function BackOffice() {
     if (category === 'users') return <UserDisplay />;
     else if (category === 'messages') return <MessagesDisplay />;
     else if (category === 'navbar') return <NavbarDisplay />;
+    else if (category === 'categories_devis') return <CategDisplay />;
     else return 'hello ';
   };
 
