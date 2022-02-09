@@ -14,7 +14,7 @@ function UserTable({ usersData }) {
       },
       {
         Header: 'Nom',
-        accessor: (row) => row.firstname + row.lastname,
+        accessor: (row) => row.firstname + ' ' + row.lastname,
       },
       {
         Header: 'Email',

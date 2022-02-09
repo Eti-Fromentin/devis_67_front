@@ -5,6 +5,10 @@ import styles from '../../styles/OffCanvas.module.css';
 
 function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
   const handleClose = () => setShowSidebar(false);
+  const handleClick = (choice) => {
+    handleChoice(choice);
+    handleClose();
+  };
   return (
     <Offcanvas show={showSidebar} onHide={handleClose}>
       <Offcanvas.Header className={styles.offcanvas} closeButton>
@@ -16,7 +20,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('devis');
+              handleClick('devis');
             }}
           >
             Demandes de devis
@@ -24,7 +28,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('messages');
+              handleClick('messages');
             }}
           >
             Messages Reçus
@@ -32,7 +36,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('providers');
+              handleClick('providers');
             }}
           >
             Artisans
@@ -40,7 +44,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('users');
+              handleClick('users');
             }}
           >
             Utilisateurs
@@ -51,7 +55,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('navbar');
+              handleClick('navbar');
             }}
           >
             Barre de navigation supérieure
@@ -59,7 +63,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('footer');
+              handleClick('footer');
             }}
           >
             Barre de navigation inférieure
@@ -67,7 +71,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('pagescontent');
+              handleClick('pagescontent');
             }}
           >
             Contenu des Pages
@@ -75,7 +79,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('homedevis');
+              handleClick('homedevis');
             }}
           >
             Contenu de la page d&apos;accueil
@@ -83,7 +87,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('categories_devis');
+              handleClick('categories_devis');
             }}
           >
             Catégories d&apos;artisans et devis
@@ -91,7 +95,7 @@ function OffCanvas({ setShowSidebar, showSidebar, handleChoice }) {
           <ListGroup.Item
             action
             onClick={() => {
-              handleChoice('formdevis');
+              handleClick('formdevis');
             }}
           >
             Formulaire de demande de devis

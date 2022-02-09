@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
-import LoginContext from '../../contexts/loginContext';
-import styles from '../../styles/Tables.module.css';
+
 import NavbarTable from './NavbarTable';
+
+import LoginContext from '../../contexts/loginContext';
+
+import styles from '../../styles/Tables.module.css';
 
 function NavbarDisplay() {
   const [navbarData, setNavbarData] = useState([]);

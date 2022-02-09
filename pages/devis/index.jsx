@@ -123,14 +123,13 @@ const DevisHome = ({ headInfo, devisInfo }) => {
 export async function getStaticProps() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const devisInfo = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data);
+  const devisInfo = await axios.get(`${apiUrl}/homedevis/categories`).then((response) => response.data.filter((element) => element.visible === 1));
   const headInfo = await axios.get(`${apiUrl}/pagesdetails/devis`).then((response) => response.data);
 
   return {
     props: {
       devisInfo,
       headInfo,
-      apiUrl,
     },
   };
 }

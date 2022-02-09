@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-onchange */
 /* eslint-disable react/display-name */
 import React, { useMemo, useEffect, useState } from 'react';
 import Select from 'react-select';
@@ -35,7 +34,7 @@ function NavbarTable({ navbarData, setNavbarData, urls, refreshData }) {
     return emptyRow;
   };
 
-  const positionList = [
+  const visibleList = [
     { value: 1, label: '✅' },
     { value: 0, label: '❌' },
   ];
@@ -64,7 +63,7 @@ function NavbarTable({ navbarData, setNavbarData, urls, refreshData }) {
               onChange={(e) => {
                 updateMyData(row.index, 'visible', e.value);
               }}
-              options={positionList}
+              options={visibleList}
               defaultValue={{ label: row.original.visible === 1 ? '✅' : '❌', value: row.original.visible }}
             />
           );

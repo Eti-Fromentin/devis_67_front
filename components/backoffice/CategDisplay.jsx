@@ -2,46 +2,46 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 
-import UserTable from './UserTable';
+import CategTable from './CategTable';
 
 import LoginContext from '../../contexts/loginContext';
 
 import styles from '../../styles/Tables.module.css';
 
-function UserDisplay() {
-  const [usersData, setUsersData] = useState([]);
+function CategDisplay() {
+  const [categData, setCategData] = useState([]);
   const { userId, adminToken } = useContext(LoginContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  async function getUsersData() {
+  async function getCategData() {
     const data = await axios({
       method: 'get',
-      url: `${apiUrl}/user/admin/${userId}`,
+      url: `${apiUrl}/homedevis/categories/admin/${userId}`,
       headers: {
         Authorization: `Bearer ${adminToken}`,
         'Content-Type': 'application/json',
       },
     });
-    setUsersData(data.data);
+    setCategData(data.data);
   }
 
   useEffect(() => {
-    getUsersData();
+    getCategData();
   }, []);
 
   return (
-    <div className={styles.userDisplayContainer}>
-      {!usersData.length ? (
+    <div>
+      {!categData.length ? (
         <div className={styles.spinnerContainer}>
           <Spinner animation="border" />
         </div>
       ) : (
         <>
-          <UserTable usersData={usersData} />
+          <CategTable categData={categData} setCategData={setCategData} getCategData={getCategData} />
         </>
       )}
     </div>
   );
 }
 
-export default UserDisplay;
+export default CategDisplay;
