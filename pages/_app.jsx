@@ -1,5 +1,4 @@
 import React from 'react';
-
 import SSRProvider from 'react-bootstrap/SSRProvider';
 
 import { LoginContextProvider } from '../contexts/loginContext';

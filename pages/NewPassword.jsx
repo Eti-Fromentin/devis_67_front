@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Link from 'next/link';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';

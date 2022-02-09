@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import React, { useMemo } from 'react';
-
 import { useTable, useSortBy } from 'react-table';
 import { Table } from 'react-bootstrap';
 

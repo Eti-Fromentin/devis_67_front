@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-
 import { Button } from 'react-bootstrap';
 
 import OffCanvas from '../components/backoffice/OffCanvas';
