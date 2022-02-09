@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 
 import UserTable from './UserTable';
-
 import LoginContext from '../../contexts/loginContext';
 
 import styles from '../../styles/Tables.module.css';

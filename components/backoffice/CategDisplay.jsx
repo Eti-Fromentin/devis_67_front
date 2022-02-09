@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 
 import CategTable from './CategTable';
-
 import LoginContext from '../../contexts/loginContext';
 
 import styles from '../../styles/Tables.module.css';
