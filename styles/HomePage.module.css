@@ -9,19 +9,15 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    /* background-color: yellowgreen; */
 }
 .row {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
     margin: 0;
     padding: 0;
 }
-/* .colHomeCard {
-    background-color: yellow;
-} */
+
 .homecard1 {
     height: 90%;
     width: 90%;
@@ -33,7 +29,6 @@
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    /* background-color: yellow; */
 }
 .homecard1:hover {
     cursor: pointer;
@@ -43,16 +38,13 @@
 .homecard2 {
     height: 90%;
     width: 90%;
-    /* background-color: rgb(177, 177, 110); */
     margin: 7rem 8rem 7rem 4rem;
     padding: 2vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
     border-radius: 20px;
     display: flex;
     justify-content: space-around;
-    /* flex-direction: column; */
     align-items: center;
-    /* background-color: yellow; */
 }
 .homecard2:hover {
     cursor: pointer;
@@ -62,13 +54,11 @@
     font-weight: 700;
     font-size: clamp(10px, 10vw, 25px);
     font-family: 'Roboto', sans-serif;
-    /* background-color: brown; */
 }
 .cardtexthome {
     width: 100%;
     font-weight: 300;
     font-size:clamp(17px, 1vw, 30px);
-    /* background-color: purple; */
 }
 .homeImage {
     height: 80%;
@@ -76,7 +66,6 @@
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
-    /* background-color: aqua; */
 }
 .imageHome {
     border-radius: 20px;

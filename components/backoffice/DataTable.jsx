@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/no-onchange */
 /* eslint-disable react/display-name */
 import React, { useEffect, useState, useContext, useRef, forwardRef } from 'react';
+
 import { useTable, usePagination, useRowSelect } from 'react-table';
 import { Button, Table } from 'react-bootstrap';
 import axios from 'axios';
 
 import LoginContext from '../../contexts/loginContext';
-
 import styles from '../../styles/NavBarTable.module.css';
 
 const EditableCell = ({ value: initialValue, row: { index }, column: { id }, updateMyData }) => {

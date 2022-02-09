@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-// import emailjs from '@emailjs/browser';
+
 import axios from 'axios';
 import Head from 'next/head';
 import { Card, Dropdown, Spinner, Form, FormCheck, Button, DropdownButton, ButtonGroup, Modal, Alert } from 'react-bootstrap';
@@ -206,25 +206,6 @@ function DevisAllQuestions({ form, headInfo }) {
       setCompletedForm([...completedForm, { questions: question, answers: event }]);
     }
   };
-
-  // const [theForm, setTheForm] = useState(false);
-
-  // function handleClickForm() {
-  //   setTheForm(!theForm);
-  // }
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //   emailjs.sendForm('service_rsg4k9e', 'template_lvlt5fg', e.target, 'user_guJnEbcn9vb4gvxp42Rw9').then(
-  //     (result) => {
-  //       return result.text;
-  //     },
-  //     (error) => {
-  //       return error.text;
-  //     },
-  //   );
-  // };
-
-  // let formulaire = useRef();
 
   return (
     <div>

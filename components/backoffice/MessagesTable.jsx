@@ -1,8 +1,10 @@
 /* eslint-disable react/display-name */
 import React, { useMemo, Fragment, useCallback } from 'react';
+
 import { useExpanded, useTable, useSortBy } from 'react-table';
 import { Table } from 'react-bootstrap';
 import Select from 'react-select';
+
 import styles from '../../styles/MessagesTable.module.css';
 
 function MessagesTable({ messagesData, updateMessage }) {
