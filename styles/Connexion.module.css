@@ -6,12 +6,12 @@
 
 .card {
     background: linear-gradient(#f7f6f5, #ebf1f7);
-    margin: 5vh;
     padding: 2vh;
     box-shadow:rgba(0, 0, 0, 0.35) 0px 6px 10px;
     border-radius: 20px;
     text-align: center;
     margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .buttonConnect {
