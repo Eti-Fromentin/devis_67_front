@@ -16,14 +16,19 @@
 .ButtonLogOut {
     border: none;
     border-radius: 10px;
-    background-color: blueviolet;
+    background-color: #8a2be2;
     padding: 7px;
     color: ghostwhite;
 }
 .ButtonLogOut:hover {
     background-color: cornflowerblue;
 }
-
+.wrapperDataInfosUser {
+    margin: 6rem 0 6rem 0
+}
+.tabsContainerUserProfile {
+    justify-content: center;
+}
 .profileData {
     margin: 2vh;
 }
@@ -33,6 +38,8 @@
     justify-content: space-around;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
 }
 
 .profileMain li {
@@ -45,8 +52,13 @@
 .headerDevis {
     display: flex;
     justify-content: space-evenly;
+    background-color: #f3f3f3;
+    color: #333;
 }
-
+.tabContainerInfo {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
 .profileDevis {
     display: flex;
     justify-content: space-evenly;
@@ -59,22 +71,39 @@
 }
 
 .profileMessages {
+    height: 60vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     text-align: center;
-    flex-wrap: wrap;
-    background-color: ghostwhite;
-    margin: 2%;
+    flex-direction: column;
+    margin-top: 7rem;
+    margin-bottom: 9rem;
+    margin: 7rem 5rem 9rem 5rem;
 }
 
 .headerMessages {
-    display: flex;
-    justify-content: space-evenly;
+    margin: 2vh;
+}
+#date,
+#sujet {
+width: 15%;
+}
+#message {
+    width: 70%;
+}
+
+#dateData,
+#sujetData, 
+#messageData {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .tabs {
     display: flex;
     justify-content: center;
+    background-color: yellow;
 }
 
 .button {
