@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import emailjs from 'emailjs-com';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -82,23 +81,6 @@ function Inscription() {
     });
   };
 
-  const [theForm, setTheForm] = useState(false);
-
-  function handleClickForm() {
-    setTheForm(!theForm);
-  }
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm('service_rsg4k9e', 'template_lvlt5fg', e.target, 'user_guJnEbcn9vb4gvxp42Rw9').then(
-      (result) => {
-        return result.text;
-      },
-      (error) => {
-        return error.text;
-      },
-    );
-  };
-
   let formulaire = useRef();
 
   return (
@@ -111,7 +93,7 @@ function Inscription() {
               <hr />
               <p>*Donnée obligatoire</p>
               <Card.Body>
-                <Form onSubmit={(handleSubmit(formSubmit), (e) => sendEmail(e))} ref={formulaire}>
+                <Form onSubmit={handleSubmit(formSubmit)} ref={formulaire}>
                   <Form.Group className="mb-3" controlId="firstname">
                     <Form.Label>Prénom*</Form.Label>
                     <Form.Control {...register('firstname')} size="sm" type="text" placeholder="Entrez votre Prénom" />
@@ -164,7 +146,7 @@ function Inscription() {
                     </a>
                     <p>{errors.acceptTerms && errors.acceptTerms?.message}</p>
                   </Form.Group>
-                  <Button className={styles.buttonSubscribe} type="submit" onClick={handleClickForm}>
+                  <Button className={styles.buttonSubscribe} type="submit">
                     S&#039;inscrire
                   </Button>
                 </Form>
