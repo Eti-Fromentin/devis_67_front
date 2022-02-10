@@ -22,7 +22,11 @@ function Inscription() {
       .matches(/^[aA-zZ]+$/, 'lettres majuscule ou miniscule uniquement'),
     phone: Yup.string().max(15).nullable().notRequired(),
     address: Yup.string().max(100).nullable().notRequired(),
-    postalCode: Yup.number().positive().required('⚠ Un code postal est requis'),
+    postalCode: Yup.number()
+      .typeError('⚠ Le code postal doit être renseigné')
+      .min(10000, '⚠ Doit avoir 5 chiffres exactement')
+      .max(99999, '⚠ Doit avoir 5 chiffres exactement')
+      .required('Un code postal est nécessaire'),
     city: Yup.string().max(255).required('⚠ Une ville est requise'),
     email: Yup.string().required('⚠ Un Email est requis').max(60).email('⚠ Email invalide'),
     password: Yup.string().required('⚠ Mot de passe requis').min(8, '⚠ Minimum de 8 caractères').max(50, '⚠ Maximum de 50 caractères'),
