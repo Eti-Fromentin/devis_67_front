@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/no-onchange */
 /* eslint-disable react/display-name */
-import React, { useEffect, useState, useContext, useRef, forwardRef } from 'react';
-import { useTable, usePagination, useRowSelect } from 'react-table';
-import { Button, Table } from 'react-bootstrap';
+import React, { useEffect, useState, useContext } from 'react';
+import { useTable, usePagination } from 'react-table';
+import { Button, Card, Table } from 'react-bootstrap';
 import axios from 'axios';
 
 import LoginContext from '../../contexts/loginContext';
 
-import styles from '../../styles/NavBarTable.module.css';
+import styles from '../../styles/DataTable.module.css';
 
 const EditableCell = ({ value: initialValue, row: { index }, column: { id }, updateMyData }) => {
   const [value, setValue] = useState(initialValue);
@@ -31,21 +31,6 @@ const defaultColumn = {
   Cell: EditableCell,
 };
 
-const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
-  const defaultRef = useRef();
-  const resolvedRef = ref || defaultRef;
-
-  useEffect(() => {
-    resolvedRef.current.indeterminate = indeterminate;
-  }, [resolvedRef, indeterminate]);
-
-  return (
-    <>
-      <input type="checkbox" ref={resolvedRef} {...rest} />
-    </>
-  );
-});
-
 function DataTable({
   columns,
   data,
@@ -66,7 +51,6 @@ function DataTable({
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    selectedFlatRows,
     page,
     canPreviousPage,
     canNextPage,
@@ -87,25 +71,6 @@ function DataTable({
       updateMyData,
     },
     usePagination,
-    useRowSelect,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => [
-        {
-          id: 'selection',
-          Header: ({ getToggleAllRowsSelectedProps }) => (
-            <div>
-              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-            </div>
-          ),
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-            </div>
-          ),
-        },
-        ...columns,
-      ]);
-    },
   );
 
   const sendUpdatedData = async () => {
@@ -155,32 +120,8 @@ function DataTable({
       });
   };
 
-  const deleteRow = async () => {
-    const items = selectedFlatRows.map((elt) => elt.original);
-    const itemsToDelete = await items.map((elt) => ({ id: elt.id }));
-    await axios({
-      method: 'delete',
-      url: `${apiUrl}/${table}/admin/${userId}`,
-      headers: {
-        Authorization: `Bearer ${adminToken}`,
-        'Content-Type': 'application/json',
-      },
-      data: itemsToDelete,
-    })
-      .then((res) => {
-        if (res.status === 204) {
-          setTableData(tableData.filter((elt) => !itemsToDelete.some((element) => elt.id === element.id)));
-        }
-      })
-      .catch((err) => {
-        if (err.response) {
-          alert("Oups, une erreur s'est produite");
-        }
-      });
-  };
-
   return (
-    <>
+    <Card className={styles.cardTable}>
       <section className={styles.buttonsDevis}>
         <Button
           className={styles.buttonAjouterUneLigne}
@@ -202,35 +143,24 @@ function DataTable({
           {' '}
           Mettre à jour{' '}
         </Button>{' '}
-        <Button
-          className={styles.buttonEffacerLesDonnées}
-          variant="danger"
-          onClick={() => {
-            deleteRow();
-          }}
-        >
-          {' '}
-          Effacer les données{' '}
-        </Button>
       </section>
-
       <div className={styles.pagination}>
         <section className={styles.sectionButtonRightLeft}>
-          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className={styles.doubleLeft}>
+          <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage} className={styles.doubleLeft}>
             {'<<'}
-          </button>{' '}
-          <button onClick={() => previousPage()} disabled={!canPreviousPage} className={styles.simpleLeft}>
+          </Button>{' '}
+          <Button onClick={() => previousPage()} disabled={!canPreviousPage} className={styles.simpleLeft}>
             {'<'}
-          </button>{' '}
-          <button onClick={() => nextPage()} disabled={!canNextPage} className={styles.doubleRight}>
+          </Button>{' '}
+          <Button onClick={() => nextPage()} disabled={!canNextPage} className={styles.doubleRight}>
             {'>'}
-          </button>{' '}
-          <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage} className={styles.simpleRight}>
+          </Button>{' '}
+          <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage} className={styles.simpleRight}>
             {'>>'}
-          </button>{' '}
+          </Button>{' '}
         </section>
         <span className={styles.spanContainerPage1of1}>
-          Page{' '}
+          Page{'   '}
           <strong>
             {pageIndex + 1} of {pageOptions.length}
           </strong>{' '}
@@ -261,7 +191,7 @@ function DataTable({
           ))}
         </select>
       </div>
-      <Table {...getTableProps()}>
+      <Table striped bordered hover className={styles.dataTable} {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup, index) => (
             <tr key={index} {...headerGroup.getHeaderGroupProps()} className={styles.trDataTable}>
@@ -290,7 +220,7 @@ function DataTable({
           })}
         </tbody>
       </Table>
-    </>
+    </Card>
   );
 }
 

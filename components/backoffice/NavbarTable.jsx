@@ -1,13 +1,18 @@
 /* eslint-disable react/display-name */
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useMemo, useEffect, useState, useContext } from 'react';
 import Select from 'react-select';
+import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
 import DataTable from './DataTable';
+import LoginContext from '../../contexts/loginContext';
 
-import styles from '../../styles/NavBarTable.module.css';
+import styles from '../../styles/DataTable.module.css';
 
 function NavbarTable({ navbarData, setNavbarData, urls, refreshData }) {
   const [table] = useState('navbar');
+  const { userId, adminToken } = useContext(LoginContext);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const [emptyRowTable] = useState({
     text: 'à remplir',
@@ -102,12 +107,49 @@ function NavbarTable({ navbarData, setNavbarData, urls, refreshData }) {
       {
         Header: 'Position',
         accessor: 'position',
+
+        minWidth: 50,
+      },
+      {
+        Header: 'Effacer',
+        accessor: '🗑️',
+        Cell: ({ row }) => {
+          return (
+            <Button variant="light" onClick={() => deleteRow(row.original.id)}>
+              <span role="img" aria-label="delete">
+                🗑️
+              </span>
+            </Button>
+          );
+        },
       },
     ],
     [navbarData],
   );
 
   const [skipPageReset, setSkipPageReset] = useState(false);
+
+  const deleteRow = async (id) => {
+    await axios({
+      method: 'delete',
+      url: `${apiUrl}/${table}/admin/${userId}`,
+      headers: {
+        Authorization: `Bearer ${adminToken}`,
+        'Content-Type': 'application/json',
+      },
+      data: { id: id },
+    })
+      .then((res) => {
+        if (res.status === 204) {
+          setNavbarData(navbarData.filter((elt) => elt.id !== id));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          alert("Oups, une erreur s'est produite");
+        }
+      });
+  };
 
   const updateMyData = (rowIndex, columnId, value) => {
     setSkipPageReset(true);
