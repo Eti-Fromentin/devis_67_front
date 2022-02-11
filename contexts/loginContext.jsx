@@ -59,7 +59,8 @@ export function LoginContextProvider({ children }) {
       setUserToken(token);
       setUserId(id);
       setIsLogin(true);
-      getUserData();
+      console.log('logIn');
+      // getUserData();
     }
   }
 
@@ -83,6 +84,7 @@ export function LoginContextProvider({ children }) {
   }
 
   function logOut() {
+    console.log('logout');
     setUserToken(null);
     setUserId(null);
     setIsLogin(false);

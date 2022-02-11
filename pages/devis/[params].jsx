@@ -12,7 +12,7 @@ import LoginContext from '../../contexts/loginContext';
 import styles from '../../styles/DevisAllQuestions.module.css';
 
 function DevisAllQuestions({ form, headInfo }) {
-  const { isLogin, checkIsLogin, getUserData, userId, userToken } = useContext(LoginContext);
+  const { isLogin, checkIsLogin, userId, userToken } = useContext(LoginContext);
   const [completedForm, setCompletedForm] = useState([]);
   const head = headInfo && headInfo[0];
   const { handleSubmit } = useForm({});
@@ -20,13 +20,6 @@ function DevisAllQuestions({ form, headInfo }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-  useEffect(() => {
-    checkIsLogin();
-    if (isLogin) {
-      getUserData();
-    }
-  }, [isLogin, form]);
 
   const categoryId = () => {
     const category = form && form[form.length - 1].category_id;
@@ -82,6 +75,7 @@ function DevisAllQuestions({ form, headInfo }) {
   const checkChoice = (elt) => {
     const answer = elt.formulaire_join_answer;
     const question = elt.question;
+    console.log('log', elt);
     return (
       <section className={styles.containerCheckChoiceComponent}>
         <h2>{question}</h2>
@@ -108,7 +102,7 @@ function DevisAllQuestions({ form, headInfo }) {
     return (
       <section className={styles.containerListChoiceComponent}>
         <h2>{elt.question}</h2>
-        <Form className={styles.btnDropDownDevisAllQuestions}>
+        <Form.Group className={styles.btnDropDownDevisAllQuestions}>
           <DropdownButton
             className={styles.btnDropDownToggleDevisAllQuestions}
             onSelect={(event) => handleChange(event, elt.question)}
@@ -122,7 +116,7 @@ function DevisAllQuestions({ form, headInfo }) {
               </div>
             ))}
           </DropdownButton>
-        </Form>
+        </Form.Group>
       </section>
     );
   };
@@ -152,11 +146,15 @@ function DevisAllQuestions({ form, headInfo }) {
     return (
       <section className={styles.containerLongTextComponent}>
         <h2>{elt.question}</h2>
-        <Form.Group className={styles.containerFormLongTextComponent}>
+        <Form.Group>
           <Form.Text>
             <Form.Control
+              className="mb-3"
+              size="lg"
+              type="text"
+              as="textarea"
               onChange={(event) => handleChange(event.target.value, elt.question)}
-              type="textarea"
+              // type="textarea"
               placeholder={elt.question}
               id={elt.question}
             />
@@ -206,6 +204,16 @@ function DevisAllQuestions({ form, headInfo }) {
     }
   };
 
+  useEffect(() => {
+    checkIsLogin();
+    console.log(isLogin);
+    // if(isLogin) {
+    // }
+    // if (isLogin) {
+    //   getUserData();
+    // }
+  }, []);
+
   return (
     <div>
       <NavBar pageType="devis" />
@@ -237,7 +245,7 @@ function DevisAllQuestions({ form, headInfo }) {
                   Valider
                 </Button>
               ) : (
-                <Button variant="primary" type="submit" onClick={handleShow()}>
+                <Button variant="primary" type="submit" onClick={() => handleShow()}>
                   {' '}
                   Valider
                 </Button>
