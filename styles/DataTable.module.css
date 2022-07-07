@@ -1,0 +1,41 @@
+.buttonsDevis {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3vw;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.doubleLeft,
+.simpleLeft,
+.doubleRight,
+.simpleRight {
+  color: #333;
+  font-size: 20px;
+}
+
+.spanContainerPage1of1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spanContainerAllerALaPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardTable {
+  min-width: 70vw;
+  padding-bottom: 3vh;
+  margin-bottom: 10vh;
+}

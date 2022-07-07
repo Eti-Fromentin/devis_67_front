@@ -1,0 +1,24 @@
+.adminContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.h1admin {
+  font-size: 3vw;
+  margin: 50px;
+}
+.sidePanelBtn {
+  margin: 2vw;
+  width: 10vw;
+  height: 5vh;
+  margin-right: 80vw;
+}
+
+.adminCard {
+  width: 60vw;
+  min-height: 15vh;
+  padding: 5vh;
+}

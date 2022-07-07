@@ -1,0 +1,47 @@
+.containerTopDevis{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.wrapperTextTopDevis {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  height: 110vh;
+}
+.textTopDevis{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  width: 40%;
+  height: 80%;
+  padding: 1rem;
+}
+
+.titleTopDevis{
+  text-align: left;
+  margin:2rem;
+}
+.H2TopDevis,
+.H3TopDevis,
+.H4TopDevis {
+  padding: 1.5rem;
+  font-size: clamp(15px, 9vw, 27px);
+}
+
+@media screen and (max-width: 900px) {
+  .wrapperTextTopDevis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textTopDevis {
+    width: 80%;
+    height: 80%;
+  }
+}

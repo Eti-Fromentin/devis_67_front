@@ -1,0 +1,32 @@
+.containerConditions {
+  display: flex;
+  justify-content: center;
+}
+.textConditions {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  margin:2rem;
+  font-size: clamp(10px, 9vw, 20px);
+}
+
+#headingConditions {
+  text-align: center;
+  padding: 3rem;
+  font-size: clamp(10px, 9vw, 60px);
+}
+.titleConditions {
+  color: #800080;
+  text-align: left;
+  margin: 3rem;
+  font-size: clamp(10px, 9vw, 30px);
+}
+.linkConditions {
+  text-decoration: none;
+  font-size: clamp(10px, 9vw, 20px);
+  color: #333;
+  font-weight: 700;
+}
+.linkConditions:hover {
+  color: #800080;
+}

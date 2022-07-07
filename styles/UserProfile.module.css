@@ -1,0 +1,141 @@
+#welcomeUser {
+    font-size: 26px;
+    text-align: center;
+    margin: 2%;
+    color: black;
+}
+
+.ButtonMain {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 2vh;
+    font-size: 14px;
+}
+
+.ButtonLogOut {
+    border: none;
+    border-radius: 10px;
+    background-color: #8a2be2;
+    padding: 7px;
+    color: ghostwhite;
+}
+.ButtonLogOut:hover {
+    background-color: cornflowerblue;
+}
+.wrapperDataInfosUser {
+    margin: 6rem 0 6rem 0
+}
+.tabsContainerUserProfile {
+    justify-content: center;
+}
+.profileData {
+    margin: 2vh;
+}
+
+.profileMain {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.profileMain li {
+    text-align: center;
+    list-style-type: none;
+    margin: 2vw;
+    background-color: aliceblue;
+}
+
+.headerDevis {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f3f3f3;
+    color: #333;
+}
+.tabContainerInfo {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+.profileDevis {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: ghostwhite;
+}
+
+.profileDevis th{
+    width: 40vw;
+}
+
+.profileMessages {
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 7rem;
+    margin-bottom: 9rem;
+    margin: 7rem 5rem 9rem 5rem;
+}
+
+.headerMessages {
+    margin: 2vh;
+}
+#date,
+#sujet {
+width: 15%;
+}
+#message {
+    width: 70%;
+}
+
+#dateData,
+#sujetData, 
+#messageData {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+}
+
+.button {
+    border-style: ridge;
+    width: 100%;
+    height: 7vh;
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width: 700px) {
+    .profileMain {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .headerMessages {
+        flex-direction: column;
+    }
+
+    .profileDevis {
+        display: block;
+        text-align: center;
+        background-color: ghostwhite;
+    }
+
+    .ButtonMain {
+        font-size: 10px;
+    }
+
+    .headerDevis p {
+        margin: 1rem;
+    }
+    
+}

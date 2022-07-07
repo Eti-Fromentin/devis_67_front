@@ -1,0 +1,20 @@
+.connexion {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.card {
+  margin: 5vh;
+  padding: 2vh;
+  text-align: center;
+  width: 40vw;
+}
+
+.button {
+  margin: 2vh;
+}
+
+.error {
+  color: #bf1650;
+}

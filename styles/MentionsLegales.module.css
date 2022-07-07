@@ -1,0 +1,36 @@
+
+.h1MentionsLégales {
+  padding: 2rem;
+  font-size: clamp(15px, 9vw, 50px);
+}
+.h2MentionsLégales {
+  padding: 2rem;
+}
+
+.wrapperMentionsLegales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerMentionsLegales{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 5rem;
+}
+
+.textMentionsLegales{
+  display: flex;
+  flex-direction: column;
+  margin-left:2rem;
+  max-width: 70vw;
+  font-size: clamp(8px, 9vw, 15px);
+  line-height: 1.5rem; 
+}
+.titleMentionsLegales{
+  text-align: left;
+  padding:1rem;
+  font-size:clamp(10px, 9vw, 30px);
+}

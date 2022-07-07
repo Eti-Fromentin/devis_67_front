@@ -1,0 +1,114 @@
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerBackground{
+  height: 23vh;
+  border: 1px solid rgb(202, 202, 202);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerContainer {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "1" "2";
+}
+
+.logoContainer {
+  grid-area: "1";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navBarBrandFooter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h3footer {
+  left: 0;
+  width: 110%;
+  font-size: 1.5vw;
+}
+.navContainerUlFooter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: "2";
+}
+.itemsNavBar1{
+  margin-top: 3%;
+  width: 30%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemsNavBar2{
+  width: 30%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.meAuto{
+  height: 50%;
+  font-size: 1vw;
+}
+.linksHoverFooter {
+  font-weight: 650;
+}
+.footerContainer{
+  height: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  flex-direction: row;
+}
+.footerMenu{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.footerLigne{
+  height:2px;
+}
+.footerLink{
+  font-size:clamp(8px, 10vw, 18px);
+  line-height: 0.5rem;
+}
+.footerH3{
+  font-size:14px;
+}
+
+@media screen and (max-width: 530px) {
+  .footerLink {
+    font-size: 15px;
+    line-height: .8rem;
+  }
+  .footerBackground{
+    height: 40vh;
+    border: 1px solid rgb(202, 202, 202);
+  }
+  .footerContainer {
+    height: 100%;
+    width: 100%;
+  }
+}
